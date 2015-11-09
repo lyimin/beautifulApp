@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F171CCB61BEBB15300F61307 /* AppDelegate.swift */; };
-		F171CCB91BEBB15300F61307 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F171CCB81BEBB15300F61307 /* ViewController.swift */; };
-		F171CCBC1BEBB15300F61307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F171CCBA1BEBB15300F61307 /* Main.storyboard */; };
 		F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F171CCBD1BEBB15300F61307 /* Assets.xcassets */; };
-		F171CCC11BEBB15300F61307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F171CCBF1BEBB15300F61307 /* LaunchScreen.storyboard */; };
+		F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */; };
+		F1A6F2EE1BEF98B100786700 /* XMHomeCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */; };
+		F1A6F2F01BEF98D000786700 /* XMHomeCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */; };
+		F1A6F3001BEFA2DE00786700 /* UIBarButtonItem+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */; };
+		F1A6F3011BEFA2DE00786700 /* UIView+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */; };
+		F1A6F3021BEFA2DE00786700 /* XMImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FE1BEFA2DE00786700 /* XMImageView.swift */; };
+		F1A6F3031BEFA2DE00786700 /* XMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FF1BEFA2DE00786700 /* XMView.swift */; };
+		F1A6F3051BEFA86C00786700 /* UILabel+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F3041BEFA86C00786700 /* UILabel+XM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F171CCB31BEBB15300F61307 /* BeautifulApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautifulApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F171CCB61BEBB15300F61307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F171CCB81BEBB15300F61307 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F171CCBB1BEBB15300F61307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F171CCBD1BEBB15300F61307 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F171CCC01BEBB15300F61307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F171CCC21BEBB15300F61307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeViewController.swift; sourceTree = "<group>"; };
+		F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeCenterView.swift; sourceTree = "<group>"; };
+		F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeCenterView.xib; sourceTree = "<group>"; };
+		F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+XM.swift"; sourceTree = "<group>"; };
+		F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XM.swift"; sourceTree = "<group>"; };
+		F1A6F2FE1BEFA2DE00786700 /* XMImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMImageView.swift; sourceTree = "<group>"; };
+		F1A6F2FF1BEFA2DE00786700 /* XMView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMView.swift; sourceTree = "<group>"; };
+		F1A6F3041BEFA86C00786700 /* UILabel+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+XM.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,75 @@
 		F171CCB51BEBB15300F61307 /* BeautifulApp */ = {
 			isa = PBXGroup;
 			children = (
+				F1A6F2E61BEF934200786700 /* Class */,
 				F171CCB61BEBB15300F61307 /* AppDelegate.swift */,
-				F171CCB81BEBB15300F61307 /* ViewController.swift */,
-				F171CCBA1BEBB15300F61307 /* Main.storyboard */,
 				F171CCBD1BEBB15300F61307 /* Assets.xcassets */,
-				F171CCBF1BEBB15300F61307 /* LaunchScreen.storyboard */,
 				F171CCC21BEBB15300F61307 /* Info.plist */,
 			);
 			path = BeautifulApp;
+			sourceTree = "<group>";
+		};
+		F1A6F2E61BEF934200786700 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6F2F11BEFA2A900786700 /* Other */,
+				F1A6F2E71BEF934200786700 /* Home */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		F1A6F2E71BEF934200786700 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6F2E81BEF935E00786700 /* Controller */,
+				F1A6F2E91BEF935E00786700 /* Model */,
+				F1A6F2EA1BEF935E00786700 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F1A6F2E81BEF935E00786700 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F1A6F2E91BEF935E00786700 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1A6F2EA1BEF935E00786700 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */,
+				F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1A6F2F11BEFA2A900786700 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6F2FB1BEFA2DE00786700 /* extension */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F1A6F2FB1BEFA2DE00786700 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */,
+				F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */,
+				F1A6F2FE1BEFA2DE00786700 /* XMImageView.swift */,
+				F1A6F2FF1BEFA2DE00786700 /* XMView.swift */,
+				F1A6F3041BEFA86C00786700 /* UILabel+XM.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +193,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F171CCC11BEBB15300F61307 /* LaunchScreen.storyboard in Resources */,
+				F1A6F2F01BEF98D000786700 /* XMHomeCenterView.xib in Resources */,
 				F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */,
-				F171CCBC1BEBB15300F61307 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,31 +205,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F171CCB91BEBB15300F61307 /* ViewController.swift in Sources */,
+				F1A6F3031BEFA2DE00786700 /* XMView.swift in Sources */,
+				F1A6F3051BEFA86C00786700 /* UILabel+XM.swift in Sources */,
+				F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */,
+				F1A6F3021BEFA2DE00786700 /* XMImageView.swift in Sources */,
+				F1A6F3001BEFA2DE00786700 /* UIBarButtonItem+XM.swift in Sources */,
+				F1A6F2EE1BEF98B100786700 /* XMHomeCenterView.swift in Sources */,
 				F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */,
+				F1A6F3011BEFA2DE00786700 /* UIView+XM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F171CCBA1BEBB15300F61307 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F171CCBB1BEBB15300F61307 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F171CCBF1BEBB15300F61307 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F171CCC01BEBB15300F61307 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F171CCC31BEBB15300F61307 /* Debug */ = {
@@ -249,6 +306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BeautifulApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoming.com.BeautifulApp;
@@ -260,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BeautifulApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoming.com.BeautifulApp;
@@ -286,6 +345,7 @@
 				F171CCC71BEBB15300F61307 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
