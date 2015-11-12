@@ -1,51 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XMHomeCenterView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XMHomeCenterView" customModule="BeautifulApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="420"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winter is coming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptt-cf-pud">
-                    <rect key="frame" x="20" y="30" width="280" height="20"/>
+                    <rect key="frame" x="15" y="10" width="280" height="20"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="论如何愉快的过冬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fki-LK-KBh">
-                    <rect key="frame" x="20" y="55" width="280" height="20"/>
+                    <rect key="frame" x="15" y="35" width="280" height="20"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="demop1" translatesAutoresizingMaskIntoConstraints="NO" id="v2B-QQ-S2M">
-                    <rect key="frame" x="0.0" y="90" width="320" height="180"/>
+                    <rect key="frame" x="0.0" y="70" width="310" height="180"/>
                     <animations/>
                 </imageView>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0F-I8-jHT" customClass="XMView" customModule="BeautifulApp" customModuleProvider="target">
-                    <rect key="frame" x="20" y="415" width="80" height="20"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0F-I8-jHT" customClass="XMView" customModule="BeautifulApp" customModuleProvider="target">
+                    <rect key="frame" x="15" y="385" width="60" height="20"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detail_flower" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-j2-PYZ">
-                            <rect key="frame" x="20" y="2" width="15" height="15"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_flower_home_like" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-j2-PYZ">
+                            <rect key="frame" x="10" y="2" width="15" height="15"/>
                             <animations/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeV-w7-C6f">
-                            <rect key="frame" x="35" y="0.0" width="30" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeV-w7-C6f">
+                            <rect key="frame" x="25" y="0.0" width="27" height="20"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="10"/>
@@ -53,27 +52,35 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="小美" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeC-CQ-kA5">
-                    <rect key="frame" x="258" y="414" width="42" height="21"/>
+                    <rect key="frame" x="258" y="385" width="42" height="20"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMQ-lU-7Sh">
-                    <rect key="frame" x="20" y="290" width="280" height="116"/>
+                <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMQ-lU-7Sh">
+                    <rect key="frame" x="15" y="265" width="280" height="100"/>
                     <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="authorLabel" destination="GeC-CQ-kA5" id="EaA-Gr-KaE"/>
+                <outlet property="centerImgView" destination="v2B-QQ-S2M" id="4pv-ho-N3b"/>
+                <outlet property="detailLabel" destination="QMQ-lU-7Sh" id="zkg-BC-D56"/>
+                <outlet property="fovCountLabel" destination="KeV-w7-C6f" id="Tar-Ce-zjz"/>
+                <outlet property="subTitleLabel" destination="fki-LK-KBh" id="8Bg-Y4-sBj"/>
+                <outlet property="titleLabel" destination="ptt-cf-pud" id="jSP-4W-n0Z"/>
+            </connections>
         </view>
     </objects>
     <resources>
         <image name="demop1" width="640" height="360"/>
-        <image name="detail_flower" width="24" height="24"/>
+        <image name="icon_flower_home_like" width="24" height="24"/>
     </resources>
 </document>

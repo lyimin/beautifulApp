@@ -7,8 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE2F73CF179982622B65BD91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690B0909983859654CA3B2A9 /* libPods.a */; };
+		F12158471BF1C434005E5956 /* UIColor+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12158461BF1C434005E5956 /* UIColor+XM.swift */; };
+		F12158491BF1C55D005E5956 /* String+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12158481BF1C55D005E5956 /* String+XM.swift */; };
+		F12158751BF32072005E5956 /* NSDate+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12158741BF32072005E5956 /* NSDate+XM.swift */; };
+		F121587E1BF39C16005E5956 /* XMHomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F121587D1BF39C16005E5956 /* XMHomeBottomView.swift */; };
+		F12158801BF39CA2005E5956 /* XMHomeBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F121587F1BF39CA2005E5956 /* XMHomeBottomView.xib */; };
 		F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F171CCB61BEBB15300F61307 /* AppDelegate.swift */; };
 		F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F171CCBD1BEBB15300F61307 /* Assets.xcassets */; };
+		F17CFC301BF0D54D000D2A87 /* XMNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC2F1BF0D54D000D2A87 /* XMNetworkTool.swift */; };
+		F17CFC341BF0D7A6000D2A87 /* XMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC331BF0D7A6000D2A87 /* XMBaseViewController.swift */; };
+		F17CFC361BF0D7F0000D2A87 /* UIViewController+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC351BF0D7F0000D2A87 /* UIViewController+XM.swift */; };
+		F17CFC391BF0DD29000D2A87 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC381BF0DD29000D2A87 /* APIConfig.swift */; };
+		F19EF0401BF0874800916297 /* XMHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF03F1BF0874800916297 /* XMHomeHeaderView.swift */; };
+		F19EF0421BF0875C00916297 /* XMHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19EF0411BF0875C00916297 /* XMHomeHeaderView.xib */; };
+		F19EF0441BF08C0000916297 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0431BF08C0000916297 /* AppConfig.swift */; };
+		F19EF0461BF0926F00916297 /* XMHomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0451BF0926F00916297 /* XMHomeDataModel.swift */; };
+		F19EF0481BF0959C00916297 /* XMUpUserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0471BF0959C00916297 /* XMUpUserDataModel.swift */; };
+		F19EF04A1BF097B900916297 /* XMInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0491BF097B900916297 /* XMInfoDataModel.swift */; };
+		F19EF0681BF0A75700916297 /* XMCommentsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0671BF0A75700916297 /* XMCommentsDataModel.swift */; };
 		F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */; };
 		F1A6F2EE1BEF98B100786700 /* XMHomeCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */; };
 		F1A6F2F01BEF98D000786700 /* XMHomeCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */; };
@@ -20,10 +37,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		690B0909983859654CA3B2A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D90D19CB9B1DAC200609A8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9EF9E78C067AFDD1AB3F8B29 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F12158461BF1C434005E5956 /* UIColor+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+XM.swift"; sourceTree = "<group>"; };
+		F12158481BF1C55D005E5956 /* String+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+XM.swift"; sourceTree = "<group>"; };
+		F12158741BF32072005E5956 /* NSDate+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+XM.swift"; sourceTree = "<group>"; };
+		F121587D1BF39C16005E5956 /* XMHomeBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeBottomView.swift; sourceTree = "<group>"; };
+		F121587F1BF39CA2005E5956 /* XMHomeBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeBottomView.xib; sourceTree = "<group>"; };
 		F171CCB31BEBB15300F61307 /* BeautifulApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautifulApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F171CCB61BEBB15300F61307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F171CCBD1BEBB15300F61307 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F171CCC21BEBB15300F61307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17CFC2F1BF0D54D000D2A87 /* XMNetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMNetworkTool.swift; sourceTree = "<group>"; };
+		F17CFC331BF0D7A6000D2A87 /* XMBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMBaseViewController.swift; sourceTree = "<group>"; };
+		F17CFC351BF0D7F0000D2A87 /* UIViewController+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+XM.swift"; sourceTree = "<group>"; };
+		F17CFC371BF0DB67000D2A87 /* beautifulApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "beautifulApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		F17CFC381BF0DD29000D2A87 /* APIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		F19EF03F1BF0874800916297 /* XMHomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeHeaderView.swift; sourceTree = "<group>"; };
+		F19EF0411BF0875C00916297 /* XMHomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeHeaderView.xib; sourceTree = "<group>"; };
+		F19EF0431BF08C0000916297 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		F19EF0451BF0926F00916297 /* XMHomeDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDataModel.swift; sourceTree = "<group>"; };
+		F19EF0471BF0959C00916297 /* XMUpUserDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMUpUserDataModel.swift; sourceTree = "<group>"; };
+		F19EF0491BF097B900916297 /* XMInfoDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMInfoDataModel.swift; sourceTree = "<group>"; };
+		F19EF0671BF0A75700916297 /* XMCommentsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMCommentsDataModel.swift; sourceTree = "<group>"; };
 		F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeViewController.swift; sourceTree = "<group>"; };
 		F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeCenterView.swift; sourceTree = "<group>"; };
 		F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeCenterView.xib; sourceTree = "<group>"; };
@@ -39,17 +76,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2F73CF179982622B65BD91 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B8B744CE71F24C87CDD6070 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				690B0909983859654CA3B2A9 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7FBEDEE3E0026FEBAB9A9DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EF9E78C067AFDD1AB3F8B29 /* Pods.debug.xcconfig */,
+				6D90D19CB9B1DAC200609A8C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F171CCAA1BEBB15300F61307 = {
 			isa = PBXGroup;
 			children = (
 				F171CCB51BEBB15300F61307 /* BeautifulApp */,
 				F171CCB41BEBB15300F61307 /* Products */,
+				C7FBEDEE3E0026FEBAB9A9DC /* Pods */,
+				0B8B744CE71F24C87CDD6070 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,13 +125,39 @@
 				F171CCB61BEBB15300F61307 /* AppDelegate.swift */,
 				F171CCBD1BEBB15300F61307 /* Assets.xcassets */,
 				F171CCC21BEBB15300F61307 /* Info.plist */,
+				F17CFC371BF0DB67000D2A87 /* beautifulApp-Bridging-Header.h */,
 			);
 			path = BeautifulApp;
+			sourceTree = "<group>";
+		};
+		F17CFC2E1BF0D538000D2A87 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F17CFC2F1BF0D54D000D2A87 /* XMNetworkTool.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F17CFC311BF0D781000D2A87 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F17CFC321BF0D793000D2A87 /* Controller */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F17CFC321BF0D793000D2A87 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F17CFC331BF0D7A6000D2A87 /* XMBaseViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F1A6F2E61BEF934200786700 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F17CFC311BF0D781000D2A87 /* Base */,
 				F1A6F2F11BEFA2A900786700 /* Other */,
 				F1A6F2E71BEF934200786700 /* Home */,
 			);
@@ -102,6 +185,10 @@
 		F1A6F2E91BEF935E00786700 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F19EF0451BF0926F00916297 /* XMHomeDataModel.swift */,
+				F19EF0471BF0959C00916297 /* XMUpUserDataModel.swift */,
+				F19EF0491BF097B900916297 /* XMInfoDataModel.swift */,
+				F19EF0671BF0A75700916297 /* XMCommentsDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,8 +196,12 @@
 		F1A6F2EA1BEF935E00786700 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F19EF0411BF0875C00916297 /* XMHomeHeaderView.xib */,
+				F19EF03F1BF0874800916297 /* XMHomeHeaderView.swift */,
 				F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */,
 				F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */,
+				F121587F1BF39CA2005E5956 /* XMHomeBottomView.xib */,
+				F121587D1BF39C16005E5956 /* XMHomeBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,7 +209,10 @@
 		F1A6F2F11BEFA2A900786700 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F17CFC2E1BF0D538000D2A87 /* Utils */,
 				F1A6F2FB1BEFA2DE00786700 /* extension */,
+				F19EF0431BF08C0000916297 /* AppConfig.swift */,
+				F17CFC381BF0DD29000D2A87 /* APIConfig.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -126,11 +220,15 @@
 		F1A6F2FB1BEFA2DE00786700 /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */,
-				F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */,
 				F1A6F2FE1BEFA2DE00786700 /* XMImageView.swift */,
 				F1A6F2FF1BEFA2DE00786700 /* XMView.swift */,
+				F17CFC351BF0D7F0000D2A87 /* UIViewController+XM.swift */,
+				F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */,
+				F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */,
 				F1A6F3041BEFA86C00786700 /* UILabel+XM.swift */,
+				F12158461BF1C434005E5956 /* UIColor+XM.swift */,
+				F12158481BF1C55D005E5956 /* String+XM.swift */,
+				F12158741BF32072005E5956 /* NSDate+XM.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -142,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F171CCC51BEBB15300F61307 /* Build configuration list for PBXNativeTarget "BeautifulApp" */;
 			buildPhases = (
+				D1517A5415CA629EC5C083F0 /* Check Pods Manifest.lock */,
 				F171CCAF1BEBB15300F61307 /* Sources */,
 				F171CCB01BEBB15300F61307 /* Frameworks */,
 				F171CCB11BEBB15300F61307 /* Resources */,
+				5B030202276F72F6664DE21E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,10 +295,45 @@
 			files = (
 				F1A6F2F01BEF98D000786700 /* XMHomeCenterView.xib in Resources */,
 				F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */,
+				F19EF0421BF0875C00916297 /* XMHomeHeaderView.xib in Resources */,
+				F12158801BF39CA2005E5956 /* XMHomeBottomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B030202276F72F6664DE21E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1517A5415CA629EC5C083F0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F171CCAF1BEBB15300F61307 /* Sources */ = {
@@ -206,13 +341,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A6F3031BEFA2DE00786700 /* XMView.swift in Sources */,
+				F19EF0441BF08C0000916297 /* AppConfig.swift in Sources */,
+				F17CFC301BF0D54D000D2A87 /* XMNetworkTool.swift in Sources */,
+				F17CFC361BF0D7F0000D2A87 /* UIViewController+XM.swift in Sources */,
+				F19EF0481BF0959C00916297 /* XMUpUserDataModel.swift in Sources */,
+				F121587E1BF39C16005E5956 /* XMHomeBottomView.swift in Sources */,
+				F12158471BF1C434005E5956 /* UIColor+XM.swift in Sources */,
+				F17CFC341BF0D7A6000D2A87 /* XMBaseViewController.swift in Sources */,
 				F1A6F3051BEFA86C00786700 /* UILabel+XM.swift in Sources */,
 				F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */,
 				F1A6F3021BEFA2DE00786700 /* XMImageView.swift in Sources */,
+				F12158751BF32072005E5956 /* NSDate+XM.swift in Sources */,
+				F19EF0681BF0A75700916297 /* XMCommentsDataModel.swift in Sources */,
+				F19EF04A1BF097B900916297 /* XMInfoDataModel.swift in Sources */,
 				F1A6F3001BEFA2DE00786700 /* UIBarButtonItem+XM.swift in Sources */,
 				F1A6F2EE1BEF98B100786700 /* XMHomeCenterView.swift in Sources */,
 				F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */,
+				F17CFC391BF0DD29000D2A87 /* APIConfig.swift in Sources */,
 				F1A6F3011BEFA2DE00786700 /* UIView+XM.swift in Sources */,
+				F12158491BF1C55D005E5956 /* String+XM.swift in Sources */,
+				F19EF0401BF0874800916297 /* XMHomeHeaderView.swift in Sources */,
+				F19EF0461BF0926F00916297 /* XMHomeDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,25 +453,31 @@
 		};
 		F171CCC61BEBB15300F61307 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EF9E78C067AFDD1AB3F8B29 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BeautifulApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoming.com.BeautifulApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		F171CCC71BEBB15300F61307 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D90D19CB9B1DAC200609A8C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BeautifulApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xiaoming.com.BeautifulApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
 			};
 			name = Release;
 		};

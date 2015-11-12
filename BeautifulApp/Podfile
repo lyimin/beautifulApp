@@ -1,0 +1,2 @@
+pod 'AFNetworking'
+pod 'SDWebImage'
