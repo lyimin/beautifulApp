@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		AE2F73CF179982622B65BD91 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690B0909983859654CA3B2A9 /* libPods.a */; };
+		F118A0361BFC782A002A0C2A /* UIScrollView+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F118A0301BFC782A002A0C2A /* UIScrollView+XM.swift */; };
+		F118A0371BFC782A002A0C2A /* XMRefreshBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F118A0311BFC782A002A0C2A /* XMRefreshBase.swift */; };
+		F118A0381BFC782A002A0C2A /* XMRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = F118A0321BFC782A002A0C2A /* XMRefreshConst.swift */; };
+		F118A0391BFC782A002A0C2A /* XMRefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F118A0331BFC782A002A0C2A /* XMRefreshFooterView.swift */; };
+		F118A03A1BFC782A002A0C2A /* XMRefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F118A0341BFC782A002A0C2A /* XMRefreshHeaderView.swift */; };
 		F12158471BF1C434005E5956 /* UIColor+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12158461BF1C434005E5956 /* UIColor+XM.swift */; };
 		F12158491BF1C55D005E5956 /* String+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12158481BF1C55D005E5956 /* String+XM.swift */; };
 		F12158751BF32072005E5956 /* NSDate+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12158741BF32072005E5956 /* NSDate+XM.swift */; };
-		F121587E1BF39C16005E5956 /* XMHomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F121587D1BF39C16005E5956 /* XMHomeBottomView.swift */; };
-		F12158801BF39CA2005E5956 /* XMHomeBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F121587F1BF39CA2005E5956 /* XMHomeBottomView.xib */; };
+		F121587E1BF39C16005E5956 /* XMHomeBottomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F121587D1BF39C16005E5956 /* XMHomeBottomItemView.swift */; };
+		F12158801BF39CA2005E5956 /* XMHomeBottomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */; };
 		F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F171CCB61BEBB15300F61307 /* AppDelegate.swift */; };
 		F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F171CCBD1BEBB15300F61307 /* Assets.xcassets */; };
 		F17CFC301BF0D54D000D2A87 /* XMNetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC2F1BF0D54D000D2A87 /* XMNetworkTool.swift */; };
@@ -27,24 +32,36 @@
 		F19EF04A1BF097B900916297 /* XMInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0491BF097B900916297 /* XMInfoDataModel.swift */; };
 		F19EF0681BF0A75700916297 /* XMCommentsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19EF0671BF0A75700916297 /* XMCommentsDataModel.swift */; };
 		F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */; };
-		F1A6F2EE1BEF98B100786700 /* XMHomeCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */; };
-		F1A6F2F01BEF98D000786700 /* XMHomeCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */; };
+		F1A6F2EE1BEF98B100786700 /* XMHomeCenterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2ED1BEF98B100786700 /* XMHomeCenterItemView.swift */; };
+		F1A6F2F01BEF98D000786700 /* XMHomeCenterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A6F2EF1BEF98D000786700 /* XMHomeCenterItemView.xib */; };
 		F1A6F3001BEFA2DE00786700 /* UIBarButtonItem+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */; };
 		F1A6F3011BEFA2DE00786700 /* UIView+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */; };
 		F1A6F3021BEFA2DE00786700 /* XMImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FE1BEFA2DE00786700 /* XMImageView.swift */; };
 		F1A6F3031BEFA2DE00786700 /* XMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F2FF1BEFA2DE00786700 /* XMView.swift */; };
 		F1A6F3051BEFA86C00786700 /* UILabel+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A6F3041BEFA86C00786700 /* UILabel+XM.swift */; };
+		F1B82DA61BF9CCBC001CA4A6 /* XMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B82DA51BF9CCBC001CA4A6 /* XMMenuViewController.swift */; };
+		F1B82E601BFB05E3001CA4A6 /* XMHomeCenterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B82E5F1BFB05E3001CA4A6 /* XMHomeCenterFlowLayout.swift */; };
+		F1B82E631BFB2265001CA4A6 /* XMHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B82E621BFB2265001CA4A6 /* XMHomeViewModel.swift */; };
+		F1B82E651BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B82E641BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift */; };
+		F1F2224E1BFDD43800E926AF /* XMClassifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */; };
+		F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */; };
+		F1F222511BFDD43800E926AF /* XMClassifyCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		690B0909983859654CA3B2A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D90D19CB9B1DAC200609A8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9EF9E78C067AFDD1AB3F8B29 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F118A0301BFC782A002A0C2A /* UIScrollView+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XM.swift"; sourceTree = "<group>"; };
+		F118A0311BFC782A002A0C2A /* XMRefreshBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMRefreshBase.swift; sourceTree = "<group>"; };
+		F118A0321BFC782A002A0C2A /* XMRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMRefreshConst.swift; sourceTree = "<group>"; };
+		F118A0331BFC782A002A0C2A /* XMRefreshFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMRefreshFooterView.swift; sourceTree = "<group>"; };
+		F118A0341BFC782A002A0C2A /* XMRefreshHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMRefreshHeaderView.swift; sourceTree = "<group>"; };
 		F12158461BF1C434005E5956 /* UIColor+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+XM.swift"; sourceTree = "<group>"; };
 		F12158481BF1C55D005E5956 /* String+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+XM.swift"; sourceTree = "<group>"; };
 		F12158741BF32072005E5956 /* NSDate+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+XM.swift"; sourceTree = "<group>"; };
-		F121587D1BF39C16005E5956 /* XMHomeBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeBottomView.swift; sourceTree = "<group>"; };
-		F121587F1BF39CA2005E5956 /* XMHomeBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeBottomView.xib; sourceTree = "<group>"; };
+		F121587D1BF39C16005E5956 /* XMHomeBottomItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeBottomItemView.swift; sourceTree = "<group>"; };
+		F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeBottomItemView.xib; sourceTree = "<group>"; };
 		F171CCB31BEBB15300F61307 /* BeautifulApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautifulApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F171CCB61BEBB15300F61307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F171CCBD1BEBB15300F61307 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,13 +79,20 @@
 		F19EF0491BF097B900916297 /* XMInfoDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMInfoDataModel.swift; sourceTree = "<group>"; };
 		F19EF0671BF0A75700916297 /* XMCommentsDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMCommentsDataModel.swift; sourceTree = "<group>"; };
 		F1A6F2EB1BEF937100786700 /* XMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeViewController.swift; sourceTree = "<group>"; };
-		F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeCenterView.swift; sourceTree = "<group>"; };
-		F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeCenterView.xib; sourceTree = "<group>"; };
+		F1A6F2ED1BEF98B100786700 /* XMHomeCenterItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeCenterItemView.swift; sourceTree = "<group>"; };
+		F1A6F2EF1BEF98D000786700 /* XMHomeCenterItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeCenterItemView.xib; sourceTree = "<group>"; };
 		F1A6F2FC1BEFA2DE00786700 /* UIBarButtonItem+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+XM.swift"; sourceTree = "<group>"; };
 		F1A6F2FD1BEFA2DE00786700 /* UIView+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XM.swift"; sourceTree = "<group>"; };
 		F1A6F2FE1BEFA2DE00786700 /* XMImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMImageView.swift; sourceTree = "<group>"; };
 		F1A6F2FF1BEFA2DE00786700 /* XMView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMView.swift; sourceTree = "<group>"; };
 		F1A6F3041BEFA86C00786700 /* UILabel+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+XM.swift"; sourceTree = "<group>"; };
+		F1B82DA51BF9CCBC001CA4A6 /* XMMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMMenuViewController.swift; sourceTree = "<group>"; };
+		F1B82E5F1BFB05E3001CA4A6 /* XMHomeCenterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeCenterFlowLayout.swift; sourceTree = "<group>"; };
+		F1B82E621BFB2265001CA4A6 /* XMHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeViewModel.swift; sourceTree = "<group>"; };
+		F1B82E641BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeBottomFlowLayout.swift; sourceTree = "<group>"; };
+		F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMClassifyViewController.swift; sourceTree = "<group>"; };
+		F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMClassifyCenterView.swift; sourceTree = "<group>"; };
+		F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMClassifyCenterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +122,26 @@
 				6D90D19CB9B1DAC200609A8C /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F118A01F1BFC6FA7002A0C2A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				F118A0201BFC7483002A0C2A /* XMRefresh */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		F118A0201BFC7483002A0C2A /* XMRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F118A0301BFC782A002A0C2A /* UIScrollView+XM.swift */,
+				F118A0311BFC782A002A0C2A /* XMRefreshBase.swift */,
+				F118A0321BFC782A002A0C2A /* XMRefreshConst.swift */,
+				F118A0331BFC782A002A0C2A /* XMRefreshFooterView.swift */,
+				F118A0341BFC782A002A0C2A /* XMRefreshHeaderView.swift */,
+			);
+			path = XMRefresh;
 			sourceTree = "<group>";
 		};
 		F171CCAA1BEBB15300F61307 = {
@@ -149,6 +193,7 @@
 		F17CFC321BF0D793000D2A87 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F1B82DA51BF9CCBC001CA4A6 /* XMMenuViewController.swift */,
 				F17CFC331BF0D7A6000D2A87 /* XMBaseViewController.swift */,
 			);
 			path = Controller;
@@ -157,6 +202,7 @@
 		F1A6F2E61BEF934200786700 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F1F222451BFDD43800E926AF /* Classify */,
 				F17CFC311BF0D781000D2A87 /* Base */,
 				F1A6F2F11BEFA2A900786700 /* Other */,
 				F1A6F2E71BEF934200786700 /* Home */,
@@ -167,6 +213,7 @@
 		F1A6F2E71BEF934200786700 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F1B82E611BFB2209001CA4A6 /* ViewModel */,
 				F1A6F2E81BEF935E00786700 /* Controller */,
 				F1A6F2E91BEF935E00786700 /* Model */,
 				F1A6F2EA1BEF935E00786700 /* View */,
@@ -198,10 +245,12 @@
 			children = (
 				F19EF0411BF0875C00916297 /* XMHomeHeaderView.xib */,
 				F19EF03F1BF0874800916297 /* XMHomeHeaderView.swift */,
-				F1A6F2EF1BEF98D000786700 /* XMHomeCenterView.xib */,
-				F1A6F2ED1BEF98B100786700 /* XMHomeCenterView.swift */,
-				F121587F1BF39CA2005E5956 /* XMHomeBottomView.xib */,
-				F121587D1BF39C16005E5956 /* XMHomeBottomView.swift */,
+				F1A6F2EF1BEF98D000786700 /* XMHomeCenterItemView.xib */,
+				F1A6F2ED1BEF98B100786700 /* XMHomeCenterItemView.swift */,
+				F1B82E5F1BFB05E3001CA4A6 /* XMHomeCenterFlowLayout.swift */,
+				F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */,
+				F121587D1BF39C16005E5956 /* XMHomeBottomItemView.swift */,
+				F1B82E641BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +258,7 @@
 		F1A6F2F11BEFA2A900786700 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F118A01F1BFC6FA7002A0C2A /* Lib */,
 				F17CFC2E1BF0D538000D2A87 /* Utils */,
 				F1A6F2FB1BEFA2DE00786700 /* extension */,
 				F19EF0431BF08C0000916297 /* AppConfig.swift */,
@@ -231,6 +281,48 @@
 				F12158741BF32072005E5956 /* NSDate+XM.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		F1B82E611BFB2209001CA4A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F1B82E621BFB2265001CA4A6 /* XMHomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F1F222451BFDD43800E926AF /* Classify */ = {
+			isa = PBXGroup;
+			children = (
+				F1F222461BFDD43800E926AF /* Controller */,
+				F1F222481BFDD43800E926AF /* Model */,
+				F1F222491BFDD43800E926AF /* View */,
+			);
+			path = Classify;
+			sourceTree = "<group>";
+		};
+		F1F222461BFDD43800E926AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F1F222481BFDD43800E926AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1F222491BFDD43800E926AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */,
+				F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,10 +385,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1A6F2F01BEF98D000786700 /* XMHomeCenterView.xib in Resources */,
+				F1A6F2F01BEF98D000786700 /* XMHomeCenterItemView.xib in Resources */,
 				F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */,
+				F1F222511BFDD43800E926AF /* XMClassifyCenterView.xib in Resources */,
 				F19EF0421BF0875C00916297 /* XMHomeHeaderView.xib in Resources */,
-				F12158801BF39CA2005E5956 /* XMHomeBottomView.xib in Resources */,
+				F12158801BF39CA2005E5956 /* XMHomeBottomItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,27 +434,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1A6F3031BEFA2DE00786700 /* XMView.swift in Sources */,
+				F118A0361BFC782A002A0C2A /* UIScrollView+XM.swift in Sources */,
+				F118A03A1BFC782A002A0C2A /* XMRefreshHeaderView.swift in Sources */,
 				F19EF0441BF08C0000916297 /* AppConfig.swift in Sources */,
 				F17CFC301BF0D54D000D2A87 /* XMNetworkTool.swift in Sources */,
 				F17CFC361BF0D7F0000D2A87 /* UIViewController+XM.swift in Sources */,
 				F19EF0481BF0959C00916297 /* XMUpUserDataModel.swift in Sources */,
-				F121587E1BF39C16005E5956 /* XMHomeBottomView.swift in Sources */,
+				F121587E1BF39C16005E5956 /* XMHomeBottomItemView.swift in Sources */,
 				F12158471BF1C434005E5956 /* UIColor+XM.swift in Sources */,
+				F118A0381BFC782A002A0C2A /* XMRefreshConst.swift in Sources */,
 				F17CFC341BF0D7A6000D2A87 /* XMBaseViewController.swift in Sources */,
 				F1A6F3051BEFA86C00786700 /* UILabel+XM.swift in Sources */,
+				F118A0371BFC782A002A0C2A /* XMRefreshBase.swift in Sources */,
 				F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */,
 				F1A6F3021BEFA2DE00786700 /* XMImageView.swift in Sources */,
 				F12158751BF32072005E5956 /* NSDate+XM.swift in Sources */,
 				F19EF0681BF0A75700916297 /* XMCommentsDataModel.swift in Sources */,
 				F19EF04A1BF097B900916297 /* XMInfoDataModel.swift in Sources */,
+				F118A0391BFC782A002A0C2A /* XMRefreshFooterView.swift in Sources */,
+				F1B82E631BFB2265001CA4A6 /* XMHomeViewModel.swift in Sources */,
+				F1B82E651BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift in Sources */,
+				F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */,
 				F1A6F3001BEFA2DE00786700 /* UIBarButtonItem+XM.swift in Sources */,
-				F1A6F2EE1BEF98B100786700 /* XMHomeCenterView.swift in Sources */,
+				F1A6F2EE1BEF98B100786700 /* XMHomeCenterItemView.swift in Sources */,
 				F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */,
 				F17CFC391BF0DD29000D2A87 /* APIConfig.swift in Sources */,
 				F1A6F3011BEFA2DE00786700 /* UIView+XM.swift in Sources */,
 				F12158491BF1C55D005E5956 /* String+XM.swift in Sources */,
+				F1F2224E1BFDD43800E926AF /* XMClassifyViewController.swift in Sources */,
 				F19EF0401BF0874800916297 /* XMHomeHeaderView.swift in Sources */,
 				F19EF0461BF0926F00916297 /* XMHomeDataModel.swift in Sources */,
+				F1B82DA61BF9CCBC001CA4A6 /* XMMenuViewController.swift in Sources */,
+				F1B82E601BFB05E3001CA4A6 /* XMHomeCenterFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

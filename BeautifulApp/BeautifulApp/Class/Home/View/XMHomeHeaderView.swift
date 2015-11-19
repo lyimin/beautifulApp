@@ -51,11 +51,12 @@ class XMHomeHeaderView: UIView {
     
     // 点击菜单
     @IBAction func menuImgDidClick(sender: UIButton) {
+        self.delegate?.homeHeaderViewMenuDidClick(self, menuBtn: sender)
     }
     // 点击返回第一
     @IBAction func moveToFirstImgDidClick(sender: UIButton) {
         self.delegate?.homeHeaderViewMoveToFirstDidClick(self, moveToFirstBtn: sender)
-        self.showMoveToFirstAnimation()
+        self.hiddenMoveToFirstAnimation()
     }
     
     //MARK: --- PRIVATE 

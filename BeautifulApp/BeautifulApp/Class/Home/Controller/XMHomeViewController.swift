@@ -8,9 +8,15 @@
 
 import UIKit
 
-class XMHomeViewController: UIViewController, UIScrollViewDelegate, XMHomeHeaderViewDelegate {
+class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate {
     // 数据源
-    private var dataSourse : NSArray?
+//    private var dataSourse : NSArray?
+    // 页数
+    private var page : Int = 1
+    // viewModel对象
+    private var viewModel : XMHomeViewModel!
+    // 上一个index
+    private var lastIndex : NSIndexPath?
     // 当前index
     private var index : Int! {
         willSet {
@@ -18,123 +24,209 @@ class XMHomeViewController: UIViewController, UIScrollViewDelegate, XMHomeHeader
         }
         
         didSet {
+            guard self.viewModel.dataSource.count > 0 else {
+                return
+            }
             // 获取模型
-            let model : XMHomeDataModel = self.dataSourse![index] as! XMHomeDataModel
+            let model : XMHomeDataModel = self.viewModel.dataSource[index]
             // 设置header模型
             self.headerView.homeModel = model
             // 设置背景的动画
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: model.recommanded_background_color!)
             })
-            
-            // 设置底部动画
-            
         }
     }
+    //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 初始化界面
         self.view.backgroundColor = UI_COLOR_APPNORMAL
+        
         self.view.addSubview(headerView)
-        self.view.addSubview(centerScroll)
-        self.view.addSubview(bottomScroll)
         headerView.delegate = self
-        centerScroll.delegate = self
-        bottomScroll.delegate = self
+        
+        self.view.addSubview(centerCollectView)
+        centerCollectView.delegate = self
+        centerCollectView.dataSource = self
+        
+        self.view.addSubview(bottomCollectView)
+        bottomCollectView.delegate = self
+        bottomCollectView.dataSource = self
+        
+        
+        // 获取viewModel
+        viewModel = XMHomeViewModel(regiHeaderView: headerView, centerView: centerCollectView, bottomView: bottomCollectView)
         // 获取数据
-        getData()
+        self.centerCollectView.headerViewPullToRefresh ({ [unowned self]() -> Void in
+            self.page = 1
+            self.viewModel.getData(self.page, callBack: { (dataSoure) -> Void in
+                // 默认选中0
+                self.lastIndex = nil
+                self.index = 0
+                self.scrollViewDidEndDecelerating(self.centerCollectView)
+            })
+        })
+        
+        self.centerCollectView.footerViewPullToRefresh ({ [unowned self]() -> Void in
+            self.page += 1
+            self.viewModel.getData(self.page, callBack: { (dataSoure) -> Void in
+                // 默认选中0
+                self.lastIndex = nil
+                self.index = dataSoure.count-10
+                self.scrollViewDidEndDecelerating(self.centerCollectView)
+            })
+        })
+        
+        self.centerCollectView.headerViewBeginRefreshing()
     }
-    
-    // dataSource 
-    private func getData() {
-        let params = ["page" : "1"]
-        self.showProgress()
-        XMNetworkTool.get(APIConfig.API_Today, params: params, success: { [unowned self](json) -> Void in
-            if json["data"] is NSDictionary {
-                let dataDic : NSDictionary = (json["data"] as? NSDictionary)!
-                if dataDic["apps"] is NSArray {
-                    let array : NSArray = (dataDic["apps"] as? NSArray)!
-                    
-                    let dataArray = NSMutableArray()
-                    // 字典转模型
-                    for dict in array {
-                        let homeModel : XMHomeDataModel = XMHomeDataModel(dict: dict as! NSDictionary)
-                        dataArray.addObject(homeModel)
-                    }
-                    
-                    self.dataSourse = dataArray
-                }
-                self.reloadData()
-            }
-            
-            self.hiddenProgress()
-            }) { (error) -> Void in
-                self.hiddenProgress()
-        }
-    }
-    
-    //MARK: - scrollerDelegate
+        //MARK: - scrollerDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.tag == 100 {
             let index : Int = Int((scrollView.contentOffset.x + 0.5*scrollView.width) / scrollView.width)
-            self.index = index
+            if index > self.viewModel.dataSource.count - 1 {
+                self.index = self.viewModel.dataSource.count - 1
+            } else {
+                self.index = index
+            }
+        } else {
+            
         }
     }
 
-    //MARK: -custom Delegate 
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView.tag == 100 {
+            // 设置底部动画
+            self.bottomAnimation(NSIndexPath(forRow: index, inSection: 0))
+            // 发送通知改变侧滑菜单的颜色
+            let model : XMHomeDataModel = self.viewModel.dataSource[index]
+            let noti : NSNotification = NSNotification(name: NOTIFY_SETUPBG, object: model.recommanded_background_color!)
+            NSNotificationCenter.defaultCenter().postNotification(noti)
+        }
+    }
+    
+    // MARK: - UICollection Delegate 
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewModel.dataSource.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let model : XMHomeDataModel = self.viewModel.dataSource[indexPath.row]
+        if collectionView.tag == 100 {
+        
+            let cell : XMHomeCenterItemView = collectionView.dequeueReusableCellWithReuseIdentifier("XMHomeCenterItemViewID", forIndexPath: indexPath) as! XMHomeCenterItemView
+            cell.homeModel = model
+            return cell
+        } else {
+            let cell : XMHomeBottomItemView = collectionView.dequeueReusableCellWithReuseIdentifier("XMHomeBottomItemViewID", forIndexPath: indexPath) as! XMHomeBottomItemView
+            cell.y = 50
+            cell.iconUrl = model.icon_image
+    
+            return cell
+        }
+    }
+    
+    //MARK: -custom Delegate
     func homeHeaderViewMoveToFirstDidClick(headerView: XMHomeHeaderView, moveToFirstBtn: UIButton) {
-        self.centerScroll.setContentOffset(CGPoint.zero, animated: true)
+        centerCollectView.setContentOffset(CGPointZero, animated: false)
+        bottomCollectView.setContentOffset(CGPointZero, animated: false)
+        self.index = 0
+        self.scrollViewDidEndDecelerating(self.centerCollectView)
     }
     func homeHeaderViewMenuDidClick(header: XMHomeHeaderView, menuBtn: UIButton) {
-        
+        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_SHOWMENU, object: nil)
     }
     
     //MARK: - private methods
-    private func reloadData () {
-        // 设置背景色
-        let model : XMHomeDataModel = self.dataSourse?.firstObject as! XMHomeDataModel
-        self.headerView.homeModel = model
-        self.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: model.recommanded_background_color!)
-        // 添加view
-        for i in 0..<(self.dataSourse?.count)! {
-            let model : XMHomeDataModel = self.dataSourse![i] as! XMHomeDataModel
-            // 添加中间view
-            let centerView : XMHomeCenterView = XMHomeCenterView.centerView()
-            centerView.frame = CGRectMake(5+CGFloat(i)*SCREEN_WIDTH, 0, 310, centerScroll.height)
-            centerView.homeModel = model
-            self.centerScroll.addSubview(centerView)
-            
-            // 添加dibuview
-            let bottomView : XMHomeBottomView = XMHomeBottomView.bottomView()
-            bottomView.iconUrl = model.icon_image
-            bottomView.frame = CGRectMake(2+CGFloat(i)*40, bottomScroll.height-5, 38, 60)
-            self.bottomScroll.addSubview(bottomView)
+    // 底部标签动画
+    private func bottomAnimation (indexPath : NSIndexPath) {
+        if self.lastIndex?.row == indexPath.row {
+            return
+        }
+
+        var cell : UICollectionViewCell? = self.bottomCollectView.cellForItemAtIndexPath(indexPath)
+        
+        if cell == nil {
+            self.bottomCollectView.layoutIfNeeded()
+            cell = self.bottomCollectView.cellForItemAtIndexPath(indexPath)
         }
         
-        
-        self.centerScroll.contentSize = CGSizeMake(CGFloat((self.dataSourse?.count)!)*SCREEN_WIDTH, 0)
+        if cell != nil {
+            
+            if cell!.x < SCREEN_WIDTH*0.6 {
+                self.bottomCollectView.setContentOffset(CGPointZero, animated: true)
+            } else {
+                var newX : CGFloat = 0
+                // 判断下一个还是上一个
+                if self.lastIndex?.row < indexPath.row {
+                    // 下一个
+                    newX = self.bottomCollectView.contentOffset.x + (cell?.width)! + 2
+                } else  {
+                    // 上一个
+                    newX = self.bottomCollectView.contentOffset.x - (cell?.width)! - 2
+                }
+                
+                self.bottomCollectView.setContentOffset(CGPointMake(newX, 0), animated: true)
+            }
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                cell!.y = 10
+                }) { (finished) -> Void in
+                    UIView.animateWithDuration(0.05, animations: { () -> Void in
+                        cell!.y = 15
+                    })
+            }
+            
+            if let _ = self.lastIndex {
+                let lastBottomView : UICollectionViewCell? = self.bottomCollectView.cellForItemAtIndexPath(self.lastIndex!)
+                if lastBottomView != nil {
+                    UIView.animateWithDuration(0.2, animations: { () -> Void in
+                        lastBottomView!.y = 60
+                        }) { (finished) -> Void in
+                            UIView.animateWithDuration(0.05, animations: { () -> Void in
+                                lastBottomView!.y = 50
+                            })
+                    }
+                }
+                
+            }
+            
+            self.lastIndex = indexPath
+        }
     }
     
-    //MARK: - getter or setter 
+    //MARK: - getter or setter
+    // 头部headerview
     private var headerView : XMHomeHeaderView = {
         let headerView : XMHomeHeaderView = XMHomeHeaderView.headerView()
         headerView.frame = CGRectMake(0, 20, SCREEN_WIDTH, headerView.height)
         return headerView
     }()
     
-    private var centerScroll : UIScrollView = {
-        let centerScroll = UIScrollView(frame: CGRectMake(0, 70, SCREEN_WIDTH, 420))
-        centerScroll.tag = 100;
-        centerScroll.showsHorizontalScrollIndicator = false
-        centerScroll.pagingEnabled = true
-        return centerScroll
+    // 中间collectionview
+    private var centerCollectView : UICollectionView = {
+        let collectLayout : XMHomeCenterFlowLayout = XMHomeCenterFlowLayout()
+        let collectView : UICollectionView = UICollectionView(frame: CGRectMake(0, 70, SCREEN_WIDTH, 420), collectionViewLayout: collectLayout)
+        collectView.showsHorizontalScrollIndicator = false
+        collectView.pagingEnabled = true
+        
+        collectView.registerNib(UINib(nibName: "XMHomeCenterItemView", bundle: nil), forCellWithReuseIdentifier: "XMHomeCenterItemViewID")
+        collectView.backgroundColor = UIColor.clearColor()
+        collectView.tag = 100
+        return collectView
     }()
     
-    private var bottomScroll : UIScrollView = {
-        let bottomScroll = UIScrollView(frame: CGRectMake(0, 490, SCREEN_WIDTH, SCREEN_HEIGHT-490))
-        bottomScroll.scrollEnabled = false
-        bottomScroll.tag = 101
-        bottomScroll.showsHorizontalScrollIndicator = false
-        return bottomScroll
+    // 底部collectionView
+    private var bottomCollectView : UICollectionView = {
+        let collectionLayout : XMHomeBottomFlowLayout = XMHomeBottomFlowLayout()
+        let collectView : UICollectionView = UICollectionView(frame: CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60), collectionViewLayout: collectionLayout)
+        collectView.registerNib(UINib(nibName: "XMHomeBottomItemView", bundle: nil), forCellWithReuseIdentifier: "XMHomeBottomItemViewID")
+        collectView.scrollEnabled = false
+        collectView.backgroundColor = UIColor.clearColor()
+        collectView.showsHorizontalScrollIndicator = false
+        collectView.tag = 101
+        return collectView
     }()
+    
 
 }

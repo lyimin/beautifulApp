@@ -11,11 +11,20 @@ import UIKit
 let SCREEN_WIDTH : CGFloat = UIScreen.mainScreen().bounds.width
 let SCREEN_HEIGHT : CGFloat = UIScreen.mainScreen().bounds.height
 /// 网络超时时间
-let NETWORK_TIMEOUT: NSTimeInterval = 5
+let NETWORK_TIMEOUT: NSTimeInterval = 10
+
+// MARK: - 颜色
 // 默认背景色
 let UI_COLOR_APPNORMAL : UIColor = UIColor(red: 55/255.0, green: 140/255.0, blue: 200/155.0, alpha: 1)
-// MARK : - 字体
+
+// MARK: - 字体
 let UI_FONT_18 = UIFont.systemFontOfSize(18)
 let UI_FONT_16 = UIFont.systemFontOfSize(16)
 let UI_FONT_14 = UIFont.systemFontOfSize(14)
 let UI_FONT_12 = UIFont.systemFontOfSize(12)
+
+
+// MARK: - 通知
+let NOTIFY_SHOWMENU : String = "NOTIFY_SHOWMENU"
+let NOTIFY_HIDDEMENU : String = "NOTIFY_HIDDEMENU"
+let NOTIFY_SETUPBG : String = "NOTIFY_SETUPBG"
