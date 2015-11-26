@@ -93,7 +93,9 @@ class XMRefreshFooterView: XMRefreshBase {
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
+        guard !self.hidden else {
+            return
+        }
         // 这里分两种情况 1.contentSize 2.contentOffset
         
         if XMRefreshContentSize == keyPath {

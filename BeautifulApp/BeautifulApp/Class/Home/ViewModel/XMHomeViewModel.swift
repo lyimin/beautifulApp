@@ -8,7 +8,10 @@
 
 import UIKit
 
+
 class XMHomeViewModel: NSObject {
+    
+    var type : String = "homeViewTodayType"
     private var headerView : XMHomeHeaderView!
     private var centerView : UICollectionView!
     private var bottonView : UICollectionView!
@@ -17,6 +20,15 @@ class XMHomeViewModel: NSObject {
     typealias XMHomeViewModelCallBack = (dataSoure : Array<XMHomeDataModel>) -> Void
     var callBack : XMHomeViewModelCallBack?
     
+    override init() {
+        super.init()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sendNotify_success:", name: NOTIFY_SETUPHOMEVIEWTYPE, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NOTIFY_SETUPHOMEVIEWTYPE, object: nil)
+    }
     convenience init(regiHeaderView : XMHomeHeaderView, centerView : UICollectionView, bottomView : UICollectionView) {
         self.init()
         
@@ -25,11 +37,29 @@ class XMHomeViewModel: NSObject {
         self.bottonView = bottomView
     }
     
-    
     func getData(page : Int, callBack : XMHomeViewModelCallBack?) {
-        let params = ["page" : page]
+        var params : NSDictionary? = ["page" : page]
         self.callBack = callBack
-        XMNetworkTool.get(APIConfig.API_Today, params: params, success: { [unowned self](json) -> Void in
+        var httpString : String = ""
+        switch type {
+            case NOTIFY_OBJ_TODAY:
+                httpString = APIConfig.API_Today
+                self.centerView.setHeaderHidden(false)
+                self.centerView.setFooterHidden(false)
+            case NOTIFY_OBJ_RECOMMEND:
+                httpString = APIConfig.API_Recommend
+                self.centerView.setHeaderHidden(false)
+                self.centerView.setFooterHidden(false)
+            case NOTIFY_OBJ_ARTICLE :
+                httpString = APIConfig.API_Article
+                params = nil
+                self.centerView.setHeaderHidden(true)
+                self.centerView.setFooterHidden(true)
+        default :
+                httpString = APIConfig.API_Today
+        }
+        
+        XMNetworkTool.get(httpString, params: params, success: { [unowned self](json) -> Void in
             if json["data"] is NSDictionary {
                 let dataDic : NSDictionary = (json["data"] as? NSDictionary)!
                 if dataDic["apps"] is NSArray {
@@ -52,11 +82,6 @@ class XMHomeViewModel: NSObject {
                     if self.callBack != nil {
                         self.callBack!(dataSoure: self.dataSource)
                     }
-                    // 默认选中0
-//                    self.lastIndex = nil
-//                    self.index = 0
-//                    self.scrollViewDidEndDecelerating(self.centerCollectView)
-                
                     // 停止刷新
                     self.centerView.headerViewStopPullToRefresh()
                     self.centerView.footerEndRefreshing()
@@ -67,6 +92,12 @@ class XMHomeViewModel: NSObject {
                 self.centerView.headerViewStopPullToRefresh()
                 self.centerView.footerEndRefreshing()
         }
-
     }
+    // 接受到切换界面的通知
+    func sendNotify_success (notify : NSNotification) {
+        // 拿到type
+        self.type = notify.object as! String
+        self.centerView.headerViewBeginRefreshing()
+    }
+   
 }

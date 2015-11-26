@@ -28,3 +28,8 @@ let UI_FONT_12 = UIFont.systemFontOfSize(12)
 let NOTIFY_SHOWMENU : String = "NOTIFY_SHOWMENU"
 let NOTIFY_HIDDEMENU : String = "NOTIFY_HIDDEMENU"
 let NOTIFY_SETUPBG : String = "NOTIFY_SETUPBG"
+// 设置homeview类型
+let NOTIFY_SETUPHOMEVIEWTYPE : String = "NOTIFY_SETUPHOMEVIEWTYPE"
+let NOTIFY_OBJ_TODAY : String = "homeViewTodayType"
+let NOTIFY_OBJ_RECOMMEND : String = "homeViewRecommendType"
+let NOTIFY_OBJ_ARTICLE : String = "homeViewArticleViewType"

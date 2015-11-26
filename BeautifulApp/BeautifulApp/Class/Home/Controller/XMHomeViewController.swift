@@ -8,9 +8,7 @@
 
 import UIKit
 
-class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate {
-    // 数据源
-//    private var dataSourse : NSArray?
+class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollectionViewDataSource,XMHomeBottomCollectViewDelegate,UICollectionViewDelegate {
     // 页数
     private var page : Int = 1
     // viewModel对象
@@ -32,7 +30,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             // 设置header模型
             self.headerView.homeModel = model
             // 设置背景的动画
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: model.recommanded_background_color!)
             })
         }
@@ -51,9 +49,9 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         centerCollectView.dataSource = self
         
         self.view.addSubview(bottomCollectView)
+        bottomCollectView.bottomViewDelegate = self
         bottomCollectView.delegate = self
         bottomCollectView.dataSource = self
-        
         
         // 获取viewModel
         viewModel = XMHomeViewModel(regiHeaderView: headerView, centerView: centerCollectView, bottomView: bottomCollectView)
@@ -127,6 +125,11 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         }
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let model : XMHomeDataModel = self.viewModel.dataSource[indexPath.row]
+        self.navigationController?.pushViewController(XMHomeDetailController(model: model), animated: true)
+    }
+    
     //MARK: -custom Delegate
     func homeHeaderViewMoveToFirstDidClick(headerView: XMHomeHeaderView, moveToFirstBtn: UIButton) {
         centerCollectView.setContentOffset(CGPointZero, animated: false)
@@ -137,6 +140,26 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     func homeHeaderViewMenuDidClick(header: XMHomeHeaderView, menuBtn: UIButton) {
         NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_SHOWMENU, object: nil)
     }
+  
+    
+    func homeBottomCollectView(bottomView: UICollectionView, touchIndexDidChangeWithIndexPath indexPath: NSIndexPath?, cellArrayCount: Int) {
+        centerCollectView.scrollToItemAtIndexPath(indexPath!, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: false)
+        self.index = indexPath?.row
+        // 执行底部横向动画
+        let cell : UICollectionViewCell? = self.bottomCollectView.cellForItemAtIndexPath(indexPath!)
+        // 如果当前不够8个item就不让他滚动
+        if cellArrayCount >= 8 {
+            self.bottomHorizontalAnimation(cell!, indexPath: indexPath!)
+        }
+        // 发送通知改变侧滑菜单的颜色
+        let model : XMHomeDataModel = self.viewModel.dataSource[index]
+        let noti : NSNotification = NSNotification(name: NOTIFY_SETUPBG, object: model.recommanded_background_color!)
+        NSNotificationCenter.defaultCenter().postNotification(noti)
+        self.lastIndex = indexPath
+    }
+    
+    // MARK: - Event OR Action
+    
     
     //MARK: - private methods
     // 底部标签动画
@@ -153,45 +176,53 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         }
         
         if cell != nil {
-            
-            if cell!.x < SCREEN_WIDTH*0.6 {
-                self.bottomCollectView.setContentOffset(CGPointZero, animated: true)
-            } else {
-                var newX : CGFloat = 0
-                // 判断下一个还是上一个
-                if self.lastIndex?.row < indexPath.row {
-                    // 下一个
-                    newX = self.bottomCollectView.contentOffset.x + (cell?.width)! + 2
-                } else  {
-                    // 上一个
-                    newX = self.bottomCollectView.contentOffset.x - (cell?.width)! - 2
-                }
-                
-                self.bottomCollectView.setContentOffset(CGPointMake(newX, 0), animated: true)
-            }
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                cell!.y = 10
-                }) { (finished) -> Void in
-                    UIView.animateWithDuration(0.05, animations: { () -> Void in
-                        cell!.y = 15
-                    })
-            }
-            
-            if let _ = self.lastIndex {
-                let lastBottomView : UICollectionViewCell? = self.bottomCollectView.cellForItemAtIndexPath(self.lastIndex!)
-                if lastBottomView != nil {
-                    UIView.animateWithDuration(0.2, animations: { () -> Void in
-                        lastBottomView!.y = 60
-                        }) { (finished) -> Void in
-                            UIView.animateWithDuration(0.05, animations: { () -> Void in
-                                lastBottomView!.y = 50
-                            })
-                    }
-                }
-                
-            }
+            // 底部横向动画
+            self.bottomHorizontalAnimation(cell!, indexPath: indexPath)
+            // 底部纵向动画
+            self.bottomVertical(cell!)
             
             self.lastIndex = indexPath
+        }
+    }
+    // 横向动画
+    private func bottomHorizontalAnimation(cell : UICollectionViewCell, indexPath:NSIndexPath) {
+        if cell.x < SCREEN_WIDTH*0.6 {
+            self.bottomCollectView.setContentOffset(CGPointZero, animated: true)
+        } else {
+            var newX : CGFloat = 0
+            // 判断下一个还是上一个
+            if self.lastIndex?.row < indexPath.row {
+                // 下一个
+                newX = self.bottomCollectView.contentOffset.x + cell.width + 2
+            } else  {
+                // 上一个
+                newX = self.bottomCollectView.contentOffset.x - cell.width - 2
+            }
+            
+            self.bottomCollectView.setContentOffset(CGPointMake(newX, 0), animated: true)
+        }
+    }
+    // 纵向动画
+    private func bottomVertical(cell : UICollectionViewCell) {
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            cell.y = 10
+            }) { (finished) -> Void in
+                UIView.animateWithDuration(0.05, animations: { () -> Void in
+                    cell.y = 15
+                })
+        }
+        
+        if let _ = self.lastIndex {
+            let lastBottomView : UICollectionViewCell? = self.bottomCollectView.cellForItemAtIndexPath(self.lastIndex!)
+            if lastBottomView != nil {
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    lastBottomView!.y = 60
+                    }) { (finished) -> Void in
+                        UIView.animateWithDuration(0.05, animations: { () -> Void in
+                            lastBottomView!.y = 50
+                        })
+                }
+            }
         }
     }
     
@@ -217,14 +248,9 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     }()
     
     // 底部collectionView
-    private var bottomCollectView : UICollectionView = {
+    private var bottomCollectView : XMHomeBottomCollectView = {
         let collectionLayout : XMHomeBottomFlowLayout = XMHomeBottomFlowLayout()
-        let collectView : UICollectionView = UICollectionView(frame: CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60), collectionViewLayout: collectionLayout)
-        collectView.registerNib(UINib(nibName: "XMHomeBottomItemView", bundle: nil), forCellWithReuseIdentifier: "XMHomeBottomItemViewID")
-        collectView.scrollEnabled = false
-        collectView.backgroundColor = UIColor.clearColor()
-        collectView.showsHorizontalScrollIndicator = false
-        collectView.tag = 101
+        let collectView : XMHomeBottomCollectView = XMHomeBottomCollectView(frame: CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60), collectionViewLayout: collectionLayout)
         return collectView
     }()
     

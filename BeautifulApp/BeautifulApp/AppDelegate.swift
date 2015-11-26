@@ -15,11 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        application.statusBarStyle = UIStatusBarStyle.LightContent
+//        application.statusBarStyle = UIStatusBarStyle.LightContent
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = XMMenuViewController(centerController: XMHomeViewController(), leftController: XMClassifyViewController())
-        
+        // 在homecontroller里套一层navcontroller
+        window?.rootViewController = XMMenuViewController(centerController: XMBaseNavController(rootViewController:XMHomeViewController()), leftController: XMClassifyViewController())
+//        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle., animated: <#T##Bool#>)
         return true
     }
 

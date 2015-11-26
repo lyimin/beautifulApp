@@ -46,6 +46,39 @@ extension UIScrollView {
     }
     
     /**
+     移除下拉刷新
+     */
+    func removeHeaderView() {
+        for view : AnyObject in self.subviews{
+            if view is XMRefreshHeaderView{
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
+    func setHeaderHidden(hidden:Bool)
+    {
+        for object : AnyObject in self.subviews{
+            if object is XMRefreshHeaderView{
+                let view:UIView  = object as! UIView
+                view.hidden = hidden
+            }
+        }
+        
+    }
+    
+    func isHeaderHidden()
+    {
+        for object : AnyObject in self.subviews{
+            if object is XMRefreshHeaderView{
+                var view:UIView  = object as! UIView
+                view.hidden = hidden
+            }
+        }
+        
+    }
+    
+    /**
     上拉加载更多
     */
     func footerViewPullToRefresh(callback : (()->Void)?) {
@@ -77,5 +110,39 @@ extension UIScrollView {
                 object.endRefreshing()
             }
         }
+    }
+    
+    /**
+     移除脚步
+     */
+    func removeFooterView()
+    {
+        for view : AnyObject in self.subviews{
+            if view is XMRefreshFooterView{
+                view.removeFromSuperview()
+            }
+        }
+    }
+    
+    func setFooterHidden(hidden:Bool)
+    {
+        for object : AnyObject in self.subviews{
+            if object is XMRefreshFooterView{
+                var view:UIView  = object as! UIView
+                view.hidden = hidden
+            }
+        }
+        
+    }
+    
+    func isFooterHidden()
+    {
+        for object : AnyObject in self.subviews{
+            if object is XMRefreshFooterView{
+                let view:UIView  = object as! UIView
+                view.hidden = hidden
+            }
+        }
+        
     }
 }

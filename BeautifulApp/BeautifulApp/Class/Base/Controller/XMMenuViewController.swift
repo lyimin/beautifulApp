@@ -16,7 +16,7 @@ class XMMenuViewController: UIViewController {
     /// 左边menu控制器
     private var leftController : UIViewController!
     /// 按钮覆盖层最大值
-    private var coverMaxAlpha : CGFloat = 0.05
+    private var coverMaxAlpha : CGFloat = 0.02
     
     private weak var cover : UIButton?
     
@@ -54,6 +54,10 @@ class XMMenuViewController: UIViewController {
         self.addCover()
         // 初始化左边的控制器
         self.addLeftController()
+        
+        // 添加手势
+        let leftPan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
+        self.leftController.view.addGestureRecognizer(leftPan)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -110,6 +114,40 @@ class XMMenuViewController: UIViewController {
      */
     func coverButtonDidClick(cover : UIButton) {
         self.leftMenuHiddenAnimate()
+    }
+    /**
+     在中间控制器手势操作是调用
+     
+     - parameter pan:
+     */
+    func leftMenuDidDrag(pan : UIPanGestureRecognizer) {
+        // 拿到手指在屏幕中的位置
+        let point = pan.translationInView(pan.view)
+        
+        // 如果手指取消了或者结束
+        if (pan.state == .Cancelled || pan.state == .Ended) {
+            // 如果用户拖了menu宽度的一半，就显示整个menu
+            if self.leftController.view.x > -menuWith*0.5 {
+                self.leftMenuShowAnimate()
+            } else {
+                self.leftMenuHiddenAnimate()
+            }
+            
+        } else {
+            // 正在拖拽的状态
+            
+            // 让左边控制器的x值跟手拖动
+            self.leftController.view.transform = CGAffineTransformTranslate(self.leftController.view.transform, point.x, 0)
+            self.centerController.view.transform = CGAffineTransformTranslate(self.centerController.view.transform, point.x, 0)
+            pan.setTranslation(CGPointZero, inView: self.leftController.view)
+            // 如果拖动x的值小于0 就不让他拖了
+            if self.leftController.view.x > 0 {
+                self.leftController.view.transform = CGAffineTransformMakeTranslation(menuWith, 0)
+                self.cover?.alpha = coverMaxAlpha
+            } else if self.leftController.view.x <= -menuWith {
+                self.leftController.view.transform = CGAffineTransformIdentity
+            }
+        }
     }
     
     //MARK: 给外部调用 =========================

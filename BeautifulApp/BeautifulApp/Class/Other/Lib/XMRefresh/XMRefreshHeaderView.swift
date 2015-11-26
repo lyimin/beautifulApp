@@ -31,7 +31,7 @@ class XMRefreshHeaderView: XMRefreshBase {
                         self.arrowImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI));
                     })
                 }
-                
+                self.scrollView.scrollEnabled = true
                 // 释放刷新状态
             case .RefreshStatePulling:
                 UIView.animateWithDuration(XMRefreshSlowAnimationDuration, animations: {
@@ -41,6 +41,7 @@ class XMRefreshHeaderView: XMRefreshBase {
                 // 正在刷新状态
             case .RefreshStateRefreshing:
                 self.scrollView.setContentOffset(CGPointMake(-self.width, 0), animated: true)
+                self.scrollView.scrollEnabled = false
             default:
                 break
                 
@@ -67,7 +68,9 @@ class XMRefreshHeaderView: XMRefreshBase {
     这个方法是这个Demo的核心。。监听scrollview的contentoffset属性。 属性变化就会调用。
     */
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        
+        guard !self.hidden else {
+            return
+        }
         
         // 如果当前状态不是刷新状态
         guard self.State != XMRefreshState.RefreshStateRefreshing else {

@@ -148,11 +148,17 @@
                     <animations/>
                     <state key="normal" image="sidebar_bottomicon_search_normal"/>
                     <state key="highlighted" image="sidebar_bottomicon_search_pressed"/>
+                    <connections>
+                        <action selector="searchBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="260-nx-GHD"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg5-Je-Af1">
                     <rect key="frame" x="215" y="535" width="25" height="25"/>
                     <animations/>
                     <state key="normal" image="sidebar_icon_more_normal"/>
+                    <connections>
+                        <action selector="moreBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="XjC-aM-DLq"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7S-Fz-J3B">
                     <rect key="frame" x="75" y="538" width="100" height="20"/>
@@ -161,10 +167,23 @@
                     <state key="normal" title="招聘编辑">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="inviteBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="oPT-9B-H4Y"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="articleView" destination="FIa-9L-vt2" id="3HH-E8-k58"/>
+                <outlet property="collectView" destination="J4U-5Z-39T" id="PM9-Jz-9UN"/>
+                <outlet property="everyDayLoveView" destination="2UA-uw-OvH" id="p8C-iD-OrF"/>
+                <outlet property="findView" destination="pVc-Rr-u1x" id="XAj-aq-st7"/>
+                <outlet property="indexView" destination="qfb-v2-GTC" id="fg6-Pa-5HV"/>
+                <outlet property="loginView" destination="DUG-FX-2gZ" id="qbO-yd-XAH"/>
+                <outlet property="recommendView" destination="3RP-Rb-8T6" id="VEa-Tu-S1o"/>
+                <outlet property="supportView" destination="ElG-BH-uab" id="C6K-Yu-FES"/>
+            </connections>
         </view>
     </objects>
     <resources>

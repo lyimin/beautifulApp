@@ -20,16 +20,16 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="demop1" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-Q6-Nd2">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_logo_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-Q6-Nd2">
                         <rect key="frame" x="0.0" y="70" width="310" height="180"/>
                         <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="论如何愉快的过冬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-u0-SJg">
                         <rect key="frame" x="15" y="35" width="280" height="20"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8Q-hp-c3Y" customClass="XMView" customModule="BeautifulApp" customModuleProvider="target">
                         <rect key="frame" x="15" y="385" width="60" height="20"/>
@@ -86,7 +86,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="demop1" width="640" height="360"/>
+        <image name="home_logo_pressed" width="200" height="52"/>
         <image name="icon_flower_home_like" width="24" height="24"/>
     </resources>
 </document>
