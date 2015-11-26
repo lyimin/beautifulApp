@@ -18,9 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        application.statusBarStyle = UIStatusBarStyle.LightContent
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.makeKeyAndVisible()
+
         // 在homecontroller里套一层navcontroller
         window?.rootViewController = XMMenuViewController(centerController: XMBaseNavController(rootViewController:XMHomeViewController()), leftController: XMClassifyViewController())
-//        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle., animated: <#T##Bool#>)
+            // UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle., animated: <#T##Bool#>)
         return true
     }
 

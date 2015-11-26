@@ -22,18 +22,6 @@ class XMRefreshFooterView: XMRefreshBase {
             switch self.State {
                 // 普通状态
             case .RefreshStateNormal:
-//                if (XMRefreshState.RefreshStateRefreshing == oldState) {
-//                    
-//                    UIView.animateWithDuration(XMRefreshSlowAnimationDuration, animations: {
-//                        self.arrowImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-//                        self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentSize.width-SCREEN_WIDTH, 0), animated: true)
-//                    })
-//                } else {
-//                    UIView.animateWithDuration(XMRefreshSlowAnimationDuration, animations: {
-//                        self.arrowImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI));
-//                    })
-//                }
-                
                 
                 if (XMRefreshState.RefreshStateRefreshing == oldState) {
                     self.arrowImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
@@ -49,10 +37,17 @@ class XMRefreshFooterView: XMRefreshBase {
                 let deltaH : CGFloat = self.heightForContentBreakView()
                 let currentCount : Int = self.totalDataCountInScrollView()
                 
+                
                 if (.RefreshStateRefreshing == oldState && deltaH > 0  && currentCount != self.lastRefreshCount) {
-                    var offset:CGPoint = self.scrollView.contentOffset;
-                    offset.x = self.scrollView.contentOffset.x - self.width + SCREEN_WIDTH
-                    self.scrollView.setContentOffset(offset, animated: true)
+                    if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+                        var offset:CGPoint = self.scrollView.contentOffset;
+                        offset.x = self.scrollView.contentOffset.x - self.width + SCREEN_WIDTH
+                        self.scrollView.setContentOffset(offset, animated: true)
+                    } else {
+                        var offset:CGPoint = self.scrollView.contentOffset;
+                        offset.y = self.scrollView.contentOffset.y
+                        self.scrollView.contentOffset = offset;
+                    }
                 }
                 // 释放加载更多
             case .RefreshStatePulling:
@@ -62,7 +57,21 @@ class XMRefreshFooterView: XMRefreshBase {
                 
                 // 正在加载更多
             case .RefreshStateRefreshing:
-                self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentSize.width-SCREEN_WIDTH+self.width, 0), animated: true)
+                if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+                    self.scrollView.setContentOffset(CGPointMake(self.scrollView.contentSize.width-SCREEN_WIDTH+self.width, 0), animated: true)
+                } else {
+                    self.lastRefreshCount = self.totalDataCountInScrollView();
+                    UIView.animateWithDuration(XMRefreshSlowAnimationDuration, animations: {
+                        var bottom : CGFloat = self.height + self.scrollViewOriginalInset.bottom
+                        let deltaH : CGFloat = self.heightForContentBreakView()
+                        if deltaH < 0 {
+                            bottom = bottom - deltaH
+                        }
+                        var inset:UIEdgeInsets = self.scrollView.contentInset;
+                        inset.bottom = bottom;
+                        self.scrollView.contentInset = inset;
+                    })
+                }
                 
             default:
                 break;
@@ -74,10 +83,10 @@ class XMRefreshFooterView: XMRefreshBase {
     /**
     创建脚部静态方法
     */
-    class func footerView() -> XMRefreshFooterView {
-        return XMRefreshFooterView(frame: CGRectMake(0, 0, XMRefreshViewHeight, SCREEN_HEIGHT))
-    }
-    
+
+//    class func footerView() -> XMRefreshFooterView {
+//        return XMRefreshFooterView(frame: CGRectMake(0, 0, XMRefreshViewHeight, SCREEN_HEIGHT))
+//    }
     
     override func willMoveToSuperview(newSuperview: UIView!) {
         super.willMoveToSuperview(newSuperview)
@@ -106,22 +115,43 @@ class XMRefreshFooterView: XMRefreshBase {
                 return
             }
             
-            let currentOffsetX : CGFloat  = self.scrollView.contentOffset.x
-            let happenOffsetX : CGFloat = self.happenOffsetX()
+            if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
             
-            if currentOffsetX <= happenOffsetX {
-                return
-            }
-            
-            if self.scrollView.dragging {
-                let normal2pullingOffsetY =  happenOffsetX + self.width
-                if self.State == .RefreshStateNormal && currentOffsetX > normal2pullingOffsetY {
-                    self.State = .RefreshStatePulling;
-                } else if (self.State == .RefreshStatePulling && currentOffsetX <= normal2pullingOffsetY) {
-                    self.State = .RefreshStateNormal;
+                let currentOffsetX : CGFloat  = self.scrollView.contentOffset.x
+                let happenOffsetX : CGFloat = self.happenOffsetX()
+                
+                if currentOffsetX <= happenOffsetX {
+                    return
                 }
-            } else if (self.State == .RefreshStatePulling) {
-                self.State = .RefreshStateRefreshing
+                
+                if self.scrollView.dragging {
+                    let normal2pullingOffsetY =  happenOffsetX + self.width
+                    if self.State == .RefreshStateNormal && currentOffsetX > normal2pullingOffsetY {
+                        self.State = .RefreshStatePulling;
+                    } else if (self.State == .RefreshStatePulling && currentOffsetX <= normal2pullingOffsetY) {
+                        self.State = .RefreshStateNormal;
+                    }
+                } else if (self.State == .RefreshStatePulling) {
+                    self.State = .RefreshStateRefreshing
+                }
+            } else {
+                let currentOffsetY : CGFloat  = self.scrollView.contentOffset.y
+                let happenOffsetY : CGFloat = self.happenOffsetX()
+                
+                if currentOffsetY <= happenOffsetY {
+                    return
+                }
+                
+                if self.scrollView.dragging {
+                    let normal2pullingOffsetY =  happenOffsetY + self.frame.size.height
+                    if self.State == .RefreshStateNormal && currentOffsetY > normal2pullingOffsetY {
+                        self.State = .RefreshStatePulling;
+                    } else if (self.State == .RefreshStatePulling && currentOffsetY <= normal2pullingOffsetY) {
+                        self.State = .RefreshStateNormal;
+                    }
+                } else if (self.State == .RefreshStatePulling) {
+                    self.State = .RefreshStateRefreshing
+                }
             }
         }
     }
@@ -131,27 +161,52 @@ class XMRefreshFooterView: XMRefreshBase {
     重新设置frame
     */
     private func resetFrameWithContentSize() {
-        let contentHeight:CGFloat = self.scrollView.contentSize.width
-        let scrollHeight:CGFloat = self.scrollView.width  - self.scrollViewOriginalInset.left - self.scrollViewOriginalInset.right
-        
-        var rect:CGRect = self.frame;
-        rect.origin.x =  contentHeight > scrollHeight ? contentHeight : scrollHeight
-        self.frame = rect;
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            let contentHeight:CGFloat = self.scrollView.contentSize.width
+            let scrollHeight:CGFloat = self.scrollView.width  - self.scrollViewOriginalInset.left - self.scrollViewOriginalInset.right
+            
+            var rect:CGRect = self.frame;
+            rect.origin.x =  contentHeight > scrollHeight ? contentHeight : scrollHeight
+            self.frame = rect;
+        } else {
+            let contentHeight:CGFloat = self.scrollView.contentSize.height
+            let scrollHeight:CGFloat = self.scrollView.height  - self.scrollViewOriginalInset.top - self.scrollViewOriginalInset.bottom
+            
+            var rect:CGRect = self.frame;
+            rect.origin.y =  contentHeight > scrollHeight ? contentHeight : scrollHeight
+            self.frame = rect;
+        }
     }
     
     private func heightForContentBreakView() -> CGFloat {
-        let h:CGFloat  = self.scrollView.width - self.scrollViewOriginalInset.right - self.scrollViewOriginalInset.left;
-        return self.scrollView.contentSize.width - h;
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            let h:CGFloat  = self.scrollView.width - self.scrollViewOriginalInset.right - self.scrollViewOriginalInset.left;
+            return self.scrollView.contentSize.width - h;
+        } else {
+            let h:CGFloat  = self.scrollView.height - self.scrollViewOriginalInset.bottom - self.scrollViewOriginalInset.top;
+            return self.scrollView.contentSize.height - h;
+        }
     }
     
     
     private func happenOffsetX() -> CGFloat {
-        let deltaH:CGFloat = self.heightForContentBreakView()
         
-        if deltaH > 0 {
-            return   deltaH - self.scrollViewOriginalInset.left;
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            let deltaH:CGFloat = self.heightForContentBreakView()
+            
+            if deltaH > 0 {
+                return   deltaH - self.scrollViewOriginalInset.left;
+            } else {
+                return  -self.scrollViewOriginalInset.left;
+            }
         } else {
-            return  -self.scrollViewOriginalInset.left;
+            let deltaH:CGFloat = self.heightForContentBreakView()
+            
+            if deltaH > 0 {
+                return   deltaH - self.scrollViewOriginalInset.top;
+            } else {
+                return  -self.scrollViewOriginalInset.top;
+            }
         }
     }
     

@@ -13,11 +13,12 @@ import UIKit
 extension UIScrollView {
     
     /**
-    下拉刷新
+    下拉刷新 第一个参数是方向
     */
-    func headerViewPullToRefresh(callback:(() -> Void)?) {
+    func headerViewPullToRefresh(direction : XMRefreashDirection, callback:(() -> Void)?) {
         // 创建headerview
         let headerView : XMRefreshHeaderView = XMRefreshHeaderView.headerView()
+        headerView.viewDirection = direction
         self.addSubview(headerView)
         headerView.beginRefreshingCallback = callback
         headerView.State = .RefreshStateNormal
@@ -71,7 +72,7 @@ extension UIScrollView {
     {
         for object : AnyObject in self.subviews{
             if object is XMRefreshHeaderView{
-                var view:UIView  = object as! UIView
+                let view:UIView  = object as! UIView
                 view.hidden = hidden
             }
         }
@@ -81,8 +82,14 @@ extension UIScrollView {
     /**
     上拉加载更多
     */
-    func footerViewPullToRefresh(callback : (()->Void)?) {
-        let footView : XMRefreshFooterView = XMRefreshFooterView.footerView()
+    func footerViewPullToRefresh(direction : XMRefreashDirection, callback : (()->Void)?) {
+        var footView : XMRefreshFooterView!
+        if direction == .XMRefreshDirectionHorizontal {
+            footView = XMRefreshFooterView(frame: CGRectMake(0, 0, XMRefreshViewHeight, SCREEN_HEIGHT))
+        } else {
+            footView = XMRefreshFooterView(frame: CGRectMake(0, 0, SCREEN_WIDTH, XMRefreshViewHeight))
+        }
+        footView.viewDirection = direction
         self.addSubview(footView)
         footView.beginRefreshingCallback = callback
         footView.State = .RefreshStateNormal
@@ -128,7 +135,7 @@ extension UIScrollView {
     {
         for object : AnyObject in self.subviews{
             if object is XMRefreshFooterView{
-                var view:UIView  = object as! UIView
+                let view:UIView  = object as! UIView
                 view.hidden = hidden
             }
         }

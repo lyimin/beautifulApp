@@ -56,7 +56,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         // 获取viewModel
         viewModel = XMHomeViewModel(regiHeaderView: headerView, centerView: centerCollectView, bottomView: bottomCollectView)
         // 获取数据
-        self.centerCollectView.headerViewPullToRefresh ({ [unowned self]() -> Void in
+        self.centerCollectView.headerViewPullToRefresh(.XMRefreshDirectionHorizontal, callback: { [unowned self]() -> Void in
             self.page = 1
             self.viewModel.getData(self.page, callBack: { (dataSoure) -> Void in
                 // 默认选中0
@@ -66,7 +66,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             })
         })
         
-        self.centerCollectView.footerViewPullToRefresh ({ [unowned self]() -> Void in
+        self.centerCollectView.footerViewPullToRefresh (.XMRefreshDirectionHorizontal, callback:{ [unowned self]() -> Void in
             self.page += 1
             self.viewModel.getData(self.page, callBack: { (dataSoure) -> Void in
                 // 默认选中0
@@ -120,7 +120,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             let cell : XMHomeBottomItemView = collectionView.dequeueReusableCellWithReuseIdentifier("XMHomeBottomItemViewID", forIndexPath: indexPath) as! XMHomeBottomItemView
             cell.y = 50
             cell.iconUrl = model.icon_image
-    
+
             return cell
         }
     }
@@ -141,7 +141,6 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_SHOWMENU, object: nil)
     }
   
-    
     func homeBottomCollectView(bottomView: UICollectionView, touchIndexDidChangeWithIndexPath indexPath: NSIndexPath?, cellArrayCount: Int) {
         centerCollectView.scrollToItemAtIndexPath(indexPath!, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: false)
         self.index = indexPath?.row

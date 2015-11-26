@@ -7,7 +7,24 @@
 //
 
 import UIKit
+// 控件的方向
+enum XMRefreashDirection {
+    case XMRefreshDirectionHorizontal       // 水平
+    case XMRefreshDirectionVertical         // 竖直
+}
+//控件的刷新状态
+enum XMRefreshState {
+    case  RefreshStateNormal                // 普通状态
+    case  RefreshStatePulling               // 松开就可以进行刷新的状态
+    case  RefreshStateRefreshing            // 正在刷新中的状态
+    case  WillRefreshing
+}
 
+//控件的类型
+enum XMRefreshViewType {
+    case  RefreshViewTypeHeader             // 头部控件
+    case  RefreshViewTypeFooter             // 尾部控件
+}
 class XMRefreshBase: UIView {
     
     // MARK: =========================定义属性=============================
@@ -15,24 +32,10 @@ class XMRefreshBase: UIView {
     
     /// 刷新回调的Block
     typealias beginRefreshingBlock = () -> Void
-    
-    //控件的刷新状态
-    enum XMRefreshState {
-        case  RefreshStateNormal                // 普通状态
-        case  RefreshStatePulling               // 松开就可以进行刷新的状态
-        case  RefreshStateRefreshing            // 正在刷新中的状态
-        case  WillRefreshing
-    }
-    
-    //控件的类型
-    enum XMRefreshViewType {
-        case  RefreshViewTypeHeader             // 头部控件
-        case  RefreshViewTypeFooter             // 尾部控件
-    }
-    
     // 父控件
     var scrollView:UIScrollView!
     var scrollViewOriginalInset:UIEdgeInsets!
+    
     // 箭头图片
     var arrowImage:UIImageView!
     // 刷新后回调
@@ -41,6 +44,12 @@ class XMRefreshBase: UIView {
     // 交给子类去实现和调用
     var oldState:XMRefreshState?
     
+    // 默认水平方向
+    var viewDirection : XMRefreashDirection! = .XMRefreshDirectionHorizontal {
+        willSet {
+            self.viewDirection = newValue
+        }
+    }
     // 当状态改变时设置状态(State)就会调用这个方法
     var State : XMRefreshState = XMRefreshState.RefreshStateNormal {
         willSet {
@@ -97,7 +106,11 @@ class XMRefreshBase: UIView {
         self.arrowImage.animationRepeatCount = 999
         self.addSubview(arrowImage)
         
-        self.autoresizingMask = .FlexibleHeight
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            self.autoresizingMask = .FlexibleHeight
+        } else {
+            self.autoresizingMask = .FlexibleWidth
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -107,7 +120,11 @@ class XMRefreshBase: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         // 设置箭头和菊花居中
-        self.arrowImage.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height * 0.4)
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            self.arrowImage.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height * 0.4)
+        } else {
+            self.arrowImage.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
+        }
     }
     
     //显示到屏幕上
@@ -131,9 +148,16 @@ class XMRefreshBase: UIView {
             newSuperview.addObserver(self, forKeyPath: XMRefreshContentOffset as String, options: NSKeyValueObservingOptions.New, context: nil)
             var rect:CGRect = self.frame
             // 设置宽度 位置
-            rect.size.height = newSuperview.frame.size.height
-            rect.origin.y = 0
-            self.frame = frame;
+            if self.viewDirection == .XMRefreshDirectionHorizontal {
+                rect.size.height = newSuperview.frame.size.height
+                rect.origin.y = 0
+                self.frame = frame;
+            } else {
+                rect.size.width = newSuperview.frame.size.width
+                rect.origin.x = 0
+                self.frame = frame;
+            }
+            
             //UIScrollView
             scrollView = newSuperview as! UIScrollView
             scrollViewOriginalInset = scrollView.contentInset;

@@ -21,7 +21,18 @@ class XMHomeHeaderView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     // 星期
     @IBOutlet weak var weakLabel: UILabel!
-
+    // 右边标题
+    @IBOutlet weak var rightTitleLabel: UILabel!
+    
+    var rightTitle : String? {
+        willSet {
+            self.rightTitle = newValue
+        }
+        didSet {
+            self.rightTitleLabel.text = rightTitle
+        }
+    }
+    
     var delegate : XMHomeHeaderViewDelegate?
     
     var homeModel : XMHomeDataModel! {
@@ -59,7 +70,8 @@ class XMHomeHeaderView: UIView {
         self.hiddenMoveToFirstAnimation()
     }
     
-    //MARK: --- PRIVATE 
+    //MARK: --- PRIVATE
+    
     private func hiddenMoveToFirstAnimation() {
         UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.moveToFirstBtn.alpha = 0
@@ -70,5 +82,14 @@ class XMHomeHeaderView: UIView {
         UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.moveToFirstBtn.alpha = 1
             }, completion: nil)
+    }
+    
+    //MARK : -- Public
+    func setRightTitleHidden(flag : Bool) {
+       
+        self.rightTitleLabel.hidden = flag
+        self.dateLabel.hidden = !flag
+        self.weakLabel.hidden = !flag
+        self.moveToFirstBtn.hidden = !flag
     }
 }

@@ -11,10 +11,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgL-EZ-0hc">
-                    <rect key="frame" x="10" y="15" width="20" height="20"/>
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     <animations/>
-                    <state key="normal" image="home_icon_sidebar_normal"/>
-                    <state key="highlighted" image="home_icon_sidebar_pressed"/>
                     <connections>
                         <action selector="menuImgDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Imk-FR-SgJ"/>
                     </connections>
@@ -49,13 +47,17 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_icon_sidebar_normal" translatesAutoresizingMaskIntoConstraints="NO" id="SAd-jV-473">
+                    <rect key="frame" x="10" y="15" width="20" height="20"/>
+                    <animations/>
+                </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="dateLabel" destination="wh1-XB-3H5" id="JM9-TG-x9v"/>
                 <outlet property="moveToFirstBtn" destination="mmH-qX-juy" id="CCp-Ma-Sp9"/>
+                <outlet property="rightTitleLabel" destination="Hkx-ZV-WQk" id="ae3-BL-2ri"/>
                 <outlet property="weakLabel" destination="gov-Mw-e8J" id="RbA-9D-pcM"/>
             </connections>
         </view>
@@ -64,6 +66,5 @@
         <image name="backtohome_normal" width="70" height="70"/>
         <image name="backtohome_pressed" width="70" height="70"/>
         <image name="home_icon_sidebar_normal" width="60" height="60"/>
-        <image name="home_icon_sidebar_pressed" width="60" height="60"/>
     </resources>
 </document>

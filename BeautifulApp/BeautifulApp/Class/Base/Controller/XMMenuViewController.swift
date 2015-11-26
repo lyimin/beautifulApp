@@ -7,18 +7,77 @@
 //
 
 import UIKit
-
+enum MenuViewControllerType {
+    case MenuViewControllerTypeHome
+    case MenuViewControllerTypeFindApp
+}
 class XMMenuViewController: UIViewController {
     private let menuWith : CGFloat = 250
     private let animationDuration = 0.3
     /// 中间控制器
-    private var centerController : UIViewController!
+    private var centerController : XMBaseNavController!
+    private var homeController : XMHomeViewController?
+    private var findAppController : XMFindAppController?
     /// 左边menu控制器
     private var leftController : UIViewController!
     /// 按钮覆盖层最大值
-    private var coverMaxAlpha : CGFloat = 0.02
-    
-    private weak var cover : UIButton?
+//    private var coverMaxAlpha : CGFloat = 0.02
+    private weak var cover : UIWindow!
+    // 当前控制器
+    private var currentController : UIViewController?
+    var type : MenuViewControllerType! = .MenuViewControllerTypeHome {
+        willSet {
+            self.type = newValue
+        }
+        
+        didSet {
+            // 首页
+            if type == .MenuViewControllerTypeHome {
+                // 如果当前控制器不是homecontroller才继续执行
+                guard !(self.currentController is XMHomeViewController) else {
+                    self.leftMenuHiddenAnimate()
+                    return
+                }
+                
+                self.currentController!.view.removeFromSuperview()
+                self.currentController?.removeFromParentViewController()
+                self.currentController = nil
+                
+                if self.homeController == nil {
+                    self.homeController = XMHomeViewController()
+                }
+                
+                self.centerController.addChildViewController(self.homeController!)
+                self.homeController!.view.frame = self.view.bounds
+                self.centerController!.view.x = self.menuWith
+                self.currentController = homeController
+               
+                
+            } else if type == .MenuViewControllerTypeFindApp {
+                // 如果当前控制器是findAppcontroller就退出
+                guard !(self.currentController is XMFindAppController) else {
+                    self.leftMenuHiddenAnimate()
+                    return
+                }
+                
+                self.currentController?.view.removeFromSuperview()
+                self.currentController?.removeFromParentViewController()
+                self.currentController = nil
+                
+                if findAppController == nil {
+                    findAppController = XMFindAppController()
+                }
+                
+                self.centerController.addChildViewController(findAppController!)
+                self.findAppController!.view.frame = self.view.bounds
+                self.centerController!.view.x = self.menuWith
+                self.currentController = findAppController
+            }
+             self.centerController.view.addSubview(self.currentController!.view)
+            self.leftMenuHiddenAnimate()
+          
+        }
+    }
     
     // MARK:- 生命周期 ============================
 
@@ -30,6 +89,8 @@ class XMMenuViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuHiddenAnimate", name: NOTIFY_HIDDEMENU, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupBackColor:", name: NOTIFY_SETUPBG, object: nil)
+        // 设置中间控制器
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupCenterView:", name: NOTIFY_SETUPCENTERVIEW, object: nil)
     }
     
     
@@ -42,22 +103,21 @@ class XMMenuViewController: UIViewController {
      
      - returns: <#return value description#>
      */
-    convenience init(centerController : UIViewController, leftController : UIViewController) {
+    convenience init(centerController : XMBaseNavController, leftController : UIViewController) {
         self.init(nibName:nil,bundle:nil)
-        
         self.centerController = centerController
+        self.homeController = centerController.viewControllers.first as? XMHomeViewController
         self.leftController = leftController
-        
+        // 初始化左边的控制器
+        self.addLeftController()
         // 初始化中间的控制器
         self.addCenterController()
         // 添加覆盖层
         self.addCover()
-        // 初始化左边的控制器
-        self.addLeftController()
-        
         // 添加手势
         let leftPan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
         self.leftController.view.addGestureRecognizer(leftPan)
+
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -79,10 +139,14 @@ class XMMenuViewController: UIViewController {
     添加中间的控制器
     */
     private func addCenterController () {
-        self.centerController.view.frame = self.view.bounds
-        self.view.addSubview(self.centerController.view)
-        self.addChildViewController(self.centerController)
+        // 默认选中homecontroller
+        self.homeController!.view.frame = self.view.bounds
+        self.centerController.addChildViewController(self.homeController!)
+        self.centerController.view.addSubview((self.homeController?.view)!)
         
+        self.view.addSubview(self.centerController!.view)
+        self.addChildViewController(self.centerController!)
+        self.currentController = self.homeController
     }
     
     /**
@@ -90,7 +154,7 @@ class XMMenuViewController: UIViewController {
      添加左边的控制器
      */
     private func addLeftController () {
-        self.leftController.view.frame = CGRectMake(-menuWith, 0, menuWith, SCREEN_HEIGHT)
+        self.leftController.view.frame = CGRectMake(0, 0, menuWith, SCREEN_HEIGHT)
         self.view.addSubview(self.leftController.view)
         self.addChildViewController(self.leftController)
     }
@@ -99,12 +163,12 @@ class XMMenuViewController: UIViewController {
      添加覆盖层按钮
      */
     private func addCover(){
-        let cover : UIButton = UIButton(frame: self.view.frame)
-        cover.alpha = 0.0
-        cover.backgroundColor = UIColor.lightGrayColor()
-        cover.addTarget(self, action: "coverButtonDidClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        let cover : UIWindow = UIWindow(frame: centerController!.view.frame)
+        let tap : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
+        cover.backgroundColor = UIColor(red: 254/255.0, green: 254/255.0, blue: 254/255.0, alpha: 0.02)
+        cover.addGestureRecognizer(tap)
         self.cover = cover
-        self.view.addSubview(cover)
+        self.centerController!.view.addSubview(cover)
     }
     
     /**
@@ -112,8 +176,9 @@ class XMMenuViewController: UIViewController {
      
      - parameter cover: 覆盖层按钮
      */
-    func coverButtonDidClick(cover : UIButton) {
+    func coverButtonDidClick(cover : UITapGestureRecognizer) {
         self.leftMenuHiddenAnimate()
+        cover.view?.hidden = true
     }
     /**
      在中间控制器手势操作是调用
@@ -126,28 +191,26 @@ class XMMenuViewController: UIViewController {
         
         // 如果手指取消了或者结束
         if (pan.state == .Cancelled || pan.state == .Ended) {
-            // 如果用户拖了menu宽度的一半，就显示整个menu
-            if self.leftController.view.x > -menuWith*0.5 {
-                self.leftMenuShowAnimate()
-            } else {
-                self.leftMenuHiddenAnimate()
-            }
-            
+            self.leftMenuHiddenAnimate()
         } else {
             // 正在拖拽的状态
             
             // 让左边控制器的x值跟手拖动
-            self.leftController.view.transform = CGAffineTransformTranslate(self.leftController.view.transform, point.x, 0)
-            self.centerController.view.transform = CGAffineTransformTranslate(self.centerController.view.transform, point.x, 0)
-            pan.setTranslation(CGPointZero, inView: self.leftController.view)
+            self.centerController!.view.x += point.x
+            pan.setTranslation(CGPointZero, inView: self.centerController.view)
             // 如果拖动x的值小于0 就不让他拖了
-            if self.leftController.view.x > 0 {
-                self.leftController.view.transform = CGAffineTransformMakeTranslation(menuWith, 0)
-                self.cover?.alpha = coverMaxAlpha
-            } else if self.leftController.view.x <= -menuWith {
-                self.leftController.view.transform = CGAffineTransformIdentity
+            if self.centerController!.view.x > menuWith {
+                self.centerController?.view.x = menuWith
+                self.cover.hidden = false
+            } else if self.centerController!.view.x <= 0 {
+                self.centerController?.view.x = 0
+                self.cover.hidden = true
             }
         }
+    }
+    
+    func coverButtonDidPan(pan : UIPanGestureRecognizer) {
+        
     }
     
     //MARK: 给外部调用 =========================
@@ -156,9 +219,8 @@ class XMMenuViewController: UIViewController {
     */
     func leftMenuShowAnimate() {
         UIView.animateWithDuration(animationDuration, animations: { [unowned self]() -> Void in
-            self.leftController.view.transform = CGAffineTransformMakeTranslation(self.menuWith, 0)
-            self.centerController.view.transform = CGAffineTransformMakeTranslation(self.menuWith, 0)
-            self.cover!.alpha = self.coverMaxAlpha;
+            self.centerController!.view.x = self.menuWith
+            self.cover.hidden = false
         })
     }
     
@@ -167,15 +229,30 @@ class XMMenuViewController: UIViewController {
      */
     func leftMenuHiddenAnimate () {
         UIView.animateWithDuration(animationDuration, animations: { [unowned self]() -> Void in
-            self.leftController.view.transform = CGAffineTransformIdentity
-            self.centerController.view.transform = CGAffineTransformIdentity
-            self.cover!.alpha = 0;
+            self.centerController!.view.x = 0
+             self.cover.hidden = true
         })
     }
     
     func leftMenuSetupBackColor(notify : NSNotification) {
         let bg : String = notify.object as! String
         self.leftController.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: bg)
+    }
+    
+    func leftMenuSetupCenterView(notify : NSNotification) {
+        let type : String = notify.object as! String
+        switch type {
+            case NOTIFY_OBJ_TODAY,NOTIFY_OBJ_RECOMMEND,NOTIFY_OBJ_ARTICLE :
+                self.type = .MenuViewControllerTypeHome
+            case NOTIFY_OBJ_FINDAPP:
+                UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                    self.leftController.view.backgroundColor = UI_COLOR_APPNORMAL
+                })
+                self.type = .MenuViewControllerTypeFindApp
+        default:
+            self.type = .MenuViewControllerTypeHome
+            
+        }
     }
     
 }

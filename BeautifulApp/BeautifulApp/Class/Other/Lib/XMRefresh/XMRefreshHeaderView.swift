@@ -40,7 +40,12 @@ class XMRefreshHeaderView: XMRefreshBase {
                 
                 // 正在刷新状态
             case .RefreshStateRefreshing:
-                self.scrollView.setContentOffset(CGPointMake(-self.width, 0), animated: true)
+                if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+                    self.scrollView.setContentOffset(CGPointMake(-self.width, 0), animated: true)
+                } else {
+                    self.scrollView.setContentOffset(CGPointMake(0, -self.height), animated: true)
+                }
+                
                 self.scrollView.scrollEnabled = false
             default:
                 break
@@ -48,6 +53,15 @@ class XMRefreshHeaderView: XMRefreshBase {
             }
         }
         
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            self.frame = CGRectMake(-XMRefreshViewHeight, 0, XMRefreshViewHeight, SCREEN_HEIGHT)
+        } else {
+            self.frame = CGRectMake(0, -XMRefreshViewHeight, SCREEN_WIDTH, XMRefreshViewHeight)
+        }
     }
     // 创建view的静态方法
     class func headerView() -> XMRefreshHeaderView {
@@ -59,8 +73,12 @@ class XMRefreshHeaderView: XMRefreshBase {
     */
     override func willMoveToSuperview(newSuperview: UIView!) {
         super.willMoveToSuperview(newSuperview)
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            self.x = -XMRefreshViewHeight
+        } else {
+            self.y = -XMRefreshViewHeight
+        }
         
-        self.x = -XMRefreshViewHeight
     }
     
     
@@ -83,24 +101,46 @@ class XMRefreshHeaderView: XMRefreshBase {
         }
         
         // 拿到当前contentoffset的y值
-        let currentOffsetY : CGFloat = self.scrollView.contentOffset.x
-        let happenOffsetY : CGFloat = -self.scrollViewOriginalInset.left
-        
-        if (currentOffsetY >= happenOffsetY) {
-            return
-        }
-        // 根据scrollview 滑动的位置设置当前状态
-        if self.scrollView.dragging {
-            let normal2pullingOffsetY : CGFloat = happenOffsetY - XMRefreshViewHeight
-            if self.State == XMRefreshState.RefreshStateNormal && currentOffsetY < normal2pullingOffsetY {
-                self.State = XMRefreshState.RefreshStatePulling
-            } else if self.State == XMRefreshState.RefreshStatePulling && currentOffsetY >= normal2pullingOffsetY{
-                self.State = XMRefreshState.RefreshStateNormal
-            }
+        if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
+            let currentOffsetY : CGFloat = self.scrollView.contentOffset.x
+            let happenOffsetY : CGFloat = -self.scrollViewOriginalInset.left
             
-        } else if self.State == XMRefreshState.RefreshStatePulling {
-            self.State = XMRefreshState.RefreshStateRefreshing
+            if (currentOffsetY >= happenOffsetY) {
+                return
+            }
+            // 根据scrollview 滑动的位置设置当前状态
+            if self.scrollView.dragging {
+                let normal2pullingOffsetY : CGFloat = happenOffsetY - XMRefreshViewHeight
+                if self.State == XMRefreshState.RefreshStateNormal && currentOffsetY < normal2pullingOffsetY {
+                    self.State = XMRefreshState.RefreshStatePulling
+                } else if self.State == XMRefreshState.RefreshStatePulling && currentOffsetY >= normal2pullingOffsetY{
+                    self.State = XMRefreshState.RefreshStateNormal
+                }
+                
+            } else if self.State == XMRefreshState.RefreshStatePulling {
+                self.State = XMRefreshState.RefreshStateRefreshing
+            }
+        } else {
+            let currentOffsetY : CGFloat = self.scrollView.contentOffset.y
+            let happenOffsetY : CGFloat = -self.scrollViewOriginalInset.top
+            
+            if (currentOffsetY >= happenOffsetY) {
+                return
+            }
+            // 根据scrollview 滑动的位置设置当前状态
+            if self.scrollView.dragging {
+                let normal2pullingOffsetY : CGFloat = happenOffsetY - XMRefreshViewHeight
+                if self.State == XMRefreshState.RefreshStateNormal && currentOffsetY < normal2pullingOffsetY {
+                    self.State = XMRefreshState.RefreshStatePulling
+                } else if self.State == XMRefreshState.RefreshStatePulling && currentOffsetY >= normal2pullingOffsetY{
+                    self.State = XMRefreshState.RefreshStateNormal
+                }
+                
+            } else if self.State == XMRefreshState.RefreshStatePulling {
+                self.State = XMRefreshState.RefreshStateRefreshing
+            }
         }
+        
     }
     
     deinit {

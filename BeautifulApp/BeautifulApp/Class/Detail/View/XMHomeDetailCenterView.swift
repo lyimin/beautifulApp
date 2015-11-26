@@ -12,7 +12,7 @@ protocol XMHomeDetailCenterViewDelegate {
     func homeDetailCenterView(centerView : XMHomeDetailCenterView ,returnButtonDidClick returnButton : UIButton)
 }
 
-class XMHomeDetailCenterView: UIView, UIWebViewDelegate {
+class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
     // MARK:- VIEW
     
     // scrollview
@@ -38,6 +38,9 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate {
     @IBOutlet weak var downloadLabel: UILabel!
     // 工具条
     @IBOutlet weak var toolBarView: UIView!
+    
+    private var photoisZoom : Bool = false
+    
     // MARK:-DATA
     // 代理
     var delegate : XMHomeDetailCenterViewDelegate?
@@ -58,6 +61,11 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate {
     
     class func centerView () -> XMHomeDetailCenterView {
         return NSBundle.mainBundle().loadNibNamed("XMHomeDetailCenterView", owner: nil, options: nil)[0] as! XMHomeDetailCenterView
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.centerScroll.delegate = self
     }
     // private 
     private func setupOtherData() {
@@ -82,6 +90,59 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate {
         self.centerScroll.addSubview(contentWebView)
         
     }
+    // MARK: -更新headerView的frame 。 实现zoom效果
+    private func updateHeaderView() {
+        let HeaderHeight : CGFloat = headerImgView.height
+        let HeaderCutAway: CGFloat = 170
+        
+        var headerRect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: HeaderHeight)
+        if self.centerScroll.contentOffset.y < 0 {
+            headerRect.origin.y = self.centerScroll.contentOffset.y
+            headerRect.size.height = -self.centerScroll.contentOffset.y + HeaderCutAway
+            headerImgView.frame = headerRect
+        }
+    }
+    
+    private func toolBarToNavAnimation() {
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.collectButton.x = 60
+            self.collectLabel.hidden = true
+            self.shareButton.x = 110
+            self.shareLabel.hidden = true
+            self.downloadButton.x = 160
+            self.downloadLabel.hidden = true
+        })
+    }
+    
+    private func toolBarToScrollAnimation() {
+        
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.collectButton.x = 55
+            self.shareButton.x = 130
+            self.downloadButton.x = 205
+            
+            }) { (finish) -> Void in
+                self.collectLabel.hidden = false
+                self.shareLabel.hidden = false
+                self.downloadLabel.hidden = false
+        }
+    }
+    // UIScrollview Delegate
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.updateHeaderView()
+        if scrollView.contentOffset.y >= 210 {
+            self.toolBarView.y = 20
+            // 显示在标题栏动画
+            self.toolBarToNavAnimation()
+            
+        } else {
+            self.toolBarView.y = 230 - scrollView.contentOffset.y
+            self.toolBarToScrollAnimation()
+        }
+        print(scrollView.contentOffset.y)
+    }
+
     // UIWebview delegate
     func webViewDidFinishLoad(webView: UIWebView) {
         let tempView : UIScrollView = contentWebView.subviews.first as! UIScrollView
@@ -113,4 +174,6 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate {
         contentWebView.userInteractionEnabled = false
         return contentWebView
     }()
+    
+   
 }

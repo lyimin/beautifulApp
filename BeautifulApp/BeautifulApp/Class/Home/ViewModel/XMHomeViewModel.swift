@@ -12,9 +12,9 @@ import UIKit
 class XMHomeViewModel: NSObject {
     
     var type : String = "homeViewTodayType"
-    private var headerView : XMHomeHeaderView!
-    private var centerView : UICollectionView!
-    private var bottonView : UICollectionView!
+    private weak var headerView : XMHomeHeaderView!
+    private weak var centerView : UICollectionView!
+    private weak var bottonView : UICollectionView!
     var dataSource : Array<XMHomeDataModel> = Array()
     // 回调
     typealias XMHomeViewModelCallBack = (dataSoure : Array<XMHomeDataModel>) -> Void
@@ -46,15 +46,18 @@ class XMHomeViewModel: NSObject {
                 httpString = APIConfig.API_Today
                 self.centerView.setHeaderHidden(false)
                 self.centerView.setFooterHidden(false)
+                // 隐藏右标题
+                self.headerView.setRightTitleHidden(true)
             case NOTIFY_OBJ_RECOMMEND:
                 httpString = APIConfig.API_Recommend
                 self.centerView.setHeaderHidden(false)
                 self.centerView.setFooterHidden(false)
+                self.headerView.setRightTitleHidden(true)
             case NOTIFY_OBJ_ARTICLE :
                 httpString = APIConfig.API_Article
                 params = nil
-                self.centerView.setHeaderHidden(true)
-                self.centerView.setFooterHidden(true)
+                self.headerView.rightTitle = "文章专栏"
+                self.headerView.setRightTitleHidden(false)
         default :
                 httpString = APIConfig.API_Today
         }
@@ -86,6 +89,12 @@ class XMHomeViewModel: NSObject {
                     self.centerView.headerViewStopPullToRefresh()
                     self.centerView.footerEndRefreshing()
                 }
+            }
+            
+            if self.type == NOTIFY_OBJ_ARTICLE {
+                // 隐藏下拉刷新
+                self.centerView.setHeaderHidden(true)
+                self.centerView.setFooterHidden(true)
             }
             
             }) { (error) -> Void in

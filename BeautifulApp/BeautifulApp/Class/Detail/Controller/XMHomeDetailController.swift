@@ -18,13 +18,14 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         let centerView : XMHomeDetailCenterView = XMHomeDetailCenterView.centerView()
         centerView.model = model
         centerView.delegate = self
         self.view.addSubview(centerView)
         
         // 解析html
-        
+
     }
     
     // MARK:1-Custer Delegate
