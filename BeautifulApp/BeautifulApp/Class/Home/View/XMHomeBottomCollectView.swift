@@ -48,9 +48,6 @@ class XMHomeBottomCollectView: UICollectionView {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if self.indexCell == nil {
-            return
-        }
         
         UIView.animateWithDuration(0.2, delay: 0.5, options: [], animations: { () -> Void in
             for i in 0..<self.cellArray.count {
@@ -62,6 +59,10 @@ class XMHomeBottomCollectView: UICollectionView {
                 }
             }
             }, completion: nil)
+        if self.indexCell == nil || self.lastCell == self.indexCell {
+            return
+        }
+        self.lastCell = indexCell
         let indexPath : NSIndexPath? = self.indexPathForCell(self.indexCell!)
         self.bottomViewDelegate?.homeBottomCollectView(self, touchIndexDidChangeWithIndexPath: indexPath, cellArrayCount: self.cellArray.count)
     }
@@ -105,5 +106,7 @@ class XMHomeBottomCollectView: UICollectionView {
     private var maxItemY : CGFloat = 10;
     // 保存当前index
     private var indexCell : UICollectionViewCell?
+    // 上一个index
+    private var lastCell : UICollectionViewCell?
     var bottomViewDelegate : XMHomeBottomCollectViewDelegate?
 }

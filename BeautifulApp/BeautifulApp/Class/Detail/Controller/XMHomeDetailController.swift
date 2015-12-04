@@ -23,7 +23,6 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate {
         centerView.model = model
         centerView.delegate = self
         self.view.addSubview(centerView)
-        
         // 解析html
 
     }
@@ -36,5 +35,6 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.Default
     }
+    
     
 }

@@ -17,9 +17,10 @@ class XMHomeViewModel: NSObject {
     private weak var bottonView : UICollectionView!
     var dataSource : Array<XMHomeDataModel> = Array()
     // 回调
-    typealias XMHomeViewModelCallBack = (dataSoure : Array<XMHomeDataModel>) -> Void
-    var callBack : XMHomeViewModelCallBack?
-    
+    typealias XMHomeViewModelSuccessCallBack = (dataSoure : Array<XMHomeDataModel>) -> Void
+    typealias XMHomeVieModelErrorCallBack = (error : NSError) -> Void
+    var successCallBack : XMHomeViewModelSuccessCallBack?
+    var errorCallBack : XMHomeVieModelErrorCallBack?
     override init() {
         super.init()
         
@@ -37,9 +38,12 @@ class XMHomeViewModel: NSObject {
         self.bottonView = bottomView
     }
     
-    func getData(page : Int, callBack : XMHomeViewModelCallBack?) {
-        var params : NSDictionary? = ["page" : page]
-        self.callBack = callBack
+    func getData(page : Int, successCallBack : XMHomeViewModelSuccessCallBack?, errorCallBack : XMHomeVieModelErrorCallBack?) {
+       
+        self.successCallBack = successCallBack
+        self.errorCallBack = errorCallBack
+        
+         var params : NSDictionary? = ["page" : page]
         var httpString : String = ""
         switch type {
             case NOTIFY_OBJ_TODAY:
@@ -82,8 +86,8 @@ class XMHomeViewModel: NSObject {
                     self.centerView.reloadData()
                     self.bottonView.reloadData()
                     // 回调给controller
-                    if self.callBack != nil {
-                        self.callBack!(dataSoure: self.dataSource)
+                    if self.successCallBack != nil {
+                        self.successCallBack!(dataSoure: self.dataSource)
                     }
                     // 停止刷新
                     self.centerView.headerViewStopPullToRefresh()
@@ -100,6 +104,10 @@ class XMHomeViewModel: NSObject {
             }) { (error) -> Void in
                 self.centerView.headerViewStopPullToRefresh()
                 self.centerView.footerEndRefreshing()
+                // 错误回调
+                if let _ = self.errorCallBack {
+                    self.errorCallBack!(error: error as! NSError)
+                }
         }
     }
     // 接受到切换界面的通知

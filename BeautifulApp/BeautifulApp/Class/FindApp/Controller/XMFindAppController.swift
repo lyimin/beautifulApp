@@ -8,7 +8,7 @@
 
 import UIKit
 
-class XMFindAppController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, XMFindAppHeaderViewDelegate {
+class XMFindAppController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMFindAppHeaderViewDelegate {
 
     
     // viewModel
@@ -94,9 +94,15 @@ class XMFindAppController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         return cell
     }
-    //MARK: UISrollView Delegate 
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var model : XMFindAppModel!
+        if tableView.tag == 202 {
+            model = self.viewModel?.hotDataSource[indexPath.row];
+        } else {
+            model = self.viewModel?.lastDataSource[indexPath.row];
+        }
+        self.navigationController?.pushViewController(XMFindAppDetailController(model: model), animated: true)
     }
     
     //MARK: custer Delegate 
@@ -122,7 +128,7 @@ class XMFindAppController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     // 添加
     func findAppHeaderViewAddBtnDidClick(headerView: XMFindAppHeaderView, addBtn: UIButton) {
-        self.navigationController?.pushViewController(XMHomeViewController(), animated: true)
+        
     }
     
     // 菜单

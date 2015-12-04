@@ -37,4 +37,13 @@ class APIConfig: NSObject {
     static let API_FindApp_HotShare : String = API_Server+"/community/recommend_apps/?"+API_appVersion+API_openUDID+API_pageSize+API_platform+API_systemVersion+API_resolution
     // 5.发现应用 - 最新分享 参数 pos
     static let API_FindAPP_LastestShare : String = API_Server+"/community/apps/?"+API_appVersion+API_openUDID+API_pageSize+API_platform+API_resolution+API_systemVersion
+    
+    // 6.美我一下
+    static let API_APPStoreComment : String = "https://itunes.apple.com/cn/app/zui-mei-ying-yong/id739652274?mt=8"
+    // 7.招聘编辑
+    static let API_Invite : String = "http://zuimeia.com/article/100/?utm_medium=community_android&utm_source=niceapp"
+    // 8.搜索 参数 keyword:输入的东西
+    static let API_Search : String = API_Server+"/search/?"+API_openUDID+API_systemVersion+API_appVersion+API_resolution+API_platform
+    // 9.发现应用 - 评论 参数:  app_id,comment_id:上一条评论的id
+    static let API_FindApp_comments : String = API_Server+"/community/comments/?"+API_appVersion+API_openUDID+API_pageSize+API_platform+API_resolution+API_systemVersion
 }

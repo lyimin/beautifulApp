@@ -37,11 +37,11 @@ class XMFindAppCell: UITableViewCell {
         
         didSet {
             if model != nil {
-                self.headerIconView.sd_setImageWithURL(NSURL(string: model!.author_avatar_url!), placeholderImage: UIImage(named: "detail_portrait_default"))
+                self.headerIconView.xm_setBlurImageWithURL(NSURL(string: model!.author_avatar_url!), placeholderImage: UIImage(named: "detail_portrait_default"))
                 self.userNameLabel.text = model!.author_name
                 self.userDetailLabel.text = model!.author_career
-                self.CenterImgView.sd_setImageWithURL(NSURL(string: model!.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
-                self.appIconView.sd_setImageWithURL(NSURL(string: model!.icon_image!), placeholderImage: UIImage(named: "ic_launcher"))
+                self.CenterImgView.xm_setBlurImageWithURL(NSURL(string: model!.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
+                self.appIconView.xm_setBlurImageWithURL(NSURL(string: model!.icon_image!), placeholderImage: UIImage(named: "ic_launcher"))
                 self.appNameLabel.text = model!.title!
                 self.appDetailLabel.text = model!.appDescription!
                 self.lookCountLabel.text = model!.show_times

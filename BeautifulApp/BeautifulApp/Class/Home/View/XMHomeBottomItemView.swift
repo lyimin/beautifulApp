@@ -18,7 +18,7 @@ class XMHomeBottomItemView: UICollectionViewCell {
         }
         
         didSet {
-            self.iconView.sd_setImageWithURL(NSURL(string: iconUrl!), placeholderImage: UIImage(named: "ic_launcher"))
+            self.iconView.xm_setBlurImageWithURL(NSURL(string: iconUrl!), placeholderImage: UIImage(named: "ic_launcher"))
         }
     }
 

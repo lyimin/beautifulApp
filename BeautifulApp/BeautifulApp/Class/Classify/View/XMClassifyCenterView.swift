@@ -23,6 +23,13 @@ protocol XMClassifyCenterViewDelegate {
     func classifyCenterViewSupportViewDidClick (centerView : XMClassifyCenterView, supportView: UIView)
     // 收藏
     func classifyCenterViewCollectViewDidClick (centerView : XMClassifyCenterView, collectView: UIView)
+    // 搜索
+    func classifyCenterViewSearchViewDidClick (centerView : XMClassifyCenterView, searchView : UIView)
+    // 招聘
+    func classifyCenterViewInviteViewDidClick (center : XMClassifyCenterView, inviteView : UIView)
+    // 设置
+    func classifyCenterViewSettingViewDidClick (centerView : XMClassifyCenterView, settingView : UIView)
+    
 }
 
 class XMClassifyCenterView: UIView {
@@ -120,11 +127,11 @@ class XMClassifyCenterView: UIView {
     
     // 点击美我一下
     func supportViewDidClick() {
-        if self.curView == self.supportView {
-            return
-        }
-        curView = supportView
-        indexView.y = supportView.center.y
+//        if self.curView == self.supportView {
+//            return
+//        }
+//        curView = supportView
+//        indexView.y = supportView.center.y
         self.delegate?.classifyCenterViewSupportViewDidClick(self, supportView: self.supportView)
     }
     // 点击我的收藏
@@ -138,17 +145,17 @@ class XMClassifyCenterView: UIView {
     }
     // 点击更多
     @IBAction func moreBtnDidClick(sender: UIButton) {
-        
+        self.delegate?.classifyCenterViewSettingViewDidClick(self, settingView: sender)
     }
     
     // 点击搜索
     @IBAction func searchBtnDidClick(sender: UIButton) {
-        
+        self.delegate?.classifyCenterViewSearchViewDidClick(self, searchView: sender)
     }
     
     // 点击招聘
     @IBAction func inviteBtnDidClick(sender: UIButton) {
-        
+        self.delegate?.classifyCenterViewInviteViewDidClick(self, inviteView: sender)
     }
 
 }

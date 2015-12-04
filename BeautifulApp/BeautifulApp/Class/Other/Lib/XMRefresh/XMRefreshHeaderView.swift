@@ -41,9 +41,9 @@ class XMRefreshHeaderView: XMRefreshBase {
                 // 正在刷新状态
             case .RefreshStateRefreshing:
                 if self.viewDirection == XMRefreashDirection.XMRefreshDirectionHorizontal {
-                    self.scrollView.setContentOffset(CGPointMake(-self.width, 0), animated: true)
+                    self.scrollView.setContentOffset(CGPointMake(-self.width, 0), animated: false)
                 } else {
-                    self.scrollView.setContentOffset(CGPointMake(0, -self.height), animated: true)
+                    self.scrollView.setContentOffset(CGPointMake(0, -self.height), animated: false)
                 }
                 
                 self.scrollView.scrollEnabled = false

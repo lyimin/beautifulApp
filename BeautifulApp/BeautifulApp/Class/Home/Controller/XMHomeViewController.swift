@@ -38,6 +38,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorBtnDidClick", name: NOTIFY_ERRORBTNCLICK, object: nil)
         // 初始化界面
         self.view.backgroundColor = UI_COLOR_APPNORMAL
         
@@ -58,21 +59,31 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         // 获取数据
         self.centerCollectView.headerViewPullToRefresh(.XMRefreshDirectionHorizontal, callback: { [unowned self]() -> Void in
             self.page = 1
-            self.viewModel.getData(self.page, callBack: { (dataSoure) -> Void in
+            self.viewModel.getData(self.page, successCallBack: { (dataSoure) -> Void in
                 // 默认选中0
                 self.lastIndex = nil
                 self.index = 0
+                self.bottomCollectView.setContentOffset(CGPointZero, animated: false)
                 self.scrollViewDidEndDecelerating(self.centerCollectView)
+                
+                }, errorCallBack: { (error) -> Void in
+                    // 显示网络错误按钮
+//                    self.showNetWorkErrorView()
             })
         })
         
         self.centerCollectView.footerViewPullToRefresh (.XMRefreshDirectionHorizontal, callback:{ [unowned self]() -> Void in
             self.page += 1
-            self.viewModel.getData(self.page, callBack: { (dataSoure) -> Void in
+
+            
+            
+            self.viewModel.getData(self.page, successCallBack: { (dataSoure) -> Void in
                 // 默认选中0
                 self.lastIndex = nil
                 self.index = dataSoure.count-10
                 self.scrollViewDidEndDecelerating(self.centerCollectView)
+                }, errorCallBack: { (error) -> Void in
+                    self.centerCollectView.setContentOffset(CGPointMake(self.centerCollectView.contentSize.width-SCREEN_WIDTH, 0), animated: false)
             })
         })
         
@@ -87,8 +98,6 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             } else {
                 self.index = index
             }
-        } else {
-            
         }
     }
 
@@ -147,9 +156,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         // 执行底部横向动画
         let cell : UICollectionViewCell? = self.bottomCollectView.cellForItemAtIndexPath(indexPath!)
         // 如果当前不够8个item就不让他滚动
-        if cellArrayCount >= 8 {
-            self.bottomHorizontalAnimation(cell!, indexPath: indexPath!)
-        }
+        self.bottomHorizontalAnimation(cell!, indexPath: indexPath!)
         // 发送通知改变侧滑菜单的颜色
         let model : XMHomeDataModel = self.viewModel.dataSource[index]
         let noti : NSNotification = NSNotification(name: NOTIFY_SETUPBG, object: model.recommanded_background_color!)
@@ -158,7 +165,9 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     }
     
     // MARK: - Event OR Action
-    
+//    func errorBtnDidClick() {
+//        self.centerCollectView.headerViewBeginRefreshing()
+//    }
     
     //MARK: - private methods
     // 底部标签动画
@@ -185,6 +194,10 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     }
     // 横向动画
     private func bottomHorizontalAnimation(cell : UICollectionViewCell, indexPath:NSIndexPath) {
+        guard self.viewModel.dataSource.count > 8 else {
+            return
+        }
+        
         if cell.x < SCREEN_WIDTH*0.6 {
             self.bottomCollectView.setContentOffset(CGPointZero, animated: true)
         } else {
@@ -197,7 +210,6 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
                 // 上一个
                 newX = self.bottomCollectView.contentOffset.x - cell.width - 2
             }
-            
             self.bottomCollectView.setContentOffset(CGPointMake(newX, 0), animated: true)
         }
     }

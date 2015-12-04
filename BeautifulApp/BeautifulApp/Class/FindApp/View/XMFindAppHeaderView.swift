@@ -16,8 +16,6 @@ protocol XMFindAppHeaderViewDelegate {
     func findAppHeaderViewLastestBtnDidClick(headerView : XMFindAppHeaderView, lastestBtn : UIButton)
     // 点击菜单
     func findAppHeaderViewMenuBtnDidClick(headerView : XMFindAppHeaderView, menuBtn : UIButton)
-    // 点击添加APP
-    func findAppHeaderViewAddBtnDidClick(headerView : XMFindAppHeaderView, addBtn : UIButton)
 }
 
 class XMFindAppHeaderView: UIView {
@@ -59,10 +57,6 @@ class XMFindAppHeaderView: UIView {
         }
         delegate?.findAppHeaderViewLastestBtnDidClick(self, lastestBtn: sender)
         self.selectIndex(sender)
-    }
-    // 添加应用按钮
-    @IBAction func addBtnDidClick(sender: UIButton) {
-        delegate?.findAppHeaderViewAddBtnDidClick(self, addBtn: sender)
     }
     // 点击菜单按钮
     @IBAction func menuBtnDidClick(sender: AnyObject) {

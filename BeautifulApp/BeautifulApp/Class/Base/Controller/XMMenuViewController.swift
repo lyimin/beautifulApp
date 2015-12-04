@@ -73,7 +73,7 @@ class XMMenuViewController: UIViewController {
                 self.centerController!.view.x = self.menuWith
                 self.currentController = findAppController
             }
-             self.centerController.view.addSubview(self.currentController!.view)
+            self.centerController.view.addSubview(self.currentController!.view)
             self.leftMenuHiddenAnimate()
           
         }
@@ -105,6 +105,8 @@ class XMMenuViewController: UIViewController {
      */
     convenience init(centerController : XMBaseNavController, leftController : UIViewController) {
         self.init(nibName:nil,bundle:nil)
+        self.view.backgroundColor = UI_COLOR_APPNORMAL
+        
         self.centerController = centerController
         self.homeController = centerController.viewControllers.first as? XMHomeViewController
         self.leftController = leftController
@@ -155,6 +157,7 @@ class XMMenuViewController: UIViewController {
      */
     private func addLeftController () {
         self.leftController.view.frame = CGRectMake(0, 0, menuWith, SCREEN_HEIGHT)
+        self.leftController.view.transform = CGAffineTransformMakeScale(0.5, 0.5)
         self.view.addSubview(self.leftController.view)
         self.addChildViewController(self.leftController)
     }
@@ -164,22 +167,17 @@ class XMMenuViewController: UIViewController {
      */
     private func addCover(){
         let cover : UIWindow = UIWindow(frame: centerController!.view.frame)
-        let tap : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
+        // 拖拽覆盖层事件
+        let pan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
         cover.backgroundColor = UIColor(red: 254/255.0, green: 254/255.0, blue: 254/255.0, alpha: 0.02)
-        cover.addGestureRecognizer(tap)
+        cover.addGestureRecognizer(pan)
         self.cover = cover
         self.centerController!.view.addSubview(cover)
+        // 点击覆盖层事件
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "leftMenuHiddenAnimate")
+        cover.addGestureRecognizer(tap)
     }
-    
-    /**
-     点击覆盖层按钮就隐藏左边菜单
-     
-     - parameter cover: 覆盖层按钮
-     */
-    func coverButtonDidClick(cover : UITapGestureRecognizer) {
-        self.leftMenuHiddenAnimate()
-        cover.view?.hidden = true
-    }
+
     /**
      在中间控制器手势操作是调用
      
@@ -220,6 +218,7 @@ class XMMenuViewController: UIViewController {
     func leftMenuShowAnimate() {
         UIView.animateWithDuration(animationDuration, animations: { [unowned self]() -> Void in
             self.centerController!.view.x = self.menuWith
+            self.leftController.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
             self.cover.hidden = false
         })
     }
@@ -228,15 +227,18 @@ class XMMenuViewController: UIViewController {
      *  隐藏左边菜单动画
      */
     func leftMenuHiddenAnimate () {
+        
         UIView.animateWithDuration(animationDuration, animations: { [unowned self]() -> Void in
             self.centerController!.view.x = 0
-             self.cover.hidden = true
-        })
+            self.cover.hidden = true
+            }) { (finish) -> Void in
+                self.leftController.view.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        }
     }
     
     func leftMenuSetupBackColor(notify : NSNotification) {
         let bg : String = notify.object as! String
-        self.leftController.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: bg)
+        self.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: bg)
     }
     
     func leftMenuSetupCenterView(notify : NSNotification) {
@@ -246,7 +248,7 @@ class XMMenuViewController: UIViewController {
                 self.type = .MenuViewControllerTypeHome
             case NOTIFY_OBJ_FINDAPP:
                 UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                    self.leftController.view.backgroundColor = UI_COLOR_APPNORMAL
+                    self.view.backgroundColor = UI_COLOR_APPNORMAL
                 })
                 self.type = .MenuViewControllerTypeFindApp
         default:

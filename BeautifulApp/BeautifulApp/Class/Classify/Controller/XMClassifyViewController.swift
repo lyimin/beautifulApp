@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SafariServices
 
 class XMClassifyViewController: UIViewController, XMClassifyCenterViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UI_COLOR_APPNORMAL
+        self.view.backgroundColor = UIColor.clearColor()
         
         self.view.addSubview(centerView)
         centerView.delegate = self
@@ -69,13 +70,30 @@ class XMClassifyViewController: UIViewController, XMClassifyCenterViewDelegate {
     }
     // 美我一下
     func classifyCenterViewSupportViewDidClick(centerView: XMClassifyCenterView, supportView: UIView) {
-        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_HIDDEMENU, object: nil)
+//        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_HIDDEMENU, object: nil)
+        UIApplication.sharedApplication().openURL(NSURL(string: APIConfig.API_APPStoreComment)!)
     }
     // 我的收藏
     func classifyCenterViewCollectViewDidClick(centerView: XMClassifyCenterView, collectView: UIView) {
         NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_HIDDEMENU, object: nil)
     }
+    // 搜索
+    func classifyCenterViewSearchViewDidClick(centerView: XMClassifyCenterView, searchView: UIView) {
+        self.presentViewController(XMSearchController(), animated: true, completion: nil)
+    }
     
+    // 招聘编辑
+    func classifyCenterViewInviteViewDidClick(center: XMClassifyCenterView, inviteView: UIView) {
+        let safaController : SFSafariViewController = SFSafariViewController(URL: NSURL(string: APIConfig.API_Invite)!)
+        self.presentViewController(safaController, animated: true, completion: nil)
+    }
+    
+    // 更多
+    func classifyCenterViewSettingViewDidClick(centerView: XMClassifyCenterView, settingView: UIView) {
+        self.presentViewController(XMBaseNavController(rootViewController:SettingViewController()), animated: true, completion: nil)
+    }
+    
+
     //MARK:- getter or Setter
     
     private var centerView : XMClassifyCenterView = {

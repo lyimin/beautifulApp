@@ -12,7 +12,7 @@ protocol XMHomeDetailCenterViewDelegate {
     func homeDetailCenterView(centerView : XMHomeDetailCenterView ,returnButtonDidClick returnButton : UIButton)
 }
 
-class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
+class XMHomeDetailCenterView: UIView, WKNavigationDelegate, UIScrollViewDelegate {
     // MARK:- VIEW
     
     // scrollview
@@ -50,9 +50,9 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
         }
         
         didSet {
-            self.headerImgView.sd_setImageWithURL(NSURL(string: model.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
+            self.headerImgView.xm_setBlurImageWithURL(NSURL(string: model.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
             // 图标
-            self.appIconView.sd_setImageWithURL(NSURL(string: model.icon_image!), placeholderImage: UIImage(named: "ic_launcher"))
+            self.appIconView.xm_setBlurImageWithURL(NSURL(string: model.icon_image!), placeholderImage: UIImage(named: "ic_launcher"))
             
             // 添加其他控件
             self.setupOtherData()
@@ -84,7 +84,7 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
         self.describeLabel.sizeToFit()
         
         // 添加http文段
-        contentWebView.delegate = self
+        contentWebView.navigationDelegate = self
         contentWebView.frame = CGRectMake(0, CGRectGetMaxY(self.describeLabel.frame)+20, SCREEN_WIDTH, 500)
         contentWebView.loadHTMLString(model.content!, baseURL: nil)
         self.centerScroll.addSubview(contentWebView)
@@ -106,11 +106,11 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
     private func toolBarToNavAnimation() {
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.collectButton.x = 60
-            self.collectLabel.hidden = true
+            self.collectLabel.alpha = 0
             self.shareButton.x = 110
-            self.shareLabel.hidden = true
+            self.shareLabel.alpha = 0
             self.downloadButton.x = 160
-            self.downloadLabel.hidden = true
+            self.downloadLabel.alpha = 0
         })
     }
     
@@ -122,36 +122,36 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
             self.shareButton.x = 130
             self.downloadButton.x = 205
             
+            self.collectLabel.alpha = 1
+            self.shareLabel.alpha = 1
+            self.downloadLabel.alpha = 1
             }) { (finish) -> Void in
-                self.collectLabel.hidden = false
-                self.shareLabel.hidden = false
-                self.downloadLabel.hidden = false
+                
         }
     }
     // UIScrollview Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.updateHeaderView()
-        if scrollView.contentOffset.y >= 210 {
+        if scrollView.contentOffset.y >= 215 {
             self.toolBarView.y = 20
             // 显示在标题栏动画
             self.toolBarToNavAnimation()
             
         } else {
-            self.toolBarView.y = 230 - scrollView.contentOffset.y
+            self.toolBarView.y = 235 - scrollView.contentOffset.y
             self.toolBarToScrollAnimation()
         }
-        print(scrollView.contentOffset.y)
     }
 
-    // UIWebview delegate
-    func webViewDidFinishLoad(webView: UIWebView) {
+    // WKWebview delegate
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         let tempView : UIScrollView = contentWebView.subviews.first as! UIScrollView
         tempView.scrollEnabled = false
         contentWebView.height = tempView.contentSize.height
         // 设置contentsize
         self.centerScroll.contentSize = CGSize(width: 0, height: contentWebView.y+tempView.contentSize.height)
     }
-    
     
     // Action Event
     
@@ -169,9 +169,8 @@ class XMHomeDetailCenterView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
     }()
     
     // 内容
-    private var contentWebView : UIWebView = {
-        let contentWebView : UIWebView = UIWebView()
-        contentWebView.userInteractionEnabled = false
+    private var contentWebView : WKWebView = {
+        let contentWebView : WKWebView = WKWebView()
         return contentWebView
     }()
     

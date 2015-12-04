@@ -18,6 +18,7 @@ class XMHomeCenterItemView: UICollectionViewCell {
     // 详情
     @IBOutlet weak var detailLabel: UILabel!
     // 喜欢数
+    @IBOutlet weak var fovView: XMView!
     @IBOutlet weak var fovCountLabel: UILabel!
     // 作者
     @IBOutlet weak var authorLabel: UILabel!
@@ -30,9 +31,15 @@ class XMHomeCenterItemView: UICollectionViewCell {
         didSet {
             self.titleLabel.text = homeModel.title
             self.subTitleLabel.text = homeModel.sub_title
-            self.centerImgView.sd_setImageWithURL(NSURL(string: homeModel.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
+            self.centerImgView.xm_setBlurImageWithURL(NSURL(string: homeModel.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
             self.detailLabel.text = homeModel.digest
-            self.fovCountLabel.text = homeModel.info?.fav
+            self.detailLabel.sizeToFit()
+            if homeModel.info?.fav == nil || homeModel.info?.fav == "0" {
+                self.fovView.hidden = true
+            } else {
+                self.fovCountLabel.text = homeModel.info?.fav
+            }
+            
             self.authorLabel.text = homeModel.author_username
         }
     }
