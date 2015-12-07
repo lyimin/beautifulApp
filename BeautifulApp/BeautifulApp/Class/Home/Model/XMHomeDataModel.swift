@@ -39,6 +39,8 @@ class XMHomeDataModel: NSObject {
     var tags : String?
     // 二维码
     var qrcode_image : String?
+    // 下载地址
+    var download_url : String?
     
     // up_users 模型
     var up_users : Array<XMUpUserDataModel> = Array()
@@ -53,7 +55,7 @@ class XMHomeDataModel: NSObject {
     convenience init(dict : NSDictionary) {
         self.init()
         
-        self.id = "\(dict["id"])";
+        self.id = "\(dict["id"]!)";
         self.recommanded_background_color = dict["recommanded_background_color"] as? String
         self.title = dict["title"] as? String
         self.sub_title = dict["sub_title"] as? String
@@ -68,7 +70,7 @@ class XMHomeDataModel: NSObject {
         self.content = dict["content"] as? String
         self.tags = dict["tags"] as? String
         self.qrcode_image = dict["qrcode_image"] as? String
-        
+        self.download_url = dict["download_url"] as? String
         // up_users 模型
         let upuserArray : NSArray = dict["up_users"] as! NSArray
         

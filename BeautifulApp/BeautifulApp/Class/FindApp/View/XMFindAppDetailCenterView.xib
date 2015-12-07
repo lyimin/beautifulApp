@@ -76,6 +76,9 @@
                             <rect key="frame" x="70" y="0.0" width="30" height="30"/>
                             <animations/>
                             <state key="normal" title="Button" image="detail_icon_share_normal"/>
+                            <connections>
+                                <action selector="shareBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="5FE-y8-2QV"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分享" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOa-oo-PaS">
                             <rect key="frame" x="105" y="5" width="30" height="20"/>
@@ -88,6 +91,9 @@
                             <rect key="frame" x="145" y="0.0" width="30" height="30"/>
                             <animations/>
                             <state key="normal" title="Button" image="detail_icon_download_normal"/>
+                            <connections>
+                                <action selector="downLoadBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gXg-Zg-iQC"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-I1-z78">
                             <rect key="frame" x="180" y="5" width="40" height="20"/>

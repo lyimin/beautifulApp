@@ -93,7 +93,6 @@ class XMFindAppViewModel: NSObject {
                     self.lastestView.headerViewStopPullToRefresh()
                     self.lastestView.footerEndRefreshing()
                 }
-                
         }
         
     }

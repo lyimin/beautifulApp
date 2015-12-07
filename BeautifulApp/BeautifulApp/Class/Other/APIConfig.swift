@@ -46,4 +46,6 @@ class APIConfig: NSObject {
     static let API_Search : String = API_Server+"/search/?"+API_openUDID+API_systemVersion+API_appVersion+API_resolution+API_platform
     // 9.发现应用 - 评论 参数:  app_id,comment_id:上一条评论的id
     static let API_FindApp_comments : String = API_Server+"/community/comments/?"+API_appVersion+API_openUDID+API_pageSize+API_platform+API_resolution+API_systemVersion
+    // 10.每日最美 -评论 参数 app,page
+    static let API_Home_Comment : String = API_Server+"/apps/comment?"+API_appVersion+API_openUDID+API_pageSize+API_platform+API_resolution+API_systemVersion
 }

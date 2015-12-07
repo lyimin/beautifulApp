@@ -11,6 +11,10 @@ import UIKit
 protocol FindAppDetailCenterViewDelegate {
     // 点击返回键
     func FindAppDetailCenterViewReturnBtnDidClick()
+    // 点击下载
+    func FindAppDetailDownLoadBtnDidClick()
+    // 点击分享
+    func FindAppDetailShareBtnDidClick()
 }
 
 class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
@@ -97,7 +101,7 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
         for i in 0..<dataModel.all_images.count {
             let url : String = self.dataModel.all_images[i]
             // 根据url 获取图片高度
-            let size : CGSize = url.getImageSizeWithURL(url)
+            let size : CGSize = url.getImageSizeWithURL()
             // 获取 _ 的位置
             let imgView : UIImageView = self.createImgView()
             imgView.frame = CGRectMake(10, contentY, size.width, size.height)
@@ -137,6 +141,7 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
             let commentLabel = self.createTitleViwe("评论")
             commentLabel.frame = CGRectMake(margin, contentY+2*margin, 35, 20)
             contentY = CGRectGetMaxY(commentLabel.frame)+margin;
+            commentY = CGRectGetMaxY(commentLabel.frame)+margin
             // 分割线
             let sepLine = self.createTitleSeparatLine()
             sepLine.frame = CGRectMake(CGRectGetMaxX(commentLabel.frame), commentLabel.center.y, 80, 0.5)
@@ -144,10 +149,12 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
             // 添加评论
             for i in 0..<dataModel.comments.count {
                 let commentView : XMFindAppDetailCommentCell = XMFindAppDetailCommentCell(frame: CGRectMake(0, contentY, SCREEN_WIDTH, 50))
-                commentView.commentModel = self.dataModel.comments[i]
+                commentView.setData(self.dataModel.comments[i])
                 self.centerView.addSubview(commentView)
                 contentY += commentView.height
             }
+        } else {
+            commentY = self.centerScrollView.contentSize.height-UI_MARGIN_10
         }
         
     //设置contentsize
@@ -163,7 +170,7 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
             // 添加评论
             for i in 0..<comments.count {
                 let commentView : XMFindAppDetailCommentCell = XMFindAppDetailCommentCell(frame: CGRectMake(0, contentY, SCREEN_WIDTH, 50))
-                commentView.commentModel = comments[i]
+                commentView.setData(comments[i])
                 self.centerView.addSubview(commentView)
                 contentY += commentView.height
             }
@@ -212,11 +219,11 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
     
     //MARK:- ScrollViewDelegate 
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
         if scrollView.contentOffset.y >= 135 {
             self.toolBar.y = 20
             // 显示在标题栏动画
             self.toolBarToNavAnimation()
+            
         } else {
             self.toolBar.y = 155 - scrollView.contentOffset.y
             self.toolBarToScrollAnimation()
@@ -230,6 +237,12 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
         self.delegate?.FindAppDetailCenterViewReturnBtnDidClick()
     }
     
+    @IBAction func shareBtnDidClick(sender: UIButton) {
+        self.delegate?.FindAppDetailShareBtnDidClick()
+    }
+    @IBAction func downLoadBtnDidClick(sender: UIButton) {
+        self.delegate?.FindAppDetailDownLoadBtnDidClick()
+    }
     //MARK: - Private Methods
     private func toolBarToNavAnimation() {
         UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -291,7 +304,7 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
     
     //MARK：-Getter or Setter
     private var contentY : CGFloat = 0
-    
+    private var commentY : CGFloat = 0
     private lazy var contentLabel : YYLabel = {
         var contentLabel : YYLabel = YYLabel()
         contentLabel.font = UI_FONT_14
@@ -300,5 +313,11 @@ class XMFindAppDetailCenterView: UIView, UIScrollViewDelegate {
         return contentLabel
     }()
     
-//    private lazy var refreshCommentArray : Array<XMFindAppCommentModel> = Array()
+//    private lazy var bottomView : XMFindAppDetailBottomView = {
+//        var bottomView : XMFindAppDetailBottomView = XMFindAppDetailBottomView.bottomView()
+//        bottomView.delegate = self
+//        bottomView.y = self.height-bottomView.height
+//        return bottomView
+//    
+//    }()
 }

@@ -15,7 +15,7 @@ let NETWORK_TIMEOUT: NSTimeInterval = 15
 
 // MARK: - 颜色
 // 默认背景色
-let UI_COLOR_APPNORMAL : UIColor = UIColor(red: 55/255.0, green: 140/255.0, blue: 200/155.0, alpha: 1)
+let UI_COLOR_APPNORMAL : UIColor = UIColor(red: 54/255.0, green: 142/255.0, blue: 198/155.0, alpha: 1)
 let UI_COLOR_BORDER : UIColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1)
 // MARK: - 字体
 let UI_FONT_18 = UIFont.systemFontOfSize(18)

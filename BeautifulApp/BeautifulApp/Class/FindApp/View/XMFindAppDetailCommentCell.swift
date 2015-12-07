@@ -9,15 +9,6 @@
 import UIKit
 
 class XMFindAppDetailCommentCell: UIView {
-    var commentModel : XMFindAppCommentModel! {
-        willSet {
-            self.commentModel = newValue
-        }
-        
-        didSet {
-            self.setData()
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,28 +38,57 @@ class XMFindAppDetailCommentCell: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setData() {
-        // 1.设置头像
-        self.userImgView.xm_setBlurImageWithURL(NSURL(string: commentModel.author_avatar_url!), placeholderImage: UIImage(named: "detail_portrait_default"))
-        // 2.设置名字
-        self.userNameLabel.text = commentModel.author_name!
-        // 3.设置详情
-        self.userDetailLabel.text = commentModel.author_career!
-        // 4.时间
-        self.timeLabel.text = commentModel.updated_at!
-        // 5.评论内容
-        let attributStr : NSMutableAttributedString = NSMutableAttributedString(string: commentModel.content!)
-        attributStr.setAttributes([NSFontAttributeName : UI_FONT_12], range: NSMakeRange(0, commentModel.content!.length))
-        attributStr.yy_color = UIColor.darkGrayColor()
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 5.0
-        attributStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, commentModel.content!.length))
-        let textLayout = YYTextLayout (containerSize: CGSize(width: commentBg.width-2*UI_MARGIN_10, height: CGFloat.max), text: attributStr)
-        commentLabel.size = textLayout.textBoundingSize
-        commentLabel.textLayout = textLayout
-        // 设置frame
-        self.commentBg.height = CGRectGetMaxY(commentLabel.frame)+UI_MARGIN_10
-        self.height = CGRectGetMaxY(commentBg.frame)+UI_MARGIN_10
+    func setData<T where T : NSObject>(model : T) {
+        if model is XMFindAppCommentModel {
+            let commentModel : XMFindAppCommentModel = model as! XMFindAppCommentModel
+            // 1.设置头像
+            self.userImgView.xm_setBlurImageWithURL(NSURL(string: commentModel.author_avatar_url!), placeholderImage: UIImage(named: "detail_portrait_default"))
+            // 2.设置名字
+            self.userNameLabel.text = commentModel.author_name!
+            // 3.设置详情
+            self.userDetailLabel.text = commentModel.author_career!
+            // 4.时间
+            self.timeLabel.text = commentModel.updated_at!
+            // 5.评论内容
+            let attributStr : NSMutableAttributedString = NSMutableAttributedString(string: commentModel.content!)
+            attributStr.setAttributes([NSFontAttributeName : UI_FONT_12], range: NSMakeRange(0, commentModel.content!.length))
+            attributStr.yy_color = UIColor.darkGrayColor()
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 5.0
+            attributStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, commentModel.content!.length))
+            let textLayout = YYTextLayout (containerSize: CGSize(width: commentBg.width-2*UI_MARGIN_10, height: CGFloat.max), text: attributStr)
+            commentLabel.size = textLayout.textBoundingSize
+            commentLabel.textLayout = textLayout
+            // 设置frame
+            self.commentBg.height = CGRectGetMaxY(commentLabel.frame)+UI_MARGIN_10
+            self.height = CGRectGetMaxY(commentBg.frame)+UI_MARGIN_10
+
+        } else if model is XMCommentsDataModel {
+            let commentModel : XMCommentsDataModel = model as! XMCommentsDataModel
+            // 1.设置头像
+            self.userImgView.xm_setBlurImageWithURL(NSURL(string: commentModel.author_avatar_url!), placeholderImage: UIImage(named: "detail_portrait_default"))
+            // 2.设置名字
+            self.userNameLabel.text = commentModel.author_name!
+            // 3.设置详情
+            self.userDetailLabel.text = commentModel.author_career!
+            // 4.时间
+            self.timeLabel.text = commentModel.updated_at!
+            // 5.评论内容
+            let attributStr : NSMutableAttributedString = NSMutableAttributedString(string: commentModel.content!)
+            attributStr.setAttributes([NSFontAttributeName : UI_FONT_12], range: NSMakeRange(0, commentModel.content!.length))
+            attributStr.yy_color = UIColor.darkGrayColor()
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 5.0
+            attributStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, commentModel.content!.length))
+            let textLayout = YYTextLayout (containerSize: CGSize(width: commentBg.width-2*UI_MARGIN_10, height: CGFloat.max), text: attributStr)
+            commentLabel.size = textLayout.textBoundingSize
+            commentLabel.textLayout = textLayout
+            // 设置frame
+            self.commentBg.height = CGRectGetMaxY(commentLabel.frame)+UI_MARGIN_10
+            self.height = CGRectGetMaxY(commentBg.frame)+UI_MARGIN_10
+
+        }
+        
     }
     
     // 头像

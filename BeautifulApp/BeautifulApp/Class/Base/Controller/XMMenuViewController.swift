@@ -176,6 +176,8 @@ class XMMenuViewController: UIViewController {
         // 点击覆盖层事件
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "leftMenuHiddenAnimate")
         cover.addGestureRecognizer(tap)
+        
+        self.view.bringSubviewToFront(cover)
     }
 
     /**

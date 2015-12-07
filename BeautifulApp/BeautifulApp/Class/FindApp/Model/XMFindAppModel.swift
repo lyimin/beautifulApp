@@ -42,6 +42,7 @@ class XMFindAppModel: NSObject {
     // 中间图片
     var cover_image : String?
     var pos : String?
+    var up_times : String?
     
     // 图片
     var all_images : Array<String> = Array()
@@ -74,6 +75,7 @@ class XMFindAppModel: NSObject {
         self.author_avatar_url = dict["author_avatar_url"] as? String
         self.cover_image = dict["cover_image"] as? String
         self.pos = "\(dict["pos"]!)"
+        self.up_times = "\(dict["up_times"]!)"
         // 图片 
         let photoArray : NSArray = dict["all_images"] as! NSArray
         for photo in photoArray {

@@ -10,10 +10,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXj-Qc-FEf">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXj-Qc-FEf">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="We0-HG-KmV">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="We0-HG-KmV">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <subviews>
                                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_logo_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="p6D-Gt-VTm">
@@ -49,24 +49,7 @@
                         </view>
                     </subviews>
                     <animations/>
-                    <constraints>
-                        <constraint firstItem="We0-HG-KmV" firstAttribute="centerY" secondItem="ZXj-Qc-FEf" secondAttribute="centerY" id="JZD-8X-sBV"/>
-                        <constraint firstItem="We0-HG-KmV" firstAttribute="centerX" secondItem="ZXj-Qc-FEf" secondAttribute="centerX" id="Trq-gU-nlO"/>
-                        <constraint firstItem="We0-HG-KmV" firstAttribute="leading" secondItem="ZXj-Qc-FEf" secondAttribute="leading" id="Ux2-vm-cg5"/>
-                        <constraint firstAttribute="bottom" secondItem="We0-HG-KmV" secondAttribute="bottom" id="r34-nW-VQM"/>
-                        <constraint firstAttribute="trailing" secondItem="We0-HG-KmV" secondAttribute="trailing" id="s6V-BE-Yw5"/>
-                        <constraint firstItem="We0-HG-KmV" firstAttribute="top" secondItem="ZXj-Qc-FEf" secondAttribute="top" id="udW-V5-8A9"/>
-                    </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbR-0D-4QE" userLabel="返回">
-                    <rect key="frame" x="10" y="20" width="30" height="30"/>
-                    <animations/>
-                    <state key="normal" image="detail_icon_back_normal"/>
-                    <state key="highlighted" image="detail_icon_back_pressed"/>
-                    <connections>
-                        <action selector="returnButtonDidClick:" destination="HwS-oI-2yO" eventType="touchUpInside" id="Lbu-Op-M73"/>
-                    </connections>
-                </button>
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="clw-HK-scB" userLabel="工具条">
                     <rect key="frame" x="0.0" y="235" width="320" height="30"/>
                     <subviews>
@@ -74,6 +57,9 @@
                             <rect key="frame" x="55" y="0.0" width="30" height="30"/>
                             <animations/>
                             <state key="normal" title="Button" image="detail_icon_fav_normal"/>
+                            <connections>
+                                <action selector="collectBtnDidClick:" destination="HwS-oI-2yO" eventType="touchUpInside" id="Emq-Wf-ekG"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gah-V9-pcy">
                             <rect key="frame" x="90" y="5" width="30" height="20"/>
@@ -86,6 +72,9 @@
                             <rect key="frame" x="130" y="0.0" width="30" height="30"/>
                             <animations/>
                             <state key="normal" title="Button" image="detail_icon_share_normal"/>
+                            <connections>
+                                <action selector="shareBtnDidClick:" destination="HwS-oI-2yO" eventType="touchUpInside" id="65k-Dd-VJ0"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分享" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYQ-zl-2S1">
                             <rect key="frame" x="165" y="5" width="30" height="20"/>
@@ -98,6 +87,9 @@
                             <rect key="frame" x="205" y="0.0" width="30" height="30"/>
                             <animations/>
                             <state key="normal" title="Button" image="detail_icon_download_normal"/>
+                            <connections>
+                                <action selector="downLoadBtnDidClick:" destination="HwS-oI-2yO" eventType="touchUpInside" id="E33-pA-Kzk"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3T-iz-YNf">
                             <rect key="frame" x="240" y="5" width="40" height="20"/>
@@ -110,6 +102,15 @@
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbR-0D-4QE" userLabel="返回">
+                    <rect key="frame" x="10" y="20" width="30" height="30"/>
+                    <animations/>
+                    <state key="normal" image="detail_icon_back_normal"/>
+                    <state key="highlighted" image="detail_icon_back_pressed"/>
+                    <connections>
+                        <action selector="returnButtonDidClick:" destination="HwS-oI-2yO" eventType="touchUpInside" id="Lbu-Op-M73"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,6 +124,7 @@
             <connections>
                 <outlet property="appIconView" destination="4CN-zl-Z7F" id="HtV-e0-Fha"/>
                 <outlet property="centerScroll" destination="ZXj-Qc-FEf" id="62e-2e-gjC"/>
+                <outlet property="centerView" destination="We0-HG-KmV" id="a9Y-hA-Ah6"/>
                 <outlet property="collectButton" destination="GPE-CZ-S1u" id="vea-ty-Zgf"/>
                 <outlet property="collectLabel" destination="gah-V9-pcy" id="RqU-Dc-2az"/>
                 <outlet property="detailLabel" destination="Wau-bM-0bp" id="9N9-gH-ieW"/>

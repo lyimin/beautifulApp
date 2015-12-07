@@ -12,7 +12,7 @@ class XMHomeBottomFlowLayout: UICollectionViewFlowLayout {
     override func prepareLayout() {
         super.prepareLayout()
         
-        self.itemSize = CGSizeMake(38, 60)
+        self.itemSize = CGSizeMake(SCREEN_WIDTH/8-2, 60)
         self.scrollDirection = UICollectionViewScrollDirection.Horizontal
         self.sectionInset = UIEdgeInsetsMake(0, 2, 0, 2)
         self.minimumLineSpacing = 2

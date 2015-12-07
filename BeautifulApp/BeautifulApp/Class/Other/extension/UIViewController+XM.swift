@@ -10,20 +10,20 @@ import UIKit
 
 extension UIViewController {
     
-//    func showNetWorkErrorView () {
-//        let errorView : UIButton = UIButton(frame: CGRectMake(85, 170, 150, 145))
-//        errorView.setImage(UIImage(named: "not_network_icon_unpre"), forState: .Normal)
-//        errorView.setImage(UIImage(named: "not_network_icon_pre"), forState: .Highlighted)
-//        errorView.addTarget(self, action: "errorViewDidClick:", forControlEvents: .TouchUpInside)
-//        self.view.addSubview(errorView)
-//        // 让他处在view的最上层
-//        self.view.bringSubviewToFront(errorView)
-//    }
-//    
-//    func errorViewDidClick(errorView : UIButton) {
-//        errorView.removeFromSuperview()
-//        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_ERRORBTNCLICK, object: nil)
-//    }
+    func showNetWorkErrorView () {
+        let errorView : UIButton = UIButton(frame: CGRectMake(85, 170, 150, 145))
+        errorView.setImage(UIImage(named: "not_network_icon_unpre"), forState: .Normal)
+        errorView.setImage(UIImage(named: "not_network_icon_pre"), forState: .Highlighted)
+        errorView.addTarget(self, action: "errorViewDidClick:", forControlEvents: .TouchUpInside)
+        self.view.addSubview(errorView)
+        // 让他处在view的最上层
+        self.view.bringSubviewToFront(errorView)
+    }
+    
+    func errorViewDidClick(errorView : UIButton) {
+        errorView.removeFromSuperview()
+        NSNotificationCenter.defaultCenter().postNotificationName(NOTIFY_ERRORBTNCLICK, object: nil)
+    }
     
     func showProgress () {
         let progressView : UIImageView = UIImageView(frame: CGRectMake(0, 0, 40, 40))

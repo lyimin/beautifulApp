@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="38" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-fn-9p1">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-fn-9p1">
                         <rect key="frame" x="2" y="2" width="34" height="34"/>
                         <animations/>
                     </imageView>
@@ -23,6 +23,12 @@
             </view>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IWn-fn-9p1" secondAttribute="trailing" constant="2" id="9Hb-Ez-mrq"/>
+                <constraint firstItem="IWn-fn-9p1" firstAttribute="leading" secondItem="GjI-c6-98J" secondAttribute="leading" constant="2" id="9Pc-SR-x9k"/>
+                <constraint firstItem="IWn-fn-9p1" firstAttribute="top" secondItem="GjI-c6-98J" secondAttribute="top" constant="2" id="X0P-B4-BeB"/>
+                <constraint firstAttribute="bottom" secondItem="IWn-fn-9p1" secondAttribute="bottom" constant="24" id="gV7-1Y-POg"/>
+            </constraints>
             <connections>
                 <outlet property="iconView" destination="IWn-fn-9p1" id="gVq-ff-FTV"/>
             </connections>

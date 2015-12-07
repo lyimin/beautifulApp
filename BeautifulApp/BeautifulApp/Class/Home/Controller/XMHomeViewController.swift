@@ -87,7 +87,23 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             })
         })
         
-        self.centerCollectView.headerViewBeginRefreshing()
+        // 首次加载时中间显示加载框
+        self.showProgress()
+        self.viewModel.getData(self.page, successCallBack: { (dataSoure) -> Void in
+            
+            // 默认选中0
+            self.lastIndex = nil
+            self.index = 0
+            self.bottomCollectView.setContentOffset(CGPointZero, animated: false)
+            self.scrollViewDidEndDecelerating(self.centerCollectView)
+            
+            self.hiddenProgress()
+            }) { (error) -> Void in
+                // 显示网络错误按钮
+                self.showNetWorkErrorView()
+                self.hiddenProgress()
+        }
+//        self.centerCollectView.headerViewBeginRefreshing()
     }
         //MARK: - scrollerDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -165,9 +181,9 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     }
     
     // MARK: - Event OR Action
-//    func errorBtnDidClick() {
-//        self.centerCollectView.headerViewBeginRefreshing()
-//    }
+    func errorBtnDidClick() {
+        self.centerCollectView.headerViewBeginRefreshing()
+    }
     
     //MARK: - private methods
     // 底部标签动画
@@ -241,7 +257,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     // 头部headerview
     private var headerView : XMHomeHeaderView = {
         let headerView : XMHomeHeaderView = XMHomeHeaderView.headerView()
-        headerView.frame = CGRectMake(0, 20, SCREEN_WIDTH, headerView.height)
+//        headerView.frame = CGRectMake(0, 20, SCREEN_WIDTH, headerView.height)
         return headerView
     }()
     
@@ -264,6 +280,13 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         let collectView : XMHomeBottomCollectView = XMHomeBottomCollectView(frame: CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60), collectionViewLayout: collectionLayout)
         return collectView
     }()
+    
+    // MARK: - 屏幕适配
+    override func layoutSublayersOfLayer(layer: CALayer) {
+        super.layoutSublayersOfLayer(layer)
+        
+        
+    }
     
 
 }

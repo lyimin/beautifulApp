@@ -13,36 +13,47 @@ extension String {
         return self.characters.count
     }
     
-    func getImageSizeWithURL(url : String) -> CGSize {
+    func getImageSizeWithURL() -> CGSize {
         // 获取 _ 的位置
-        let firstIndex : NSRange = (url as NSString).rangeOfString("_")
-        let secondIndexJPG : NSRange = (url as NSString).rangeOfString(".JPG")
-        let secondIndexPNG : NSRange = (url as NSString).rangeOfString(".PNG")
-        var sizeString = url
-        if secondIndexJPG.location < 100 {
-            // 图片时jpg
-            sizeString = (url as NSString).substringWithRange(NSMakeRange(firstIndex.location+1, secondIndexJPG.location - firstIndex.location))
-        } else {
-            // 图片是png
-            sizeString = (url as NSString).substringWithRange(NSMakeRange(firstIndex.location+1, secondIndexPNG.location - firstIndex.location))
-        }
+        let firstIndex : NSRange = (self as NSString).rangeOfString("_")
+        let imgType : [String] = [".JPG",".jpg",".JPEG",".jpeg",".PNG",".png",""]
         
-        let size = sizeString.componentsSeparatedByString("x")
-        
-        if let widthFormatter = NSNumberFormatter().numberFromString(size.first!){
-            if let heightFormatter = NSNumberFormatter().numberFromString(size.last!) {
-                
-                var width = CGFloat(widthFormatter)
-                var height = CGFloat(heightFormatter)
-                if width > SCREEN_WIDTH - 20 {
-                    width = SCREEN_WIDTH - 20
-                    height = width * height / CGFloat(widthFormatter)
-                }
-                
-                return CGSize(width: CGFloat(width), height: CGFloat(height))
+        var currType = imgType.last
+        var typeRange : NSRange!
+        for type in imgType {
+            typeRange = (self as NSString).rangeOfString(type)
+            if typeRange.location < 100 {
+                currType = type
+                break;
             }
         }
+        var sizeString = self
+        guard currType != "" else {
+            print ("图片类型错误:\(self)")
+            return CGSizeZero
+        }
         
-        return CGSizeZero
+        sizeString = (self as NSString).substringWithRange(NSMakeRange(firstIndex.location+1, typeRange.location - firstIndex.location-1))
+        
+        let size = sizeString.componentsSeparatedByString("x")
+        let widthFormatter = NSNumberFormatter().numberFromString(size.first!)
+        let heightFormatter = NSNumberFormatter().numberFromString(size.last!)
+        
+        guard let _ = widthFormatter else {
+            return CGSizeZero
+        }
+        guard let _ = heightFormatter else {
+            return CGSizeZero
+        }
+        
+        var width = CGFloat(widthFormatter!)
+        var height = CGFloat(heightFormatter!)
+        if width > SCREEN_WIDTH - 20 {
+            width = SCREEN_WIDTH - 20
+            height = width * height / CGFloat(widthFormatter!)
+        }
+        
+        return CGSize(width: CGFloat(width), height: CGFloat(height))
+        
     }
 }
