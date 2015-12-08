@@ -19,11 +19,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="HoT-ac-g3j"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_logo_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-Q6-Nd2">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_logo_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-Q6-Nd2">
                         <rect key="frame" x="0.0" y="70" width="310" height="180"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,7 +34,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="coi-IM-sZP"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8Q-hp-c3Y" customClass="XMView" customModule="BeautifulApp" customModuleProvider="target">
@@ -82,7 +82,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="EiA-Wy-Keh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

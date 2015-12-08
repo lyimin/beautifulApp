@@ -38,6 +38,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorBtnDidClick", name: NOTIFY_ERRORBTNCLICK, object: nil)
         // 初始化界面
         self.view.backgroundColor = UI_COLOR_APPNORMAL
@@ -103,6 +104,8 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
                 self.showNetWorkErrorView()
                 self.hiddenProgress()
         }
+        // 适配屏幕
+        self.setupLayout()
 //        self.centerCollectView.headerViewBeginRefreshing()
     }
         //MARK: - scrollerDelegate
@@ -281,11 +284,26 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         return collectView
     }()
     
+    
+    
     // MARK: - 屏幕适配
-    override func layoutSublayersOfLayer(layer: CALayer) {
-        super.layoutSublayersOfLayer(layer)
+    func setupLayout() {
+        headerView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.view.snp_topMargin).offset(20)
+            make.height.equalTo(SCREEN_HEIGHT*50/IPHONE5_HEIGHT)
+            make.left.right.equalTo(self.view)
+        }
         
+        bottomCollectView.snp_makeConstraints { (make) -> Void in
+            make.left.right.bottom.equalTo(self.view)
+            make.height.equalTo(SCREEN_HEIGHT*60/IPHONE5_HEIGHT)
+        }
         
+        centerCollectView.snp_makeConstraints { (make) -> Void in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(headerView).offset(headerView.height)
+            make.height.equalTo(SCREEN_HEIGHT*420/IPHONE5_HEIGHT)
+        }
     }
     
 

@@ -224,7 +224,7 @@
 		F1414E891C049BAA00880C1F /* XMFindAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppCell.swift; sourceTree = "<group>"; };
 		F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppCell.xib; sourceTree = "<group>"; };
 		F171CCB31BEBB15300F61307 /* BeautifulApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautifulApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F171CCB61BEBB15300F61307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../AppDelegate.swift; sourceTree = "<group>"; };
+		F171CCB61BEBB15300F61307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		F171CCBD1BEBB15300F61307 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F171CCC21BEBB15300F61307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17847F51C0AB7D900C5A8CF /* XMSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMSearchController.swift; sourceTree = "<group>"; };
@@ -655,7 +655,6 @@
 		F1975B5B1C045BEE001A983D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F171CCB61BEBB15300F61307 /* AppDelegate.swift */,
 				F1975B601C045D60001A983D /* XMFindAppHeaderView.xib */,
 				F1975B5E1C045D53001A983D /* XMFindAppHeaderView.swift */,
 				F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */,
@@ -672,6 +671,7 @@
 		F1A6F2E61BEF934200786700 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F171CCB61BEBB15300F61307 /* AppDelegate.swift */,
 				F17847F11C0AB7AC00C5A8CF /* Search */,
 				F1F912601C084E92009F5707 /* Setting */,
 				F1F222531BFE187100E926AF /* Detail */,

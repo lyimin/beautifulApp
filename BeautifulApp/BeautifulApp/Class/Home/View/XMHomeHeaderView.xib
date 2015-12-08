@@ -21,11 +21,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmH-qX-juy">
-                    <rect key="frame" x="235" y="15" width="25" height="25"/>
+                    <rect key="frame" x="220" y="10" width="30" height="30"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="HSS-es-cdD"/>
-                        <constraint firstAttribute="height" constant="25" id="Zoe-Wx-DVW"/>
+                        <constraint firstAttribute="width" constant="30" id="9cg-Zi-LKa"/>
+                        <constraint firstAttribute="height" constant="30" id="vkF-qw-38O"/>
                     </constraints>
                     <state key="normal" title="Button" image="backtohome_normal"/>
                     <state key="highlighted" image="backtohome_pressed"/>
@@ -34,22 +34,22 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh1-XB-3H5">
-                    <rect key="frame" x="270" y="12" width="50" height="15"/>
+                    <rect key="frame" x="260" y="10" width="50" height="15"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="S62-Sr-3LX"/>
-                        <constraint firstAttribute="width" constant="50" id="YOd-qJ-D8h"/>
+                        <constraint firstAttribute="width" constant="50" id="Ocj-Qi-d72"/>
+                        <constraint firstAttribute="height" constant="15" id="Sub-e2-OYM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gov-Mw-e8J">
-                    <rect key="frame" x="270" y="28" width="50" height="15"/>
+                    <rect key="frame" x="260" y="25" width="50" height="15"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="gtd-rd-0nm"/>
-                        <constraint firstAttribute="width" constant="50" id="tbw-Zs-hqk"/>
+                        <constraint firstAttribute="height" constant="15" id="K4Q-IJ-d9z"/>
+                        <constraint firstAttribute="width" constant="50" id="jE5-KO-NAY"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,19 +78,20 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="xgL-EZ-0hc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2G6-TB-eai"/>
+                <constraint firstItem="gov-Mw-e8J" firstAttribute="top" secondItem="wh1-XB-3H5" secondAttribute="bottom" id="8EW-69-2sJ"/>
+                <constraint firstItem="Hkx-ZV-WQk" firstAttribute="leading" secondItem="mmH-qX-juy" secondAttribute="trailing" id="8Ky-pk-Rdg"/>
                 <constraint firstItem="SAd-jV-473" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="8i2-mq-Pe3"/>
-                <constraint firstAttribute="bottom" secondItem="mmH-qX-juy" secondAttribute="bottom" constant="10" id="AcS-Gu-vO3"/>
-                <constraint firstItem="gov-Mw-e8J" firstAttribute="top" secondItem="wh1-XB-3H5" secondAttribute="bottom" constant="1" id="GR4-6C-Dpt"/>
+                <constraint firstAttribute="trailing" secondItem="gov-Mw-e8J" secondAttribute="trailing" constant="10" id="EAt-0A-xWD"/>
                 <constraint firstItem="xgL-EZ-0hc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NID-ZH-ACc"/>
                 <constraint firstItem="SAd-jV-473" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Ofc-oR-72E"/>
-                <constraint firstItem="wh1-XB-3H5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="X4N-xK-zeW"/>
+                <constraint firstItem="gov-Mw-e8J" firstAttribute="trailing" secondItem="wh1-XB-3H5" secondAttribute="trailing" id="RSh-qN-28M"/>
+                <constraint firstItem="mmH-qX-juy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="a2a-eD-MDi"/>
+                <constraint firstItem="wh1-XB-3H5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="aZ7-zf-3vl"/>
                 <constraint firstAttribute="trailing" secondItem="Hkx-ZV-WQk" secondAttribute="trailing" constant="10" id="f66-vq-zmq"/>
                 <constraint firstItem="Hkx-ZV-WQk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="kfi-Cd-L3u"/>
-                <constraint firstAttribute="trailing" secondItem="gov-Mw-e8J" secondAttribute="trailing" id="pS6-AY-E1f"/>
+                <constraint firstAttribute="trailing" secondItem="wh1-XB-3H5" secondAttribute="trailing" constant="10" id="mKm-Mq-ZEA"/>
                 <constraint firstAttribute="bottom" secondItem="Hkx-ZV-WQk" secondAttribute="bottom" constant="10" id="pae-Se-JEO"/>
                 <constraint firstAttribute="bottom" secondItem="xgL-EZ-0hc" secondAttribute="bottom" id="tgx-TA-G3J"/>
-                <constraint firstItem="gov-Mw-e8J" firstAttribute="leading" secondItem="mmH-qX-juy" secondAttribute="trailing" constant="10" id="zHY-NX-589"/>
-                <constraint firstAttribute="trailing" secondItem="wh1-XB-3H5" secondAttribute="trailing" id="zxw-S0-dHW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

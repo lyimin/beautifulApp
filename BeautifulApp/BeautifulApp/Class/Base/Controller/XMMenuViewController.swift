@@ -12,7 +12,7 @@ enum MenuViewControllerType {
     case MenuViewControllerTypeFindApp
 }
 class XMMenuViewController: UIViewController {
-    private let menuWith : CGFloat = 250
+    private let menuWith : CGFloat = 0.8*SCREEN_WIDTH
     private let animationDuration = 0.3
     /// 中间控制器
     private var centerController : XMBaseNavController!
@@ -91,6 +91,13 @@ class XMMenuViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupBackColor:", name: NOTIFY_SETUPBG, object: nil)
         // 设置中间控制器
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupCenterView:", name: NOTIFY_SETUPCENTERVIEW, object: nil)
+        
+        self.view.bringSubviewToFront(self.centerController.view)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     
@@ -131,7 +138,7 @@ class XMMenuViewController: UIViewController {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
     }
     
     //MARK:私有方法 ========================

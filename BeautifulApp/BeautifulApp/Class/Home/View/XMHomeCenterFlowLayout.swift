@@ -12,7 +12,7 @@ class XMHomeCenterFlowLayout: UICollectionViewFlowLayout {
     override func prepareLayout() {
         super.prepareLayout()
         
-        self.itemSize = CGSizeMake(310, 420)
+        self.itemSize = CGSizeMake(SCREEN_WIDTH-2*UI_MARGIN_5, SCREEN_HEIGHT*420/IPHONE5_HEIGHT)
         self.scrollDirection = UICollectionViewScrollDirection.Horizontal
         self.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5);
     }

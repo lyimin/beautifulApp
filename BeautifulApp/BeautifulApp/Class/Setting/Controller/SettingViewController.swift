@@ -17,6 +17,21 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
+        
+        self.setupLayout()
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().statusBarStyle = .Default
+    }
+    
+    deinit {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     //MARK: -tableview delgate 
@@ -56,7 +71,6 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - private
     private func setupNavView() {
         let headerView : SettingHeaderView = SettingHeaderView.headerView()
-        headerView.y = 0
         self.headerView = headerView
         self.view.addSubview(headerView)
         headerView.backBtnDidClickWithBlock { [unowned self]() -> Void in
@@ -66,10 +80,9 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK:- setting or getter 
     private var tableView : UITableView = {
-        let tableView : UITableView = UITableView(frame: CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64))
-        tableView.separatorStyle = .None
+        let tableView : UITableView = UITableView()
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = 50
+        tableView.rowHeight = 60
         return tableView
     }()
     
@@ -78,5 +91,17 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         let dataSource : NSArray = NSArray(contentsOfFile: path as String)!
         return dataSource
     }()
+    
+    private func setupLayout() {
+        self.headerView.snp_makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(self.view)
+            make.height.equalTo(headerView.height)
+        }
+        
+        self.tableView.snp_makeConstraints { (make) -> Void in
+            make.leftMargin.rightMargin.bottomMargin.equalTo(self.view)
+            make.topMargin.equalTo(headerView).offset(headerView.height)
+        }
+    }
 
 }

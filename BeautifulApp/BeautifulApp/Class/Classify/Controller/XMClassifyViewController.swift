@@ -18,6 +18,9 @@ class XMClassifyViewController: UIViewController, XMClassifyCenterViewDelegate {
         self.view.addSubview(centerView)
         centerView.delegate = self
         
+        centerView.snp_makeConstraints { (make) -> Void in
+            make.left.right.top.bottom.equalTo(self.view).offset(0)
+        }
     }
     
     //MARK:- Custer delegate

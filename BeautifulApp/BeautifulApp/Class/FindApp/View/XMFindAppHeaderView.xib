@@ -10,14 +10,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVm-uS-aIc">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVm-uS-aIc">
                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="0Zj-AX-2Er"/>
+                    </constraints>
                     <connections>
                         <action selector="menuBtnDidClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="npN-H2-I6Q"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-af-Cga" customClass="XMView" customModule="BeautifulApp" customModuleProvider="target">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_icon_sidebar_normal" translatesAutoresizingMaskIntoConstraints="NO" id="LT0-sI-vJh">
+                    <rect key="frame" x="10" y="15" width="20" height="20"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="eHS-QZ-0Dp"/>
+                        <constraint firstAttribute="height" constant="20" id="jqV-M7-bY1"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-af-Cga" customClass="XMView" customModule="BeautifulApp" customModuleProvider="target">
                     <rect key="frame" x="85" y="12" width="150" height="25"/>
                     <subviews>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U79-GK-xV9">
@@ -55,6 +66,10 @@
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="5GS-qz-uIZ"/>
+                        <constraint firstAttribute="height" constant="25" id="chW-F7-MBo"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="3"/>
@@ -67,13 +82,18 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_icon_sidebar_normal" translatesAutoresizingMaskIntoConstraints="NO" id="LT0-sI-vJh">
-                    <rect key="frame" x="10" y="15" width="20" height="20"/>
-                    <animations/>
-                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="LT0-sI-vJh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Ogd-1w-Xtz"/>
+                <constraint firstItem="LT0-sI-vJh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XaT-R1-AGZ"/>
+                <constraint firstItem="MVH-af-Cga" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="axP-2s-g9P"/>
+                <constraint firstItem="jVm-uS-aIc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="axV-7T-pfM"/>
+                <constraint firstAttribute="bottom" secondItem="jVm-uS-aIc" secondAttribute="bottom" id="llW-wK-Xpc"/>
+                <constraint firstItem="jVm-uS-aIc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ur2-nd-XpT"/>
+                <constraint firstItem="MVH-af-Cga" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vpe-vG-3fy"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="hotButton" destination="U79-GK-xV9" id="GLC-LU-Xqa"/>
