@@ -8,49 +8,18 @@
 
 import UIKit
 
-protocol XMHomeDetailCenterViewDelegate {
+protocol XMHomeDetailCenterViewDelegate  {
     func homeDetailCenterView(centerView : XMHomeDetailCenterView ,returnButtonDidClick returnButton : UIButton)
-    func homeDetailCenterViewCollectDidClick(centerView : XMHomeDetailCenterView)
-    func homeDetailCenterViewShareDidClick (centerView : XMHomeDetailCenterView)
-    func homeDetailCenterViewDownloadDidClick(centerView : XMHomeDetailCenterView)
     func homeDetailCenterViewBottomShareDidClick(centerView : XMHomeDetailCenterView)
     
 }
 
-class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
-    // MARK:- VIEW
-    
-    // scrollview
-    @IBOutlet weak var centerScroll: UIScrollView!
-    @IBOutlet weak var centerView: UIView!
-    // 返回
-    @IBOutlet weak var returnButton: UIButton!
-    // 顶部图片
-    @IBOutlet weak var headerImgView: UIImageView!
-    // 图标
-    @IBOutlet weak var appIconView: UIImageView!
-    // 大标题
-    @IBOutlet weak var titleLabel: UILabel!
-    // 详情标题
-    @IBOutlet weak var detailLabel: UILabel!
-    // 收藏按钮
-    @IBOutlet weak var collectButton: UIButton!
-    @IBOutlet weak var collectLabel: UILabel!
-    // 分享
-    @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var shareLabel: UILabel!
-    // 下载
-    @IBOutlet weak var downloadButton: UIButton!
-    @IBOutlet weak var downloadLabel: UILabel!
-    // 工具条
-    @IBOutlet weak var toolBarView: UIView!
-    // 评论page
-    private var page : Int = 1
+class XMHomeDetailCenterView: UIScrollView {
     // 记录当前高度
     private var contentY : CGFloat = 0
     // MARK:-DATA
     // 代理
-    var delegate : XMHomeDetailCenterViewDelegate?
+    var centerDelegate : XMHomeDetailCenterViewDelegate?
     var model : XMHomeDataModel! {
         willSet {
             self.model = newValue
@@ -60,25 +29,40 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
             self.headerImgView.xm_setBlurImageWithURL(NSURL(string: model.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
             // 图标
             self.appIconView.xm_setBlurImageWithURL(NSURL(string: model.icon_image!), placeholderImage: UIImage(named: "ic_launcher"))
-            
+            self.appTitleLabel.text = model.title!
+            self.appDetailLabel.text = model.sub_title!
             // 添加其他控件
+            
             self.setupOtherData()
         }
     }
-    
-    class func detailCenterView () -> XMHomeDetailCenterView {
-        return NSBundle.mainBundle().loadNibNamed("XMHomeDetailCenterView", owner: nil, options: nil)[0] as! XMHomeDetailCenterView
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        // 添加centerView
+        centerView.frame = self.bounds;
+        self.addSubview(centerView)
+        // 顶部图片
+        headerImgView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 170);
+        self.centerView.addSubview(headerImgView)
+        // appIcon
+        appIconView.frame = CGRect(x: UI_MARGIN_20, y: CGRectGetMaxY(headerImgView.frame) + UI_MARGIN_20, width: 50, height: 50)
+        self.centerView.addSubview(appIconView)
+        // app大标题
+        let appTitleLabelX : CGFloat = CGRectGetMaxX(appIconView.frame)+UI_MARGIN_20;
+        let appTitleLabelW : CGFloat = SCREEN_WIDTH-UI_MARGIN_20-appTitleLabelX;
+        appTitleLabel.frame = CGRect(x: appTitleLabelX, y: CGRectGetMaxY(headerImgView.frame)+25, width: appTitleLabelW, height: 20)
+        self.centerView.addSubview(appTitleLabel)
+        // app详情
+        appDetailLabel.frame = CGRect(x: appTitleLabelX, y: CGRectGetMaxY(appTitleLabel.frame), width: appTitleLabelW, height: 20)
+        self.centerView.addSubview(appDetailLabel)
+        // appicon + toolbar高度
+        contentY = headerImgView.height+UI_MARGIN_20+100
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.centerScroll.delegate = self
-        contentY = CGRectGetMaxY(toolBarView.frame) + UI_MARGIN_10
-        
-        self.centerScroll.footerViewPullToRefresh(.XMRefreshDirectionVertical) { [unowned self]() -> Void in
-            self.getCommentData()
-        }
-    }
     //MARK : -DataSource
     /**
     *  设置评论数据
@@ -95,51 +79,17 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
         }
         //设置contentsize
         self.centerView.height = contentY
-        self.centerScroll.contentSize = CGSizeMake(0, contentY)
+        self.contentSize = CGSizeMake(0, contentY)
     }
     
-    /**
-     * 获取评论数据
-     */
-    func getCommentData() {
-        let params : NSDictionary = ["app" : self.model.id!, "page" : self.page]
-        XMNetworkTool.get(APIConfig.API_Home_Comment, params: params, success: { [unowned self](json) -> Void in
-            
-            if json["data"] is NSDictionary {
-                let data : NSDictionary = json["data"] as! NSDictionary
-                if data["comments"] is NSArray {
-                    let comments : NSArray = data["comments"] as! NSArray
-                    if comments.count != 0 {
-                        // 添加评论到模型
-                        var commentArray : Array<XMCommentsDataModel> = Array()
-                        for dict in comments {
-                            let model : XMCommentsDataModel = XMCommentsDataModel(dict: dict as! NSDictionary)
-                            self.model.comments.append(model)
-                            commentArray.append(model)
-                        }
-                        self.page++;
-                        self.setCommentData(commentArray)
-                    }
-                }
-            }
-            
-            self.centerScroll.footerEndRefreshing()
-            }) { (error) -> Void in
-                self.centerScroll.footerEndRefreshing()
-        }
-    }
-
     //MARK:- private Methods
     private func setupOtherData() {
         // 计算文字高度，添加app描述文段
         let describeLabel = self.createPTitleLabel()
-        describeLabel.frame = CGRect(x: UI_MARGIN_10, y: CGRectGetMaxY(self.toolBarView.frame) + UI_MARGIN_10, width: SCREEN_WIDTH-2*UI_MARGIN_10, height: 20)
         self.centerView.addSubview(describeLabel)
-        
         let descriSize = self.calculateTextHeight(model.digest!, label: describeLabel)
-        describeLabel.size = descriSize
-        
-        contentY += descriSize.height + UI_MARGIN_10
+        describeLabel.frame = CGRect(x: UI_MARGIN_10, y: contentY + UI_MARGIN_10, width: SCREEN_WIDTH-2*UI_MARGIN_10, height: descriSize.height)
+        contentY = CGRectGetMaxY(describeLabel.frame) + UI_MARGIN_20
         // 添加http文段
         let _ = XMLParserUtil(content: model.content!) { [unowned self](array) -> Void in
             // 拿到解析完的数组后添加控件
@@ -173,24 +123,24 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
                     // 获取 _ 的位置
                     let imgView : UIImageView = self.createImgView()
                     imgView.frame = CGRectMake(UI_MARGIN_10, self.contentY, size.width, size.height)
-                    imgView.center.x = self.centerView.center.x
+                    imgView.center.x = SCREEN_WIDTH*0.5
                     imgView.xm_setBlurImageWithURL(NSURL(string: contentModel.content), placeholderImage: UIImage(named: "home_logo_pressed"))
                     self.centerView.addSubview(imgView)
                     self.contentY += size.height + UI_MARGIN_10
                 }
             }
         }
+
         
         // 分享view
         let shareView : XMHomeDetailShareView = XMHomeDetailShareView.shareView()
-        shareView.y = contentY
-        shareView.height = 180
+        shareView.frame = CGRect(x: UI_MARGIN_10, y: contentY, width: SCREEN_WIDTH-2*UI_MARGIN_10, height: shareView.height)
         shareView.centerViewDidClickWithBlock { [unowned self]() -> Void in
-            self.delegate?.homeDetailCenterViewBottomShareDidClick(self)
+            self.centerDelegate?.homeDetailCenterViewBottomShareDidClick(self)
         }
         self.centerView.addSubview(shareView)
         contentY += shareView.height
-        
+
         // 评论view
         if model.comments.count != 0 {
             let commentLabel = self.createTitleViwe("评论")
@@ -201,63 +151,25 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
             sepLine.frame = CGRectMake(CGRectGetMaxX(commentLabel.frame), commentLabel.center.y, 80, 0.5)
             
             // 添加评论
-//            for i in 0..<model.comments.count {
-//                let commentView : XMFindAppDetailCommentCell = XMFindAppDetailCommentCell(frame: CGRectMake(0, contentY, SCREEN_WIDTH, 50))
-//                commentView.commentModel = self.model.comments[i]
-//                self.centerView.addSubview(commentView)
-//                contentY += commentView.height
-//            }
+            for i in 0..<model.comments.count {
+                let commentView : XMFindAppDetailCommentCell = XMFindAppDetailCommentCell(frame: CGRectMake(0, contentY, SCREEN_WIDTH, 50))
+                commentView.setData(self.model.comments[i])
+                self.centerView.addSubview(commentView)
+                contentY += commentView.height
+            }
         }
         
         // 设置contentsize
         self.centerView.height = contentY
-        self.centerScroll.contentSize = CGSize(width: 0, height: contentY)
+        self.contentSize = CGSize(width: 0, height: contentY)
     }
-    // MARK: -更新headerView的frame 。 实现zoom效果
-    private func updateHeaderView() {
-        let HeaderHeight : CGFloat = headerImgView.height
-        let HeaderCutAway: CGFloat = 170
-        
-        var headerRect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: HeaderHeight)
-        if self.centerScroll.contentOffset.y < 0 {
-            headerRect.origin.y = self.centerScroll.contentOffset.y
-            headerRect.size.height = -self.centerScroll.contentOffset.y + HeaderCutAway
-            headerImgView.frame = headerRect
-        }
-    }
-    
-    private func toolBarToNavAnimation() {
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.collectButton.x = 60
-            self.collectLabel.alpha = 0
-            self.shareButton.x = 110
-            self.shareLabel.alpha = 0
-            self.downloadButton.x = 160
-            self.downloadLabel.alpha = 0
-        })
-    }
-    
-    private func toolBarToScrollAnimation() {
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.collectButton.x = 55
-            self.shareButton.x = 130
-            self.downloadButton.x = 205
-            
-            self.collectLabel.alpha = 1
-            self.shareLabel.alpha = 1
-            self.downloadLabel.alpha = 1
-            }) { (finish) -> Void in
-                
-        }
-    }
-
     // 根据文字计算高度
     private func calculateTextHeight (text : String, label : YYLabel) -> CGSize {
         // 设置文字样式
         let attributString : NSMutableAttributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5.0
-        attributString.yy_font = UI_FONT_14
+        attributString.yy_font = UI_FONT_16
         attributString.yy_color = UIColor.darkGrayColor()
         attributString.addAttribute(NSParagraphStyleAttributeName , value: paragraphStyle, range: NSMakeRange(0, text.length))
         let textLayout = YYTextLayout(containerSize: CGSize(width: SCREEN_WIDTH-2*UI_MARGIN_10, height: CGFloat.max), text: attributString)
@@ -269,36 +181,60 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
         return textLayout.textBoundingSize
     }
     
-    //MARK: - UIScrollview Delegate
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        self.updateHeaderView()
-        if scrollView.contentOffset.y >= 215 {
-            self.toolBarView.y = 20
-            // 显示在标题栏动画
-            self.toolBarToNavAnimation()
-            
-        } else {
-            self.toolBarView.y = 235 - scrollView.contentOffset.y
-            self.toolBarToScrollAnimation()
+    //MARK: - Public Method
+    func updateHeaderView() {
+        let HeaderHeight : CGFloat = headerImgView.height
+        let HeaderCutAway: CGFloat = 170
+        
+        var headerRect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: HeaderHeight)
+        if self.contentOffset.y < 0 {
+            headerRect.origin.y = self.contentOffset.y
+            headerRect.size.height = -self.contentOffset.y + HeaderCutAway
+            headerImgView.frame = headerRect
         }
     }
     
     //MARK: - Action Event
-    
-    @IBAction func returnButtonDidClick(sender: UIButton) {
-        self.delegate?.homeDetailCenterView(self, returnButtonDidClick: sender)
-    }
-    @IBAction func collectBtnDidClick(sender: UIButton) {
-        self.delegate?.homeDetailCenterViewCollectDidClick(self)
-    }
-    @IBAction func shareBtnDidClick(sender: UIButton) {
-        self.delegate?.homeDetailCenterViewShareDidClick(self)
-    }
-    @IBAction func downLoadBtnDidClick(sender: UIButton) {
-        self.delegate?.homeDetailCenterViewDownloadDidClick(self)
-    }
 
     //MARK: - getter or setter
+    // 内容
+    private lazy var centerView : UIView = {
+        let centerView : UIView = UIView()
+        return centerView
+    }()
+    
+    // 顶部图片
+    private lazy var headerImgView : UIImageView = {
+        let headerImgView : UIImageView = UIImageView(image: UIImage(named: "home_logo_pressed"))
+        headerImgView.contentMode = .ScaleAspectFill
+        return headerImgView
+    }()
+    
+    // appIcon
+    private lazy var appIconView : UIImageView = {
+        let appIconView : UIImageView = UIImageView(image: UIImage(named: "ic_launcher"))
+//        appIconView.contentMode = .ScaleAspectFit
+        appIconView.layer.cornerRadius = UI_MARGIN_10
+        appIconView.layer.masksToBounds = true
+        return appIconView
+    }()
+    
+    // app大标题
+    private lazy var appTitleLabel : UILabel = {
+        let appTitleLabel : UILabel = UILabel()
+        appTitleLabel.font = UI_FONT_20
+        appTitleLabel.textColor = UIColor.blackColor()
+        return appTitleLabel
+    }()
+    
+    // app 详情
+    private lazy var appDetailLabel : UILabel = {
+        let appDetailLabel : UILabel = UILabel()
+        appDetailLabel.font = UI_FONT_14
+        appDetailLabel.textColor = UIColor.darkGrayColor()
+        return appDetailLabel
+    }()
+    
     private func createTitleViwe(title : String) -> UILabel {
         let label : UILabel = UILabel()
         label.font = UIFont.systemFontOfSize(15)
@@ -324,11 +260,13 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
     // 描述(p)
     private func createPTitleLabel() -> YYLabel {
         let contentLabel : YYLabel = YYLabel()
-        contentLabel.font = UI_FONT_14
+        contentLabel.displaysAsynchronously = true
+        contentLabel.font = UI_FONT_16
         contentLabel.textColor = UIColor.darkGrayColor()
         contentLabel.numberOfLines = 0
         return contentLabel
     }
+    
     
     // 图片(Img)
     private func createImgView() -> UIImageView {
@@ -337,7 +275,6 @@ class XMHomeDetailCenterView: UIView, UIScrollViewDelegate {
         imgView.layer.borderColor = UIColor.lightGrayColor().CGColor
         imgView.layer.borderWidth = 0.5
         imgView.contentMode = .ScaleAspectFit
-        imgView.center.x = self.centerView.center.x
         return imgView
     }
     

@@ -15,4 +15,19 @@ class XMBaseNavController: UINavigationController {
 
         self.navigationBarHidden = true
     }
+    
+    override func pushViewController(viewController: UIViewController, animated: Bool) {
+        if self.viewControllers.count > 0 {
+            UIApplication.sharedApplication().statusBarStyle = .Default
+        }
+        
+        super.pushViewController(viewController, animated: animated)
+    }
+    
+    override func popViewControllerAnimated(animated: Bool) -> UIViewController? {
+        if self.viewControllers.count == 2 {
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+        }
+        return super.popViewControllerAnimated(animated)
+    }
 }

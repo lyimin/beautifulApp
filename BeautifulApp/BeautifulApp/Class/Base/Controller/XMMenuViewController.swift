@@ -93,6 +93,8 @@ class XMMenuViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupCenterView:", name: NOTIFY_SETUPCENTERVIEW, object: nil)
         
         self.view.bringSubviewToFront(self.centerController.view)
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
     
     override func viewDidDisappear(animated: Bool) {

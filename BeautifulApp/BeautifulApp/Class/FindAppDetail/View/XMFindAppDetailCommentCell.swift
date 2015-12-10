@@ -31,9 +31,9 @@ class XMFindAppDetailCommentCell: UIView {
         // 评论
         commentLabel.frame = CGRectMake(UI_MARGIN_10, 15, commentBg.width-2*UI_MARGIN_10, 20)
         commentBg.addSubview(commentLabel)
-
+        
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -62,7 +62,7 @@ class XMFindAppDetailCommentCell: UIView {
             // 设置frame
             self.commentBg.height = CGRectGetMaxY(commentLabel.frame)+UI_MARGIN_10
             self.height = CGRectGetMaxY(commentBg.frame)+UI_MARGIN_10
-
+            
         } else if model is XMCommentsDataModel {
             let commentModel : XMCommentsDataModel = model as! XMCommentsDataModel
             // 1.设置头像
@@ -86,7 +86,7 @@ class XMFindAppDetailCommentCell: UIView {
             // 设置frame
             self.commentBg.height = CGRectGetMaxY(commentLabel.frame)+UI_MARGIN_10
             self.height = CGRectGetMaxY(commentBg.frame)+UI_MARGIN_10
-
+            
         }
         
     }
@@ -135,7 +135,7 @@ class XMFindAppDetailCommentCell: UIView {
         commentBg.image = bgImg.resizableImageWithCapInsets(UIEdgeInsets(top: stretchHeight, left: stretchWidth, bottom: stretchHeight, right: bgImg.size.width*0.1), resizingMode: UIImageResizingMode.Stretch)
         return commentBg
     }()
-
+    
     // 评论了内容
     private lazy var commentLabel : YYLabel = {
         var commentLabel : YYLabel = YYLabel()

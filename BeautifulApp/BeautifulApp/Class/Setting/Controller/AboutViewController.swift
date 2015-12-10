@@ -16,6 +16,9 @@ class AboutViewController: UIViewController, AboutCenterViewDelegate {
         self.setupNavView()
         centerView.delegate = self
         self.view.addSubview(centerView)
+        
+        // 适配屏幕
+        self.setupLayout()
     }
     
     // MARK: - centerView delegate
@@ -60,11 +63,22 @@ class AboutViewController: UIViewController, AboutCenterViewDelegate {
         self.view.addSubview(headerView)
     }
     
+    private func setupLayout() {
+        self.headerView.snp_makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(self.view)
+            make.height.equalTo(headerView.height)
+        }
+        
+        self.centerView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.headerView.snp_bottom)
+            make.left.right.bottom.equalTo(self.view)
+        }
+    }
+    
     // MARK: - getter or setter 
     
     private var centerView : AboutCenterView = {
         let centerView = AboutCenterView.centerView()
-        centerView.y = 64
         return centerView
     }()
 }

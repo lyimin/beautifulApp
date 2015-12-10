@@ -25,15 +25,6 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         UIApplication.sharedApplication().statusBarStyle = .Default
     }
     
-    deinit {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     //MARK: -tableview delgate 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
@@ -99,8 +90,8 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         self.tableView.snp_makeConstraints { (make) -> Void in
-            make.leftMargin.rightMargin.bottomMargin.equalTo(self.view)
-            make.topMargin.equalTo(headerView).offset(headerView.height)
+            make.left.right.bottom.equalTo(self.view)
+            make.top.equalTo(headerView.snp_bottom)
         }
     }
 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="Eua-FV-IJP" userLabel="工具条" customClass="XMHomeDetailToolView" customModule="BeautifulApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtt-Pg-DLk" userLabel="收藏">
+                    <rect key="frame" x="55" y="0.0" width="30" height="30"/>
+                    <state key="normal" title="Button" image="detail_icon_fav_normal"/>
+                    <connections>
+                        <action selector="collectionDidClick:" destination="Eua-FV-IJP" eventType="touchUpInside" id="7zy-6S-WMN"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYI-bk-Jfj">
+                    <rect key="frame" x="90" y="5" width="30" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peg-GB-P1h" userLabel="分享">
+                    <rect key="frame" x="130" y="0.0" width="30" height="30"/>
+                    <state key="normal" title="Button" image="detail_icon_share_normal"/>
+                    <connections>
+                        <action selector="shareDidClick:" destination="Eua-FV-IJP" eventType="touchUpInside" id="asF-3t-yAq"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="分享" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8u-d6-idU">
+                    <rect key="frame" x="165" y="5" width="30" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b7-Ei-Err" userLabel="下载">
+                    <rect key="frame" x="205" y="0.0" width="30" height="30"/>
+                    <state key="normal" title="Button" image="detail_icon_download_normal"/>
+                    <connections>
+                        <action selector="downloadDidClick:" destination="Eua-FV-IJP" eventType="touchUpInside" id="Pxx-pb-jWJ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="下载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-IV-imD">
+                    <rect key="frame" x="240" y="5" width="40" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectButton" destination="Vtt-Pg-DLk" id="wk6-K7-VUo"/>
+                <outlet property="collectLabel" destination="pYI-bk-Jfj" id="S4f-wm-mXW"/>
+                <outlet property="downloadButton" destination="7b7-Ei-Err" id="ggt-lW-vrC"/>
+                <outlet property="downloadLabel" destination="FA9-IV-imD" id="JxD-8S-GjY"/>
+                <outlet property="shareButton" destination="peg-GB-P1h" id="VJ6-yq-6cW"/>
+                <outlet property="shareLabel" destination="O8u-d6-idU" id="Jd7-87-5Wb"/>
+            </connections>
+            <point key="canvasLocation" x="360" y="378"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="detail_icon_download_normal" width="80" height="80"/>
+        <image name="detail_icon_fav_normal" width="80" height="80"/>
+        <image name="detail_icon_share_normal" width="80" height="80"/>
+    </resources>
+</document>

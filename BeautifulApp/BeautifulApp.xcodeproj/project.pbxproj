@@ -48,6 +48,24 @@
 		F12B5FE91C0C880E00DD1292 /* XMSearchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12B5FE81C0C880E00DD1292 /* XMSearchViewCell.xib */; };
 		F1414E8A1C049BAA00880C1F /* XMFindAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1414E891C049BAA00880C1F /* XMFindAppCell.swift */; };
 		F1414E8C1C049BB700880C1F /* XMFindAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */; };
+		F14505831C19E5D300955F6E /* XMFindAppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145057B1C19E5D300955F6E /* XMFindAppDetailController.swift */; };
+		F14505841C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145057D1C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift */; };
+		F14505851C19E5D300955F6E /* XMFindAppDetailCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145057F1C19E5D300955F6E /* XMFindAppDetailCenterView.swift */; };
+		F14505861C19E5D300955F6E /* XMFindAppDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505801C19E5D300955F6E /* XMFindAppDetailCommentCell.swift */; };
+		F14505871C19E5D300955F6E /* XMFindAppDetailToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505811C19E5D300955F6E /* XMFindAppDetailToolView.swift */; };
+		F14505881C19E5D300955F6E /* XMFindAppDetailToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14505821C19E5D300955F6E /* XMFindAppDetailToolView.xib */; };
+		F145059A1C19E70000955F6E /* XMHomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145058B1C19E70000955F6E /* XMHomeDetailController.swift */; };
+		F145059B1C19E70000955F6E /* XMLContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145058D1C19E70000955F6E /* XMLContentModel.swift */; };
+		F145059C1C19E70000955F6E /* XMHomeDetailAnimationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145058F1C19E70000955F6E /* XMHomeDetailAnimationUtil.swift */; };
+		F145059D1C19E70000955F6E /* XMHomeDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505911C19E70000955F6E /* XMHomeDetailBottomView.swift */; };
+		F145059E1C19E70000955F6E /* XMHomeDetailCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505921C19E70000955F6E /* XMHomeDetailCenterView.swift */; };
+		F145059F1C19E70000955F6E /* XMHomeDetailCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505931C19E70000955F6E /* XMHomeDetailCommentView.swift */; };
+		F14505A01C19E70000955F6E /* XMHomeDetailCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14505941C19E70000955F6E /* XMHomeDetailCommentView.xib */; };
+		F14505A11C19E70000955F6E /* XMHomeDetailShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505951C19E70000955F6E /* XMHomeDetailShareView.swift */; };
+		F14505A21C19E70000955F6E /* XMHomeDetailShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14505961C19E70000955F6E /* XMHomeDetailShareView.xib */; };
+		F14505A31C19E70000955F6E /* XMHomeDetailStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14505971C19E70000955F6E /* XMHomeDetailStateView.xib */; };
+		F14505A41C19E70000955F6E /* XMHomeDetailToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14505981C19E70000955F6E /* XMHomeDetailToolView.swift */; };
+		F14505A51C19E70000955F6E /* XMHomeDetailToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14505991C19E70000955F6E /* XMHomeDetailToolView.xib */; };
 		F171CCB71BEBB15300F61307 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F171CCB61BEBB15300F61307 /* AppDelegate.swift */; };
 		F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F171CCBD1BEBB15300F61307 /* Assets.xcassets */; };
 		F17847F61C0AB7D900C5A8CF /* XMSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17847F51C0AB7D900C5A8CF /* XMSearchController.swift */; };
@@ -57,8 +75,6 @@
 		F17CFC341BF0D7A6000D2A87 /* XMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC331BF0D7A6000D2A87 /* XMBaseViewController.swift */; };
 		F17CFC361BF0D7F0000D2A87 /* UIViewController+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC351BF0D7F0000D2A87 /* UIViewController+XM.swift */; };
 		F17CFC391BF0DD29000D2A87 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17CFC381BF0DD29000D2A87 /* APIConfig.swift */; };
-		F1888F6A1C153C16009B097C /* XMFindAppDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888F691C153C16009B097C /* XMFindAppDetailBottomView.swift */; };
-		F1888F6C1C153C65009B097C /* XMFindAppDetailBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1888F6B1C153C65009B097C /* XMFindAppDetailBottomView.xib */; };
 		F1888F7D1C15D058009B097C /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888F6E1C15D058009B097C /* Constraint.swift */; };
 		F1888F7E1C15D058009B097C /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888F6F1C15D058009B097C /* ConstraintAttributes.swift */; };
 		F1888F7F1C15D058009B097C /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888F701C15D058009B097C /* ConstraintDescription.swift */; };
@@ -96,9 +112,6 @@
 		F1B82E631BFB2265001CA4A6 /* XMHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B82E621BFB2265001CA4A6 /* XMHomeViewModel.swift */; };
 		F1B82E651BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B82E641BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift */; };
 		F1BA9A6D1C0021D90022CCDC /* XMBaseNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9A6C1C0021D90022CCDC /* XMBaseNavController.swift */; };
-		F1C87AA71C0DEAD800A08387 /* XMFindAppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C87AA61C0DEAD800A08387 /* XMFindAppDetailController.swift */; };
-		F1C87AA91C0DEB1300A08387 /* XMFindAppDetailCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C87AA81C0DEB1300A08387 /* XMFindAppDetailCenterView.swift */; };
-		F1C87AAB1C0DEB2200A08387 /* XMFindAppDetailCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C87AAA1C0DEB2200A08387 /* XMFindAppDetailCenterView.xib */; };
 		F1C87AB41C0E90DC00A08387 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C87AB31C0E90DC00A08387 /* libxml2.tbd */; };
 		F1C87AB61C0E912A00A08387 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C87AB51C0E912A00A08387 /* CoreGraphics.framework */; };
 		F1C87AB81C0E913100A08387 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C87AB71C0E913100A08387 /* Foundation.framework */; };
@@ -107,9 +120,6 @@
 		F1D642D51C12CBD80097E0BA /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D642D11C12CBD80097E0BA /* TFHppleElement.m */; };
 		F1D642D61C12CBD80097E0BA /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D642D31C12CBD80097E0BA /* XPathQuery.m */; };
 		F1D642DB1C12E15B0097E0BA /* XMLParserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D642DA1C12E15B0097E0BA /* XMLParserUtil.swift */; };
-		F1D642DD1C1349AD0097E0BA /* XMLContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D642DC1C1349AD0097E0BA /* XMLContentModel.swift */; };
-		F1D642DF1C1482410097E0BA /* XMHomeDetailShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D642DE1C1482410097E0BA /* XMHomeDetailShareView.xib */; };
-		F1D642E11C1482650097E0BA /* XMHomeDetailShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D642E01C1482650097E0BA /* XMHomeDetailShareView.swift */; };
 		F1DBE29B1C0FD0E5003F5E48 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DBE2691C0FD0E5003F5E48 /* YYTextContainerView.m */; };
 		F1DBE29C1C0FD0E5003F5E48 /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DBE26B1C0FD0E5003F5E48 /* YYTextDebugOption.m */; };
 		F1DBE29D1C0FD0E5003F5E48 /* YYTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DBE26D1C0FD0E5003F5E48 /* YYTextEffectWindow.m */; };
@@ -161,14 +171,10 @@
 		F1DBE2FB1C0FE37E003F5E48 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DBE2FA1C0FE37E003F5E48 /* AssetsLibrary.framework */; };
 		F1DBE2FD1C0FE38C003F5E48 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DBE2FC1C0FE38C003F5E48 /* MobileCoreServices.framework */; };
 		F1DBE2FF1C0FE399003F5E48 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DBE2FE1C0FE399003F5E48 /* libz.tbd */; };
-		F1DBE3061C1099C6003F5E48 /* XMFindAppDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DBE3051C1099C6003F5E48 /* XMFindAppDetailCommentCell.swift */; };
 		F1F196361C05AB5A00FA4DA1 /* XMFindAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F196351C05AB5A00FA4DA1 /* XMFindAppViewModel.swift */; };
 		F1F2224E1BFDD43800E926AF /* XMClassifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */; };
 		F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */; };
 		F1F222511BFDD43800E926AF /* XMClassifyCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */; };
-		F1F222581BFE192400E926AF /* XMHomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F222571BFE192400E926AF /* XMHomeDetailController.swift */; };
-		F1F2225A1BFE19BF00E926AF /* XMHomeDetailCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F222591BFE19BF00E926AF /* XMHomeDetailCenterView.swift */; };
-		F1F2225C1BFE1DE900E926AF /* XMHomeDetailCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2225B1BFE1DE900E926AF /* XMHomeDetailCenterView.xib */; };
 		F1F2225E1BFEB7E600E926AF /* XMHomeBottomCollectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2225D1BFEB7E600E926AF /* XMHomeBottomCollectView.swift */; };
 		F1F912651C084EE1009F5707 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F912641C084EE1009F5707 /* SettingViewController.swift */; };
 		F1F912671C084F1B009F5707 /* SettingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F912661C084F1B009F5707 /* SettingViewCell.swift */; };
@@ -223,6 +229,24 @@
 		F12B5FE81C0C880E00DD1292 /* XMSearchViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMSearchViewCell.xib; sourceTree = "<group>"; };
 		F1414E891C049BAA00880C1F /* XMFindAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppCell.swift; sourceTree = "<group>"; };
 		F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppCell.xib; sourceTree = "<group>"; };
+		F145057B1C19E5D300955F6E /* XMFindAppDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailController.swift; sourceTree = "<group>"; };
+		F145057D1C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailAnimationUtil.swift; sourceTree = "<group>"; };
+		F145057F1C19E5D300955F6E /* XMFindAppDetailCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailCenterView.swift; sourceTree = "<group>"; };
+		F14505801C19E5D300955F6E /* XMFindAppDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailCommentCell.swift; sourceTree = "<group>"; };
+		F14505811C19E5D300955F6E /* XMFindAppDetailToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailToolView.swift; sourceTree = "<group>"; };
+		F14505821C19E5D300955F6E /* XMFindAppDetailToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppDetailToolView.xib; sourceTree = "<group>"; };
+		F145058B1C19E70000955F6E /* XMHomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailController.swift; sourceTree = "<group>"; };
+		F145058D1C19E70000955F6E /* XMLContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLContentModel.swift; sourceTree = "<group>"; };
+		F145058F1C19E70000955F6E /* XMHomeDetailAnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailAnimationUtil.swift; sourceTree = "<group>"; };
+		F14505911C19E70000955F6E /* XMHomeDetailBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailBottomView.swift; sourceTree = "<group>"; };
+		F14505921C19E70000955F6E /* XMHomeDetailCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailCenterView.swift; sourceTree = "<group>"; };
+		F14505931C19E70000955F6E /* XMHomeDetailCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailCommentView.swift; sourceTree = "<group>"; };
+		F14505941C19E70000955F6E /* XMHomeDetailCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeDetailCommentView.xib; sourceTree = "<group>"; };
+		F14505951C19E70000955F6E /* XMHomeDetailShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailShareView.swift; sourceTree = "<group>"; };
+		F14505961C19E70000955F6E /* XMHomeDetailShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeDetailShareView.xib; sourceTree = "<group>"; };
+		F14505971C19E70000955F6E /* XMHomeDetailStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeDetailStateView.xib; sourceTree = "<group>"; };
+		F14505981C19E70000955F6E /* XMHomeDetailToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailToolView.swift; sourceTree = "<group>"; };
+		F14505991C19E70000955F6E /* XMHomeDetailToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeDetailToolView.xib; sourceTree = "<group>"; };
 		F171CCB31BEBB15300F61307 /* BeautifulApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeautifulApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F171CCB61BEBB15300F61307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		F171CCBD1BEBB15300F61307 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,8 +259,6 @@
 		F17CFC351BF0D7F0000D2A87 /* UIViewController+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+XM.swift"; sourceTree = "<group>"; };
 		F17CFC371BF0DB67000D2A87 /* beautifulApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "beautifulApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		F17CFC381BF0DD29000D2A87 /* APIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
-		F1888F691C153C16009B097C /* XMFindAppDetailBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailBottomView.swift; sourceTree = "<group>"; };
-		F1888F6B1C153C65009B097C /* XMFindAppDetailBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppDetailBottomView.xib; sourceTree = "<group>"; };
 		F1888F6E1C15D058009B097C /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
 		F1888F6F1C15D058009B097C /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
 		F1888F701C15D058009B097C /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
@@ -275,9 +297,6 @@
 		F1B82E621BFB2265001CA4A6 /* XMHomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeViewModel.swift; sourceTree = "<group>"; };
 		F1B82E641BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeBottomFlowLayout.swift; sourceTree = "<group>"; };
 		F1BA9A6C1C0021D90022CCDC /* XMBaseNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMBaseNavController.swift; sourceTree = "<group>"; };
-		F1C87AA61C0DEAD800A08387 /* XMFindAppDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailController.swift; sourceTree = "<group>"; };
-		F1C87AA81C0DEB1300A08387 /* XMFindAppDetailCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailCenterView.swift; sourceTree = "<group>"; };
-		F1C87AAA1C0DEB2200A08387 /* XMFindAppDetailCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppDetailCenterView.xib; sourceTree = "<group>"; };
 		F1C87AB31C0E90DC00A08387 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		F1C87AB51C0E912A00A08387 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F1C87AB71C0E913100A08387 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -289,9 +308,6 @@
 		F1D642D21C12CBD80097E0BA /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		F1D642D31C12CBD80097E0BA /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		F1D642DA1C12E15B0097E0BA /* XMLParserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParserUtil.swift; sourceTree = "<group>"; };
-		F1D642DC1C1349AD0097E0BA /* XMLContentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLContentModel.swift; sourceTree = "<group>"; };
-		F1D642DE1C1482410097E0BA /* XMHomeDetailShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeDetailShareView.xib; sourceTree = "<group>"; };
-		F1D642E01C1482650097E0BA /* XMHomeDetailShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailShareView.swift; sourceTree = "<group>"; };
 		F1DBE2681C0FD0E5003F5E48 /* YYTextContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextContainerView.h; sourceTree = "<group>"; };
 		F1DBE2691C0FD0E5003F5E48 /* YYTextContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextContainerView.m; sourceTree = "<group>"; };
 		F1DBE26A1C0FD0E5003F5E48 /* YYTextDebugOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextDebugOption.h; sourceTree = "<group>"; };
@@ -387,14 +403,10 @@
 		F1DBE2FA1C0FE37E003F5E48 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		F1DBE2FC1C0FE38C003F5E48 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F1DBE2FE1C0FE399003F5E48 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		F1DBE3051C1099C6003F5E48 /* XMFindAppDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailCommentCell.swift; sourceTree = "<group>"; };
 		F1F196351C05AB5A00FA4DA1 /* XMFindAppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppViewModel.swift; sourceTree = "<group>"; };
 		F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMClassifyViewController.swift; sourceTree = "<group>"; };
 		F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMClassifyCenterView.swift; sourceTree = "<group>"; };
 		F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMClassifyCenterView.xib; sourceTree = "<group>"; };
-		F1F222571BFE192400E926AF /* XMHomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailController.swift; sourceTree = "<group>"; };
-		F1F222591BFE19BF00E926AF /* XMHomeDetailCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeDetailCenterView.swift; sourceTree = "<group>"; };
-		F1F2225B1BFE1DE900E926AF /* XMHomeDetailCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeDetailCenterView.xib; sourceTree = "<group>"; };
 		F1F2225D1BFEB7E600E926AF /* XMHomeBottomCollectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeBottomCollectView.swift; sourceTree = "<group>"; };
 		F1F912641C084EE1009F5707 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F1F912661C084F1B009F5707 /* SettingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewCell.swift; sourceTree = "<group>"; };
@@ -506,6 +518,94 @@
 				F118A0341BFC782A002A0C2A /* XMRefreshHeaderView.swift */,
 			);
 			path = XMRefresh;
+			sourceTree = "<group>";
+		};
+		F14505791C19E5D300955F6E /* FindAppDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F145057A1C19E5D300955F6E /* Controller */,
+				F145057C1C19E5D300955F6E /* Utils */,
+				F145057E1C19E5D300955F6E /* View */,
+			);
+			path = FindAppDetail;
+			sourceTree = "<group>";
+		};
+		F145057A1C19E5D300955F6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F145057B1C19E5D300955F6E /* XMFindAppDetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F145057C1C19E5D300955F6E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F145057D1C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F145057E1C19E5D300955F6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F145057F1C19E5D300955F6E /* XMFindAppDetailCenterView.swift */,
+				F14505801C19E5D300955F6E /* XMFindAppDetailCommentCell.swift */,
+				F14505811C19E5D300955F6E /* XMFindAppDetailToolView.swift */,
+				F14505821C19E5D300955F6E /* XMFindAppDetailToolView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F14505891C19E70000955F6E /* HomeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F145058A1C19E70000955F6E /* Controller */,
+				F145058C1C19E70000955F6E /* Model */,
+				F145058E1C19E70000955F6E /* Utils */,
+				F14505901C19E70000955F6E /* View */,
+			);
+			path = HomeDetail;
+			sourceTree = "<group>";
+		};
+		F145058A1C19E70000955F6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F145058B1C19E70000955F6E /* XMHomeDetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F145058C1C19E70000955F6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F145058D1C19E70000955F6E /* XMLContentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F145058E1C19E70000955F6E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F145058F1C19E70000955F6E /* XMHomeDetailAnimationUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F14505901C19E70000955F6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F14505911C19E70000955F6E /* XMHomeDetailBottomView.swift */,
+				F14505921C19E70000955F6E /* XMHomeDetailCenterView.swift */,
+				F14505931C19E70000955F6E /* XMHomeDetailCommentView.swift */,
+				F14505941C19E70000955F6E /* XMHomeDetailCommentView.xib */,
+				F14505951C19E70000955F6E /* XMHomeDetailShareView.swift */,
+				F14505961C19E70000955F6E /* XMHomeDetailShareView.xib */,
+				F14505971C19E70000955F6E /* XMHomeDetailStateView.xib */,
+				F14505981C19E70000955F6E /* XMHomeDetailToolView.swift */,
+				F14505991C19E70000955F6E /* XMHomeDetailToolView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F171CCAA1BEBB15300F61307 = {
@@ -637,7 +737,6 @@
 			isa = PBXGroup;
 			children = (
 				F1975B5C1C045C3E001A983D /* XMFindAppController.swift */,
-				F1C87AA61C0DEAD800A08387 /* XMFindAppDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -659,11 +758,6 @@
 				F1975B5E1C045D53001A983D /* XMFindAppHeaderView.swift */,
 				F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */,
 				F1414E891C049BAA00880C1F /* XMFindAppCell.swift */,
-				F1C87AAA1C0DEB2200A08387 /* XMFindAppDetailCenterView.xib */,
-				F1C87AA81C0DEB1300A08387 /* XMFindAppDetailCenterView.swift */,
-				F1DBE3051C1099C6003F5E48 /* XMFindAppDetailCommentCell.swift */,
-				F1888F6B1C153C65009B097C /* XMFindAppDetailBottomView.xib */,
-				F1888F691C153C16009B097C /* XMFindAppDetailBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,14 +766,15 @@
 			isa = PBXGroup;
 			children = (
 				F171CCB61BEBB15300F61307 /* AppDelegate.swift */,
+				F1F222451BFDD43800E926AF /* Classify */,
 				F17847F11C0AB7AC00C5A8CF /* Search */,
 				F1F912601C084E92009F5707 /* Setting */,
-				F1F222531BFE187100E926AF /* Detail */,
-				F1F222451BFDD43800E926AF /* Classify */,
+				F1A6F2E71BEF934200786700 /* Home */,
+				F14505891C19E70000955F6E /* HomeDetail */,
+				F1975B581C045BCD001A983D /* FindApp */,
+				F14505791C19E5D300955F6E /* FindAppDetail */,
 				F17CFC311BF0D781000D2A87 /* Base */,
 				F1A6F2F11BEFA2A900786700 /* Other */,
-				F1A6F2E71BEF934200786700 /* Home */,
-				F1975B581C045BCD001A983D /* FindApp */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -973,43 +1068,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F1F222531BFE187100E926AF /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				F1F222541BFE187100E926AF /* Controller */,
-				F1F222551BFE187100E926AF /* Model */,
-				F1F222561BFE187100E926AF /* View */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		F1F222541BFE187100E926AF /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F1F222571BFE192400E926AF /* XMHomeDetailController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F1F222551BFE187100E926AF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F1D642DC1C1349AD0097E0BA /* XMLContentModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		F1F222561BFE187100E926AF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F1F2225B1BFE1DE900E926AF /* XMHomeDetailCenterView.xib */,
-				F1F222591BFE19BF00E926AF /* XMHomeDetailCenterView.swift */,
-				F1D642DE1C1482410097E0BA /* XMHomeDetailShareView.xib */,
-				F1D642E01C1482650097E0BA /* XMHomeDetailShareView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F1F912601C084E92009F5707 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -1118,26 +1176,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14505A21C19E70000955F6E /* XMHomeDetailShareView.xib in Resources */,
+				F14505881C19E5D300955F6E /* XMFindAppDetailToolView.xib in Resources */,
 				F1F9126C1C085756009F5707 /* settingDataSource.plist in Resources */,
-				F1F2225C1BFE1DE900E926AF /* XMHomeDetailCenterView.xib in Resources */,
+				F14505A31C19E70000955F6E /* XMHomeDetailStateView.xib in Resources */,
 				F1414E8C1C049BB700880C1F /* XMFindAppCell.xib in Resources */,
 				F10136581C094D6300E0E316 /* Images.xcassets in Resources */,
 				F1A6F2F01BEF98D000786700 /* XMHomeCenterItemView.xib in Resources */,
 				F171CCBE1BEBB15300F61307 /* Assets.xcassets in Resources */,
+				F14505A51C19E70000955F6E /* XMHomeDetailToolView.xib in Resources */,
 				F10136591C094D6300E0E316 /* Info.plist in Resources */,
-				F1888F6C1C153C65009B097C /* XMFindAppDetailBottomView.xib in Resources */,
 				F1888F851C15D058009B097C /* Info.plist in Resources */,
-				F1C87AAB1C0DEB2200A08387 /* XMFindAppDetailCenterView.xib in Resources */,
 				F1F912701C088B2D009F5707 /* SettingHeaderView.xib in Resources */,
 				F1F222511BFDD43800E926AF /* XMClassifyCenterView.xib in Resources */,
 				F101363D1C08B5CF00E0E316 /* AboutCenterView.xib in Resources */,
-				F1D642DF1C1482410097E0BA /* XMHomeDetailShareView.xib in Resources */,
 				F17847FA1C0AB9BB00C5A8CF /* XMSearchHeaderView.xib in Resources */,
 				F12B5FE91C0C880E00DD1292 /* XMSearchViewCell.xib in Resources */,
 				F19EF0421BF0875C00916297 /* XMHomeHeaderView.xib in Resources */,
 				F12158801BF39CA2005E5956 /* XMHomeBottomItemView.xib in Resources */,
 				F1F912691C084F25009F5707 /* SettingViewCell.xib in Resources */,
 				F1975B611C045D60001A983D /* XMFindAppHeaderView.xib in Resources */,
+				F14505A01C19E70000955F6E /* XMHomeDetailCommentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,7 +1241,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DBE29E1C0FD0E5003F5E48 /* YYTextInput.m in Sources */,
-				F1F2225A1BFE19BF00E926AF /* XMHomeDetailCenterView.swift in Sources */,
 				F101366B1C094FAD00E0E316 /* SVProgressHUD+XM.swift in Sources */,
 				F1888F8A1C15D058009B097C /* ViewController+SnapKit.swift in Sources */,
 				F10136681C094D6300E0E316 /* Window.swift in Sources */,
@@ -1190,7 +1248,9 @@
 				F1888F891C15D058009B097C /* View+SnapKit.swift in Sources */,
 				F1888F861C15D058009B097C /* LayoutConstraint.swift in Sources */,
 				F1DBE2E11C0FDE6F003F5E48 /* CALayer+YYWebImage.m in Sources */,
+				F145059B1C19E70000955F6E /* XMLContentModel.swift in Sources */,
 				F1DBE2E51C0FDE6F003F5E48 /* UIImageView+YYWebImage.m in Sources */,
+				F14505831C19E5D300955F6E /* XMFindAppDetailController.swift in Sources */,
 				F118A0361BFC782A002A0C2A /* UIScrollView+XM.swift in Sources */,
 				F12B5FE71C0C87FE00DD1292 /* XMSearchViewCell.swift in Sources */,
 				F1888F7E1C15D058009B097C /* ConstraintAttributes.swift in Sources */,
@@ -1220,7 +1280,7 @@
 				F1DBE2AD1C0FD0E5003F5E48 /* YYTextAsyncLayer.m in Sources */,
 				F11267691C055D1500B04AE7 /* XMFindAppDownloadModel.swift in Sources */,
 				F1DBE2A71C0FD0E5003F5E48 /* YYTextRubyAnnotation.m in Sources */,
-				F1C87AA71C0DEAD800A08387 /* XMFindAppDetailController.swift in Sources */,
+				F145059E1C19E70000955F6E /* XMHomeDetailCenterView.swift in Sources */,
 				F1DBE2E91C0FDE6F003F5E48 /* YYImageCoder.m in Sources */,
 				F1888F801C15D058009B097C /* ConstraintItem.swift in Sources */,
 				F10136671C094D6300E0E316 /* PKHUDWideBaseView.swift in Sources */,
@@ -1238,27 +1298,26 @@
 				F1DBE29B1C0FD0E5003F5E48 /* YYTextContainerView.m in Sources */,
 				F1888F811C15D058009B097C /* ConstraintMaker.swift in Sources */,
 				F17847F61C0AB7D900C5A8CF /* XMSearchController.swift in Sources */,
-				F1888F6A1C153C16009B097C /* XMFindAppDetailBottomView.swift in Sources */,
 				F1F196361C05AB5A00FA4DA1 /* XMFindAppViewModel.swift in Sources */,
-				F1D642DD1C1349AD0097E0BA /* XMLContentModel.swift in Sources */,
-				F1F222581BFE192400E926AF /* XMHomeDetailController.swift in Sources */,
 				F1D642DB1C12E15B0097E0BA /* XMLParserUtil.swift in Sources */,
 				F101365A1C094D6300E0E316 /* PKHUD.swift in Sources */,
 				F1DBE2EF1C0FDF70003F5E48 /* UIImageView+XM.swift in Sources */,
 				F1DBE2E01C0FDE6F003F5E48 /* _YYWebImageSetter.m in Sources */,
 				F1DBE2A21C0FD0E5003F5E48 /* YYTextMagnifier.m in Sources */,
+				F145059F1C19E70000955F6E /* XMHomeDetailCommentView.swift in Sources */,
 				F1888F871C15D058009B097C /* SnapKit.swift in Sources */,
-				F1D642E11C1482650097E0BA /* XMHomeDetailShareView.swift in Sources */,
 				F1F2225E1BFEB7E600E926AF /* XMHomeBottomCollectView.swift in Sources */,
 				F1DBE2B11C0FD0E5003F5E48 /* YYLabel.m in Sources */,
 				F1A6F3021BEFA2DE00786700 /* XMImageView.swift in Sources */,
 				F12158751BF32072005E5956 /* NSDate+XM.swift in Sources */,
 				F1DBE2E31C0FDE6F003F5E48 /* UIButton+YYWebImage.m in Sources */,
+				F145059A1C19E70000955F6E /* XMHomeDetailController.swift in Sources */,
 				F19EF0681BF0A75700916297 /* XMCommentsDataModel.swift in Sources */,
 				F1DBE2A91C0FD0E5003F5E48 /* NSAttributedString+YYText.m in Sources */,
 				F1DBE2E61C0FDE6F003F5E48 /* YYAnimatedImageView.m in Sources */,
 				F1DBE2E41C0FDE6F003F5E48 /* UIImage+YYWebImage.m in Sources */,
 				F19EF04A1BF097B900916297 /* XMInfoDataModel.swift in Sources */,
+				F14505A11C19E70000955F6E /* XMHomeDetailShareView.swift in Sources */,
 				F1DBE2EC1C0FDE6F003F5E48 /* YYWebImageManager.m in Sources */,
 				F118A0391BFC782A002A0C2A /* XMRefreshFooterView.swift in Sources */,
 				F1BA9A6D1C0021D90022CCDC /* XMBaseNavController.swift in Sources */,
@@ -1267,14 +1326,15 @@
 				F1B82E631BFB2265001CA4A6 /* XMHomeViewModel.swift in Sources */,
 				F101363B1C08B5BC00E0E316 /* AboutViewController.swift in Sources */,
 				F1B82E651BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift in Sources */,
-				F1C87AA91C0DEB1300A08387 /* XMFindAppDetailCenterView.swift in Sources */,
 				F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */,
+				F14505851C19E5D300955F6E /* XMFindAppDetailCenterView.swift in Sources */,
 				F10136691C094D6300E0E316 /* WindowRootViewController.swift in Sources */,
 				F1A6F3001BEFA2DE00786700 /* UIBarButtonItem+XM.swift in Sources */,
 				F1F912671C084F1B009F5707 /* SettingViewCell.swift in Sources */,
 				F1DBE29F1C0FD0E5003F5E48 /* YYTextKeyboardManager.m in Sources */,
 				F10136611C094D6300E0E316 /* PKHUDStatusView.swift in Sources */,
 				F1DBE2AF1C0FD0E5003F5E48 /* YYTextUtilities.m in Sources */,
+				F14505871C19E5D300955F6E /* XMFindAppDetailToolView.swift in Sources */,
 				F10136411C08B7BD00E0E316 /* AboutCenterView.swift in Sources */,
 				F1DBE2EB1C0FDE6F003F5E48 /* YYImageCache.m in Sources */,
 				F10136601C094D6300E0E316 /* PKHUDSquareBaseView.swift in Sources */,
@@ -1286,6 +1346,7 @@
 				F1DBE2E71C0FDE6F003F5E48 /* YYFrameImage.m in Sources */,
 				F101365E1C094D6300E0E316 /* PKHUDImageView.swift in Sources */,
 				F1DBE2A31C0FD0E5003F5E48 /* YYTextSelectionView.m in Sources */,
+				F145059D1C19E70000955F6E /* XMHomeDetailBottomView.swift in Sources */,
 				F1DBE2DC1C0FDE6F003F5E48 /* YYCache.m in Sources */,
 				F10136661C094D6300E0E316 /* PKHUDTitleView.swift in Sources */,
 				F17CFC391BF0DD29000D2A87 /* APIConfig.swift in Sources */,
@@ -1304,6 +1365,8 @@
 				F1DBE2AB1C0FD0E5003F5E48 /* UIPasteboard+YYText.m in Sources */,
 				F1DBE2AC1C0FD0E5003F5E48 /* UIView+YYText.m in Sources */,
 				F101365B1C094D6300E0E316 /* PKHUDAnimating.swift in Sources */,
+				F145059C1C19E70000955F6E /* XMHomeDetailAnimationUtil.swift in Sources */,
+				F14505841C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift in Sources */,
 				F11267641C055B3100B04AE7 /* XMFindAppModel.swift in Sources */,
 				F10136621C094D6300E0E316 /* PKHUDSubtitleView.swift in Sources */,
 				F10136641C094D6300E0E316 /* PKHUDSystemActivityIndicatorView.swift in Sources */,
@@ -1312,11 +1375,12 @@
 				F1B82E601BFB05E3001CA4A6 /* XMHomeCenterFlowLayout.swift in Sources */,
 				F1DBE2A51C0FD0E5003F5E48 /* YYTextAttribute.m in Sources */,
 				F10136571C094D6300E0E316 /* FrameView.swift in Sources */,
-				F1DBE3061C1099C6003F5E48 /* XMFindAppDetailCommentCell.swift in Sources */,
 				F101365F1C094D6300E0E316 /* PKHUDProgressView.swift in Sources */,
+				F14505861C19E5D300955F6E /* XMFindAppDetailCommentCell.swift in Sources */,
 				F1975B5F1C045D53001A983D /* XMFindAppHeaderView.swift in Sources */,
 				F1888F7D1C15D058009B097C /* Constraint.swift in Sources */,
 				F1DBE2A41C0FD0E5003F5E48 /* YYTextArchiver.m in Sources */,
+				F14505A41C19E70000955F6E /* XMHomeDetailToolView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
