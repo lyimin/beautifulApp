@@ -43,14 +43,13 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
             case 0:
                 self.navigationController?.pushViewController(AboutViewController(), animated: true)
             case 1:
-                print("分享")
+                ShareSDKUtil.shareToFriend()
             case 2:
                 UIApplication.sharedApplication().openURL(NSURL(string: APIConfig.API_APPStoreComment)!)
             case 3: break
                 // 意见反馈
             case 4:
                 // 清除缓存
-            
             PKHUD.sharedHUD.contentView = PKHUDSuccessView()
             PKHUD.sharedHUD.show()
             PKHUD.sharedHUD.hide(afterDelay: 1.0)

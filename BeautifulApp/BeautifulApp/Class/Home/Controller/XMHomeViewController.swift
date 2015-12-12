@@ -155,7 +155,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let model : XMHomeDataModel = self.viewModel.dataSource[indexPath.row]
-        self.navigationController?.pushViewController(XMHomeDetailController(model: model), animated: true)
+        self.navigationController?.pushViewController(XMHomeDetailController(model: model), animated: false)
     }
     
     //MARK: -custom Delegate

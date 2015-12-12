@@ -149,14 +149,14 @@ class XMHomeDetailCenterView: UIScrollView {
             // 分割线
             let sepLine = self.createTitleSeparatLine()
             sepLine.frame = CGRectMake(CGRectGetMaxX(commentLabel.frame), commentLabel.center.y, 80, 0.5)
-            
-            // 添加评论
-            for i in 0..<model.comments.count {
-                let commentView : XMFindAppDetailCommentCell = XMFindAppDetailCommentCell(frame: CGRectMake(0, contentY, SCREEN_WIDTH, 50))
-                commentView.setData(self.model.comments[i])
-                self.centerView.addSubview(commentView)
-                contentY += commentView.height
-            }
+//
+//            // 添加评论
+//            for i in 0..<model.comments.count {
+//                let commentView : XMFindAppDetailCommentCell = XMFindAppDetailCommentCell(frame: CGRectMake(0, contentY, SCREEN_WIDTH, 50))
+//                commentView.setData(self.model.comments[i])
+//                self.centerView.addSubview(commentView)
+//                contentY += commentView.height
+//            }
         }
         
         // 设置contentsize

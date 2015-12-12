@@ -33,13 +33,14 @@ class XMHomeCenterItemView: UICollectionViewCell {
             self.subTitleLabel.text = homeModel.sub_title
             self.centerImgView.xm_setBlurImageWithURL(NSURL(string: homeModel.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
             self.detailLabel.text = homeModel.digest
-            self.detailLabel.sizeToFit()
-            if homeModel.info?.fav == nil || homeModel.info?.fav == "0" {
-                self.fovView.hidden = true
+//            self.detailLabel.sizeToFit()
+            
+            
+            if  homeModel.info?.fav == nil {
+                self.fovCountLabel.text = "0"
             } else {
                 self.fovCountLabel.text = homeModel.info?.fav
             }
-            
             self.authorLabel.text = homeModel.author_username
         }
     }
@@ -53,7 +54,7 @@ class XMHomeCenterItemView: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.detailLabel.sizeToFit()
+//        self.detailLabel.sizeToFit()
     }
     
     class func itemView () -> XMHomeCenterItemView {

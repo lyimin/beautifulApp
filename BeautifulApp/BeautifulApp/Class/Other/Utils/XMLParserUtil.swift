@@ -28,6 +28,7 @@ class XMLParserUtil: NSObject, NSXMLParserDelegate {
         contentStr = contentStr.stringByReplacingOccurrencesOfString("&nbsp;", withString: " ")
         contentStr = contentStr.stringByReplacingOccurrencesOfString("&lsquo;", withString: "'")
         contentStr = contentStr.stringByReplacingOccurrencesOfString("&rsquo;", withString: "'")
+        contentStr = contentStr.stringByReplacingOccurrencesOfString("&middot", withString: ".")
         self.block = block
         
         parserManager = NSXMLParser(data: contentStr.dataUsingEncoding(NSUTF8StringEncoding)!)

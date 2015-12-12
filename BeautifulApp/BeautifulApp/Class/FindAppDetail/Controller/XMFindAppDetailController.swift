@@ -62,6 +62,9 @@ class XMFindAppDetailController: UIViewController,UIScrollViewDelegate, XMFindAp
     
     func XMFindAppDetailToolViewShareBtnClick() {
         
+        let shareModel : XMShareModel = XMShareModel(appContent: model.appDescription!, imgUrl: model.icon_image!, appTitle: model.title!, appDescription: model.appDescription!, appURL: (model.download_urls.first?.url)!)
+        
+        ShareSDKUtil.shareWithModel(shareModel)
     }
     
     // MARK: - Event Aciton

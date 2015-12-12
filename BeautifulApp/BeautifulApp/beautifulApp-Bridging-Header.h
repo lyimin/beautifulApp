@@ -10,3 +10,8 @@
 #import <WebKit/WebKit.h>
 #import "TFHpple.h"
 #import "YYText.h"
+#import <ShareSDK/ShareSDK.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"

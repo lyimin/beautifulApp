@@ -11,7 +11,8 @@ import UIKit
 extension UIViewController {
     
     func showNetWorkErrorView () {
-        let errorView : UIButton = UIButton(frame: CGRectMake(85, 170, 150, 145))
+        let errorView : UIButton = UIButton(frame: CGRectMake(0, 0, 150, 145))
+        errorView.center = self.view.center
         errorView.setImage(UIImage(named: "not_network_icon_unpre"), forState: .Normal)
         errorView.setImage(UIImage(named: "not_network_icon_pre"), forState: .Highlighted)
         errorView.addTarget(self, action: "errorViewDidClick:", forControlEvents: .TouchUpInside)

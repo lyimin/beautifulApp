@@ -1,0 +1,209 @@
+/* 
+  ShareSDKLocalizable.strings
+  AppgoFramework
+  Created by ShareSDK.cn on 13-1-14.
+  Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
+*/
+
+"ERROR_DESC_UNREGISTER" = "尚未初始化SDK";
+"ERROR_DESC_INVALID_PARAM" = "传入参数无效";
+"ERROR_DESC_API_NOT_SUPPORT" = "不支持此功能";
+"ERROR_DESC_UNKNOWN" = "未知错误";
+"ERROR_DESC_WEIXIN_NOT_INTEGRATED" = "尚未集成微信接口";
+"ERROR_DESC_WEIXIN_UNKNOWN_MEDIA_TYPE" = "未知的消息发送类型";
+"ERROR_DESC_QQ_SEND_FAIL" = "发送失败";
+"ERROR_DESC_QQ_NOT_INSTALLED" = "尚未安装QQ";
+"ERROR_DESC_QQ_API_IS_NOT_SUPPORT" = "当前QQ版本不支持该功能";
+"ERROR_DESC_QQ_UNKNOWN_MEDIA_TYPE" = "未知的消息发送类型";
+"ERROR_DESC_UNAUTH" = "尚未授权";
+"ERROR_DESC_FACEBOOK_CANCEL_ADD_FRIEND" = "取消添加好友";
+"ERROR_DESC_FACEBOOK_NOT_INSTALL" = "尚未安装Facebook客户端";
+"ERROR_DESC_TWITTER_GET_FRIENDS_API_DEPRECATED" = "此方法已过时，请使用getFriendsWithPage方法代替";
+"ERROR_DESC_WEIXIN_NOT_INSTALL" = "尚未安装微信";
+"ERROR_DESC_WEIXIN_API_IS_NOT_SUPPORT" = "当前微信版本不支持该功能";
+"ERROR_DESC_WEIXIN_SEND_REQUEST_ERROR" = "请求微信OpenApi失败";
+"ERROR_DESC_QQ_NOT_INTEGRATED" = "尚未集成QQ接口";
+"ERROR_DESC_PRINT_NOT_SUPPORT" = "该设备不允许进行打印";
+"ERROR_DESC_SYS_VER_LOW_THAN" = "该功能不支持iOS %@以下系统版本";
+"ERROR_DESC_MAIL_NOT_SUPPORT" = "该设备不支持邮件分享或尚未设置邮件帐号";
+"ERROR_DESC_SMS_NOT_SUPPORT" = "该设备不支持短信分享";
+"ERROR_DESC_NOT_CONNECT" = "尚未集成该平台!";
+"ERROR_DESC_NO_NETWORK" = "设备尚未连接网络!";
+"ERROR_DESC_QQ_NOT_SET_URL_SCHEME" = "尚未设置QQ的URL Scheme";
+"ERROR_DESC_WEIXIN_NOT_SET_URL_SCHEME" = "尚未设置微信的URL Scheme";
+"ERROR_DESC_GOOGLE_PLUS_SEND_FAIL" = "分享失败!";
+"ERROR_DESC_SINA_WEIBO_NOT_INTEGRATED" = "尚未集成新浪微博分享接口";
+"ERROR_DESC_SINA_WEIBO_NOT_INSTALL" = "尚未安装新浪微博客户端";
+"ERROR_DESC_SINA_WEIBO_IS_NOT_SUPPORT" = "当前新浪微博客户端版本不支持该功能";
+"ERROR_DESC_SINA_WEIBO_SEND_FAIL" = "发送失败";
+"ERROR_DESC_PINTEREST_NOT_INTEGRATED" = "尚未集成Pinterest";
+"ERROR_DESC_PINTEREST_NOT_INSTALL" = "尚未安装Pinterest";
+"ERROR_DESC_PINTEREST_NOT_SET_URL_SCHEME" = "尚未配置Pinterest URL Scheme";
+"ERROR_DESC_DROPBOX_UPLOAD_FILE_FAIL" = "上传文件失败";
+"ERROR_DESC_INSTAGRAM_NOT_INSTALL" = "尚未安装Instagram客户端";
+"ERROR_DESC_INSTAGRAM_SEND_FAIL" = "发送Instagram内容失败";
+"ERROR_DESC_YIXIN_NOT_INTEGRATED" = "尚未集成易信接口";
+"ERROR_DESC_YIXIN_UNKNOWN_MEDIA_TYPE" = "未知的消息发送类型";
+"ERROR_DESC_YIXIN_NOT_INSTALL" = "尚未安装易信";
+"ERROR_DESC_YIXIN_API_IS_NOT_SUPPORT" = "当前易信版本不支持该功能";
+"ERROR_DESC_YIXIN_SEND_REQUEST_ERROR" = "请求易信OpenApi失败";
+"ERROR_DESC_YIXIN_NOT_SET_URL_SCHEME" = "尚未设置易信的URL Scheme";
+"ERROR_DESC_INVALID_PLATFORM" = "无效的平台或者尚未初始化该平台!";
+"ERROR_DESC_LINE_NOT_INSTALL" = "尚未安装Line客户端";
+"ERROR_DESC_LINE_SEND_FAIL" = "分享Line内容失败";
+"ERROR_DESC_LINE_NOT_SUPPORTED_FOR_IOS7_PLUS" = "Line平台暂时不支持在iOS7以上分享图片";
+"ERROR_CODE_LINE_INVALID_UIPASTBOARD" = "无效UIPasteboard对象";
+"ERROR_DESC_WHATSAPP_NOT_INSTALL" = "尚未安装WhatsApp客户端";
+"ERROR_DESC_WHATSAPP_SEND_FAIL" = "分享WhatsApp内容失败";
+"ERROR_DESC_KAKAOTALK_NOT_INSTALL" = "尚未安装KakaoTalk客户端";
+"ERROR_DESC_KAKAOTALK_SEND_FAIL" = "分享KakaoTalk内容失败";
+"ERROR_DESC_KAKAOSTORY_NOT_INSTALL" = "尚未安装KakaoStory客户端";
+"ERROR_DESC_KAKAOSTORY_SEND_FAIL" = "分享KakaoStory内容失败";
+"ERROR_CODE_SMS_SEND_ATTACHMENTS_ONLY_SUPPORTED_FOR_IOS7_PLUS" = "只有iOS7以上系统才能发送带附件的短信";
+"ERROR_DESC_KAKAOTALK_NOT_INSTALL" = "尚未安装KakaoTalk客户端";
+"ERROR_DESC_KAKAOSTORY_NOT_INSTALL" = "尚未安装KakaoStory客户端";
+"ERROR_DESC_QQ_CLIENT_NOT_INSTALLED" = "尚未安装QQ客户端";
+"ERROR_DESC_WEIXIN_AUTHORIZE_ERROR" = "获取 access token 失败";
+
+"ERROR_DESC_ALIPAYSOCIAL_SEND_FAIL" = "发送失败";
+"ERROR_DESC_ALIPAYSOCIAL_NOT_INTEGRATED" = "尚未集成支付宝分享接口";
+"ERROR_DESC_ALI_API_IS_NOT_SUPPORT" = "当前支付宝版本不支持该功能";
+"ERROR_DESC_ALIPAYSOCIAL_NOT_INSTALLED" = "尚未安装支付宝";
+"ERROR_DESC_ALIPAYSOCIAL_NOT_SET_URL_SCHEME" = "尚未设置支付宝的URL Scheme";
+"ERROR_DESC_ALIPAYSOCIAL_NOT_SUPPORT_MEDIA_TYPE" = "支付宝不支持该类型媒体分享";
+"ERROR_DESC_NO_VALILD_PLATFORM_TO_SHARE" = "没有有效的分享平台可以显示。原因可能是：分享平台需要客户端才能分享，而这台iOS设备没有安装这些平台的客户端。";
+
+"ShareType_1" = "新浪微博";
+"ShareType_2" = "腾讯微博";
+"ShareType_5" = "豆瓣";
+"ShareType_6" = "QQ空间";
+"ShareType_7" = "人人网";
+"ShareType_8" = "开心网";
+"ShareType_9" = "朋友网";
+"ShareType_10" = "Facebook";
+"ShareType_11" = "Twitter";
+"ShareType_12" = "印象笔记";
+"ShareType_13" = "Foursquare";
+"ShareType_14" = "Google+";
+"ShareType_15" = "Instagram";
+"ShareType_16" = "LinkedIn";
+"ShareType_17" = "Tumblr";
+"ShareType_18" = "邮件";
+"ShareType_19" = "短信";
+"ShareType_20" = "打印";
+"ShareType_21" = "拷贝";
+"ShareType_22" = "微信好友";
+"ShareType_23" = "微信朋友圈";
+"ShareType_24" = "QQ";
+"ShareType_25" = "Instapaper";
+"ShareType_26" = "Pocket";
+"ShareType_27" = "有道云笔记";
+"ShareType_28" = "搜狐随身看";
+"ShareType_30" = "Pinterest";
+"ShareType_34" = "Flickr";
+"ShareType_35" = "Dropbox";
+"ShareType_36" = "VKontakte";
+"ShareType_37" = "微信收藏";
+"ShareType_38" = "易信好友";
+"ShareType_39" = "易信朋友圈";
+"ShareType_41" = "明道";
+"ShareType_42" = "Line";
+"ShareType_43" = "WhatsApp";
+"ShareType_44" = "KakaoTalk";
+"ShareType_45" = "KakaoStory";
+"ShareType_50" = "支付宝好友";
+
+"ALTER_VIEW_TITLE" = "提示";
+"ALTER_VIEW_I_KNOWN_BUTTON" = "知道了";
+
+"MSG_SHARE_SUCCESS" = "%@分享成功!";
+"MSG_SHARE_FAIL" = "%@分享失败!%@";
+"MSG_SHARE_FAIL_2" = "分享失败!";
+"MSG_SENDING" = "发送中...";
+"MSG_DEVICE_CAMERA_NOT_SUPPORT" = "该设备不支持拍照功能";
+"MSG_DEVICE_ALBUM_NOT_SUPPORT" = "该设备不支持相册功能";
+
+"PRINT_JOB_NAME" = "内容分享";
+
+"WEIXIN_SESSION_NAME" = "微信好友";
+"WEIXIN_TIMELINE_NAME" = "微信朋友圈";
+"WEIXIN_MSG_SEND_SUCCESS" = "发送%@成功!";
+"WEIXIN_MSG_SEND_FAIL" = "发送%@失败:%@";
+
+"QQ_MSG_SEND_SUCCESS" = "发送QQ消息成功";
+"QQ_MSG_SEND_FAIL" = "发送QQ消息失败:%@";
+
+"SHARE_VIEW_CANCEL_BUTTON" = "取消";
+"SHARE_VIEW_PUBLISH_BUTTON" = "发表";
+"SHARE_VIEW_MSG_INVALID_CONTENT" = "请输入分享内容";
+"SHARE_VIEW_MSG_INVALID_CLIENTS" = "请选择分享的目标平台";
+"SHARE_VIEW_DEF_PIC_PUBLISH_CONTENT" = "图片分享";
+"SHARE_VIEW_ACTIONSHEET_CLEAR_CONTENT_ITEM" = "清空内容";
+"SHARE_VIEW_ACTIONSHEET_OK_ITEM" = "确定";
+"SHARE_VIEW_ACTIONSHEET_CANCEL_ITEM" = "取消";
+"SHARE_VIEW_ACTIONSHEET_REMOVE_PHOTO_ITEM" = "删除照片";
+"SHARE_VIEW_ACTIONSHEET_VIEW_PHOTO_ITEM" = "观看照片";
+"SHARE_VIEW_ACTIONSHEET_TAKE_PHOTO_ITEM" = "拍照...";
+"SHARE_VIEW_ACTIONSHEET_SELECT_PHOTO_ITEM" = "选取照片...";
+"SHARE_VIEW_AUTH_TITLE" = "绑定%@";
+"SHARE_VIEW_TITLE" = "内容分享";
+"SHARE_VIEW_ONE_KEY_LIST_TITLE" = "分享到";
+"SHARE_ACTION_SHEET_CANCEL_BUTTON" = "取消";
+"SHARE_VIEW_TOPIC" = "话题";
+
+"FRIENDS_VIEW_TITLE" = "联系人";
+"FRIENDS_VIEW_CANCEL_BUTTON" = "取消";
+"FRIENDS_VIEW_SEARCHBAR_PLACEHOLDER" = "在联系人中搜索...";
+"FRIENDS_VIEW_SEARCH_RESULT_SECTION_TITLE" = "搜索结果";
+"FRIENDS_VIEW_RECENT_SECTION_TITLE" = "最近联系人";
+
+"ACCOUNT_VIEW_OK_BUTTON" = "确定";
+"ACCOUNT_VIEW_TIPS_SECTION_TITLE" = "授权失效，请重新授权";
+
+"AUTH_VIEW_CANCEL_BUTTON" = "取消";
+"AUTH_VIEW_TITLE_1" = "新浪微博";
+"AUTH_VIEW_TITLE_2" = "腾讯微博";
+"AUTH_VIEW_TITLE_5" = "豆瓣";
+"AUTH_VIEW_TITLE_6" = "QQ空间";
+"AUTH_VIEW_TITLE_7" = "人人网";
+"AUTH_VIEW_TITLE_8" = "开心网";
+"AUTH_VIEW_TITLE_10" = "Facebook";
+"AUTH_VIEW_TITLE_11" = "Twitter";
+"AUTH_VIEW_TITLE_12" = "印象笔记";
+"AUTH_VIEW_TITLE_14" = "Google+";
+"AUTH_VIEW_TITLE_15" = "Instagram";
+"AUTH_VIEW_TITLE_16" = "LinkedIn";
+"AUTH_VIEW_TITLE_17" = "Tumblr";
+"AUTH_VIEW_TITLE_22" = "WeChat";
+"AUTH_VIEW_TITLE_25" = "Instapaper";
+"AUTH_VIEW_TITLE_26" = "Pocket";
+"AUTH_VIEW_TITLE_27" = "有道云笔记";
+"AUTH_VIEW_TITLE_28" = "搜狐随身看";
+"AUTH_VIEW_TITLE_34" = "Flickr";
+"AUTH_VIEW_TITLE_35" = "Dropbox";
+"AUTH_VIEW_TITLE_36" = "VKontakte";
+"AUTH_VIEW_TITLE_41" = "明道";
+"AUTH_VIEW_FOLLOW_ME" = "关注我们的微博";
+
+"AWARD_BACK_ITEM_TITLE" = "关闭";
+"AD_SKIP_BUTTON" = "跳过";
+
+"Share_Recommendaiton_Title" = "分享宝盒";
+"Share_Successfully" = "分享成功";
+"Share_Fail" = "分享失败";
+"Share_To_More_Platform" = "分享到更多平台";
+"They_Are_Sharing" = "他们正在分享";
+"Share_Recommendation_From" = "分享至";
+"Sharing_Summary_Close" = "关闭";
+"Return" = "返回";
+"There_Are" = "您有";
+"Friend_Using_The_App" = "位好友正在使用这个应用";
+"Views" = "人看过";
+"Just_Now" = "刚刚";
+"Min_Ago" = "分钟前";
+"Hour_Ago" = "小时前";
+"Yesterday" = "昨天";
+"Today_News" = "今日新闻";
+"Load_More" = "点击加载更多";
+"Type_News" = "新闻"; 
+

@@ -29,7 +29,7 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
         centerView.model = model
         self.view.addSubview(centerView)
         // 工具条
-        toolBar.frame = CGRect(x: 0, y: 235, width: SCREEN_WIDTH, height: 30)
+        toolBar.frame = CGRect(x: 0, y: 245, width: SCREEN_WIDTH, height: 30)
         self.view.addSubview(toolBar)
         // 返回按钮
         self.view.addSubview(returnBtn)
@@ -50,14 +50,14 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     //MARK: - UIScrollview Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.centerView.updateHeaderView()
-        if scrollView.contentOffset.y >= 205 {
+        if scrollView.contentOffset.y >= 215 {
             self.toolBar.y = self.returnBtn.y
             // 显示在标题栏动画
             XMHomeDetailAnimationUtil.homeDetailToolBarToNavAnimation(self.toolBar)
             
             
         } else {
-            self.toolBar.y = 235 - scrollView.contentOffset.y
+            self.toolBar.y = 245 - scrollView.contentOffset.y
             XMHomeDetailAnimationUtil.homeDetailToolBarToScrollAnimation(self.toolBar)
         }
     }
@@ -72,7 +72,9 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     }
     // 点击分享
     func homeDetailToolViewShareBtnClick() {
-        
+        let title : String = model.title!+"--"+model.sub_title!
+        let shareModel : XMShareModel = XMShareModel(appContent: model.digest!, imgUrl: model.icon_image!, appTitle: title, appDescription: model.digest!, appURL: model.download_url!)
+        ShareSDKUtil.shareWithModel(shareModel)
     }
     
     // 点击下载
