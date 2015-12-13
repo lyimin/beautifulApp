@@ -26,6 +26,7 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
 //        self.automaticallyAdjustsScrollViewInsets = false
+        
         centerView.model = model
         self.view.addSubview(centerView)
         // 工具条
@@ -47,7 +48,6 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     }
     
     // MARK: ScrollView Delegate
-    //MARK: - UIScrollview Delegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.centerView.updateHeaderView()
         if scrollView.contentOffset.y >= 215 {

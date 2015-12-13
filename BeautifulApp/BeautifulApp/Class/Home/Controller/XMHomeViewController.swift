@@ -108,7 +108,8 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         self.setupLayout()
 //        self.centerCollectView.headerViewBeginRefreshing()
     }
-        //MARK: - scrollerDelegate
+    
+    //MARK: - scrollerDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.tag == 100 {
             let index : Int = Int((scrollView.contentOffset.x + 0.5*scrollView.width) / scrollView.width)
@@ -155,7 +156,8 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let model : XMHomeDataModel = self.viewModel.dataSource[indexPath.row]
-        self.navigationController?.pushViewController(XMHomeDetailController(model: model), animated: false)
+        let detailController = XMHomeDetailController(model: model)
+        self.navigationController?.pushViewController(detailController, animated: true)
     }
     
     //MARK: -custom Delegate
@@ -284,10 +286,8 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         return collectView
     }()
     
-    
-    
     // MARK: - 屏幕适配
-    func setupLayout() {
+    private func setupLayout() {
         headerView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.view.snp_topMargin).offset(20)
             make.height.equalTo(SCREEN_HEIGHT*50/IPHONE5_HEIGHT)
