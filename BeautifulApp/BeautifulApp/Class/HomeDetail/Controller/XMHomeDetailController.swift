@@ -129,13 +129,6 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
             make.height.equalTo(30)
         }
         
-//        toolBar.snp_makeConstraints { (make) -> Void in
-//            make.left.equalTo(self.view).offset(0)
-//            make.topMargin.equalTo(self.view.snp_topMargin).offset(280)
-//            make.width.equalTo(self.view)
-//            make.height.equalTo(toolBar.height)
-//        }
-        
         bottomView.snp_makeConstraints { (make) -> Void in
             make.left.right.bottom.equalTo(self.view)
             make.height.equalTo(40)

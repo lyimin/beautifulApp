@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,14 +15,12 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ha2-OL-RbW">
                             <rect key="frame" x="90" y="15" width="40" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="detail_portrait_default" translatesAutoresizingMaskIntoConstraints="NO" id="f3Q-zg-TjX" customClass="XMImageView" customModule="BeautifulApp" customModuleProvider="target">
                             <rect key="frame" x="25" y="0.0" width="50" height="50"/>
-                            <animations/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="25"/>
@@ -30,7 +28,6 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="zPk-5S-rp2"/>
                     </constraints>
@@ -40,17 +37,14 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_icon_apps_normal" translatesAutoresizingMaskIntoConstraints="NO" id="urf-kE-D5N">
                             <rect key="frame" x="30" y="5" width="30" height="30"/>
-                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="每日最美" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-sf-AYh">
                             <rect key="frame" x="75" y="10" width="100" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="PyR-53-fC8"/>
                     </constraints>
@@ -60,17 +54,14 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_icon_box_normal" translatesAutoresizingMaskIntoConstraints="NO" id="SCN-cB-TFI">
                             <rect key="frame" x="30" y="5" width="30" height="30"/>
-                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="限免推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwx-ZL-AoR">
                             <rect key="frame" x="75" y="10" width="100" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="7qi-v5-7xp"/>
                     </constraints>
@@ -80,17 +71,14 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_icon_discover_normal" translatesAutoresizingMaskIntoConstraints="NO" id="5KT-FO-wCa">
                             <rect key="frame" x="30" y="5" width="30" height="30"/>
-                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发现应用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu4-lI-Bky">
                             <rect key="frame" x="75" y="10" width="100" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="651-LC-XcR"/>
                     </constraints>
@@ -100,17 +88,14 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_icon_article_normal" translatesAutoresizingMaskIntoConstraints="NO" id="IpE-wW-p8a">
                             <rect key="frame" x="30" y="5" width="30" height="30"/>
-                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="文章专栏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhv-eI-Avf">
                             <rect key="frame" x="75" y="10" width="100" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jHH-5I-zDf"/>
                     </constraints>
@@ -120,17 +105,14 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_icon_beauty_normal" translatesAutoresizingMaskIntoConstraints="NO" id="mgO-WD-Zq9">
                             <rect key="frame" x="30" y="5" width="30" height="30"/>
-                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="美我一下" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMq-uy-0eD">
                             <rect key="frame" x="75" y="10" width="100" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="zCt-C2-8Tb"/>
                     </constraints>
@@ -140,28 +122,23 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_icon_fav_normal" translatesAutoresizingMaskIntoConstraints="NO" id="v0F-Ds-kpL">
                             <rect key="frame" x="30" y="5" width="30" height="30"/>
-                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUE-yM-KqQ">
                             <rect key="frame" x="75" y="10" width="100" height="20"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3qR-N3-NUQ"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sidebar_dot" translatesAutoresizingMaskIntoConstraints="NO" id="qfb-v2-GTC" userLabel="小白点">
                     <rect key="frame" x="15" y="140" width="5" height="5"/>
-                    <animations/>
                 </imageView>
                 <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LA-KX-MMT">
                     <rect key="frame" x="20" y="527" width="300" height="1"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Ltj-zi-9Od"/>
@@ -169,7 +146,6 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-Uw-9z4" userLabel="搜索">
                     <rect key="frame" x="20" y="535" width="25" height="25"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="Gjl-eL-e4F"/>
                         <constraint firstAttribute="height" constant="25" id="mln-4f-x0H"/>
@@ -182,7 +158,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg5-Je-Af1" userLabel="更多">
                     <rect key="frame" x="275" y="535" width="25" height="25"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="O4S-B2-AVK"/>
                         <constraint firstAttribute="width" constant="25" id="exb-fD-Esp"/>
@@ -194,7 +169,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7S-Fz-J3B">
                     <rect key="frame" x="110" y="538" width="100" height="20"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="Lf0-bx-hfS"/>
                         <constraint firstAttribute="height" constant="20" id="xJj-90-hVU"/>
@@ -208,7 +182,6 @@
                     </connections>
                 </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="3RP-Rb-8T6" secondAttribute="trailing" id="00L-Yd-5sY"/>
