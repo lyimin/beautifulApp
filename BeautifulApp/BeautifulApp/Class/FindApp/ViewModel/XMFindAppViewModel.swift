@@ -85,11 +85,9 @@ class XMFindAppViewModel: NSObject {
             }
             }) { (error) -> Void in
                 if self.findAppType == .XMFindAppViewTypeHotShare {
-                    self.hotShareView.reloadData()
                     self.hotShareView.headerViewStopPullToRefresh()
                     self.hotShareView.footerEndRefreshing()
                 } else {
-                    self.lastestView.reloadData()
                     self.lastestView.headerViewStopPullToRefresh()
                     self.lastestView.footerEndRefreshing()
                 }

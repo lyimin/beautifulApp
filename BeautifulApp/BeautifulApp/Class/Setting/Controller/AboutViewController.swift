@@ -13,8 +13,9 @@ class AboutViewController: UIViewController, AboutCenterViewDelegate {
     private weak var headerView : SettingHeaderView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 设置导航栏
         self.setupNavView()
-        centerView.delegate = self
+        
         self.view.addSubview(centerView)
         
         // 适配屏幕
@@ -77,8 +78,9 @@ class AboutViewController: UIViewController, AboutCenterViewDelegate {
     
     // MARK: - getter or setter 
     
-    private var centerView : AboutCenterView = {
+    private lazy var centerView : AboutCenterView = {
         let centerView = AboutCenterView.centerView()
+        centerView.delegate = self
         return centerView
     }()
 }

@@ -19,13 +19,15 @@ class XMFindAppDetailController: UIViewController,UIScrollViewDelegate, XMFindAp
         centerView.dataModel = model
         self.view.addSubview(centerView)
         
-        toolBarView.frame = CGRect(x: 0, y: 155, width: SCREEN_WIDTH, height: toolBarView.height)
+        // 中间工具条
         self.view.addSubview(toolBarView)
         
+        // 底部工具条
         self.view.addSubview(bottomView)
         
-        returnBtn.frame = CGRect(x: UI_MARGIN_20, y: 30, width: 30, height: 30)
+        // 返回按钮
         self.view.addSubview(returnBtn)
+        // 屏幕适配
         self.setLayout()
         
         self.centerView.footerViewPullToRefresh(.XMRefreshDirectionVertical) { [unowned self]() -> Void in
@@ -132,6 +134,7 @@ class XMFindAppDetailController: UIViewController,UIScrollViewDelegate, XMFindAp
     
     private lazy var toolBarView : XMFindAppDetailToolView = {
         let toolBarView : XMFindAppDetailToolView = XMFindAppDetailToolView.toolView()
+        toolBarView.frame = CGRect(x: 0, y: 155, width: SCREEN_WIDTH, height: toolBarView.height)
         toolBarView.delegate = self
         return toolBarView
     }()
@@ -139,6 +142,7 @@ class XMFindAppDetailController: UIViewController,UIScrollViewDelegate, XMFindAp
     // 返回按钮
     private lazy var returnBtn : UIButton = {
         let returnBtn : UIButton = UIButton()
+        returnBtn.frame = CGRect(x: UI_MARGIN_20, y: 30, width: 30, height: 30)
         returnBtn.addTarget(self, action: "returnBtnDidClick", forControlEvents: .TouchUpInside)
         returnBtn.setImage(UIImage(named: "detail_icon_back_normal"), forState: .Normal)
         returnBtn.setImage(UIImage(named: "detail_icon_back_pressed"), forState: .Highlighted)

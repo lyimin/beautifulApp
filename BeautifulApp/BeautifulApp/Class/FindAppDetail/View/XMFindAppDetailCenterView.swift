@@ -24,7 +24,6 @@ class XMFindAppDetailCenterView: UIScrollView, UIScrollViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // 添加内容
-        centerView.frame = self.bounds
         self.addSubview(centerView)
     }
 

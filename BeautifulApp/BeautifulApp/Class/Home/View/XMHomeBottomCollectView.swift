@@ -16,6 +16,7 @@ class XMHomeBottomCollectView: UICollectionView {
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
+        // 注册item
         self.registerNib(UINib(nibName: "XMHomeBottomItemView", bundle: nil), forCellWithReuseIdentifier: "XMHomeBottomItemViewID")
         self.scrollEnabled = false
         self.backgroundColor = UIColor.clearColor()

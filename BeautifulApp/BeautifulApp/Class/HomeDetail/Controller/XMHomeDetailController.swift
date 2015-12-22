@@ -30,7 +30,6 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
         centerView.model = model
         self.view.addSubview(centerView)
         // 工具条
-        toolBar.frame = CGRect(x: 0, y: 245, width: SCREEN_WIDTH, height: 30)
         self.view.addSubview(toolBar)
         // 返回按钮
         self.view.addSubview(returnBtn)
@@ -157,6 +156,7 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     // 工具条
     private lazy var toolBar : XMHomeDetailToolView = {
         let toolBar : XMHomeDetailToolView = XMHomeDetailToolView.toolView()
+        toolBar.frame = CGRect(x: 0, y: 245, width: SCREEN_WIDTH, height: 30)
         toolBar.delegate = self
         return toolBar
     }()

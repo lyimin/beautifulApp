@@ -29,6 +29,7 @@ class XMHomeCenterItemView: UICollectionViewCell {
         }
         
         didSet {
+            // 设置数据
             self.titleLabel.text = homeModel.title
             self.subTitleLabel.text = homeModel.sub_title
             self.centerImgView.xm_setBlurImageWithURL(NSURL(string: homeModel.cover_image!), placeholderImage: UIImage(named: "home_logo_pressed"))
@@ -52,16 +53,7 @@ class XMHomeCenterItemView: UICollectionViewCell {
         self.layer.cornerRadius = 5
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        self.detailLabel.sizeToFit()
-    }
-    
-    class func itemView () -> XMHomeCenterItemView {
-        let centerView : XMHomeCenterItemView = NSBundle.mainBundle().loadNibNamed("XMHomeCenterItemView", owner: nil, options: nil)[0] as! XMHomeCenterItemView
-        return centerView
-    }
-
+    // 加载cell
     class func itemWithCollectionView(collection : UICollectionView, indexPath : NSIndexPath) -> XMHomeCenterItemView {
         var cell : XMHomeCenterItemView? = collection.dequeueReusableCellWithReuseIdentifier("XMHomeCenterItemViewID", forIndexPath: indexPath) as? XMHomeCenterItemView
         

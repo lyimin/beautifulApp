@@ -42,18 +42,12 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorBtnDidClick", name: NOTIFY_ERRORBTNCLICK, object: nil)
         // 初始化界面
         self.view.backgroundColor = UI_COLOR_APPNORMAL
-        
+        // 添加头部view
         self.view.addSubview(headerView)
-        headerView.delegate = self
-        
+        // 添加中间collection
         self.view.addSubview(centerCollectView)
-        centerCollectView.delegate = self
-        centerCollectView.dataSource = self
-        
+        // 添加底部collection
         self.view.addSubview(bottomCollectView)
-        bottomCollectView.bottomViewDelegate = self
-        bottomCollectView.delegate = self
-        bottomCollectView.dataSource = self
         
         // 获取viewModel
         viewModel = XMHomeViewModel(regiHeaderView: headerView, centerView: centerCollectView, bottomView: bottomCollectView)
@@ -73,11 +67,10 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             })
         })
         
+        // 加载更多
         self.centerCollectView.footerViewPullToRefresh (.XMRefreshDirectionHorizontal, callback:{ [unowned self]() -> Void in
             self.page += 1
 
-            
-            
             self.viewModel.getData(self.page, successCallBack: { (dataSoure) -> Void in
                 // 默认选中0
                 self.lastIndex = nil
@@ -260,16 +253,19 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     
     //MARK: - getter or setter
     // 头部headerview
-    private var headerView : XMHomeHeaderView = {
+    private lazy var headerView : XMHomeHeaderView = {
         let headerView : XMHomeHeaderView = XMHomeHeaderView.headerView()
+        headerView.delegate = self
 //        headerView.frame = CGRectMake(0, 20, SCREEN_WIDTH, headerView.height)
         return headerView
     }()
     
     // 中间collectionview
-    private var centerCollectView : UICollectionView = {
+    private lazy var centerCollectView : UICollectionView = {
         let collectLayout : XMHomeCenterFlowLayout = XMHomeCenterFlowLayout()
         let collectView : UICollectionView = UICollectionView(frame: CGRectMake(0, 70, SCREEN_WIDTH, 420), collectionViewLayout: collectLayout)
+        collectView.delegate = self
+        collectView.dataSource = self
         collectView.showsHorizontalScrollIndicator = false
         collectView.pagingEnabled = true
         
@@ -280,9 +276,12 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     }()
     
     // 底部collectionView
-    private var bottomCollectView : XMHomeBottomCollectView = {
+    private lazy var bottomCollectView : XMHomeBottomCollectView = {
         let collectionLayout : XMHomeBottomFlowLayout = XMHomeBottomFlowLayout()
         let collectView : XMHomeBottomCollectView = XMHomeBottomCollectView(frame: CGRectMake(0, SCREEN_HEIGHT-60, SCREEN_WIDTH, 60), collectionViewLayout: collectionLayout)
+        collectView.bottomViewDelegate = self
+        collectView.delegate = self
+        collectView.dataSource = self
         return collectView
     }()
     

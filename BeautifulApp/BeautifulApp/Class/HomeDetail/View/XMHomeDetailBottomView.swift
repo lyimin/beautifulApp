@@ -12,11 +12,11 @@ class XMHomeDetailBottomView: UIScrollView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        // 添加blur
         let centerView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 2*SCREEN_WIDTH, height: 40))
         centerView.backgroundColor = UIColor.clearColor()
         self.addSubview(centerView)
         
+        // 模糊背景
         let blurEffect : UIBlurEffect = UIBlurEffect(style: .Light)
         let blurView : UIVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = centerView.frame

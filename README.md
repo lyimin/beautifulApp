@@ -16,6 +16,17 @@
   - Search         : 搜索界面（这个界面有个参数加密了。所以没有实现。感觉这个功能挺赞的）
   - Setting        : 设置界面
   - Other          : 其它(包括API，APP的一些参数)
+- 后续工作
+  - 修复现有问题
+  - 实现未实现的功能
+  - 增加更多动画体验
+- 更新Tips
+  - 1.修复每日最美详情页的XML解析错误问题,2.优化代码 ----- 2015-12-22
+- 备注
+  - 此App有些功能收藏功能和评论还没有实现,会抽空在后续更新。敬请期待。
+  - 有些详情页图片加载不了，换过SDWebImage和Kingfisher同样加载不了。目前还不知道什么原因
+  - 下拉刷新框架网络不佳时也会出现问题。
+  - 还有些问题会抽空后续更新,敬请期待。
   ---
 #### 附图
 ![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/1.gif)

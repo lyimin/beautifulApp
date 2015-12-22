@@ -16,7 +16,6 @@ class XMClassifyViewController: UIViewController, XMClassifyCenterViewDelegate {
         self.view.backgroundColor = UIColor.clearColor()
         
         self.view.addSubview(centerView)
-        centerView.delegate = self
         
         centerView.snp_makeConstraints { (make) -> Void in
             make.left.right.top.bottom.equalTo(self.view).offset(0)
@@ -99,8 +98,9 @@ class XMClassifyViewController: UIViewController, XMClassifyCenterViewDelegate {
 
     //MARK:- getter or Setter
     
-    private var centerView : XMClassifyCenterView = {
+    private lazy var centerView : XMClassifyCenterView = {
         let centerView : XMClassifyCenterView = XMClassifyCenterView.centerView()
+        centerView.delegate = self
         return centerView
     }()
 
