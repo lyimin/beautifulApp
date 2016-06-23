@@ -84,13 +84,13 @@ class XMMenuViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // 添加通知。当点击菜单按钮时
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuShowAnimate", name: NOTIFY_SHOWMENU, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(XMMenuViewController.leftMenuShowAnimate), name: NOTIFY_SHOWMENU, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuHiddenAnimate", name: NOTIFY_HIDDEMENU, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(XMMenuViewController.leftMenuHiddenAnimate), name: NOTIFY_HIDDEMENU, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupBackColor:", name: NOTIFY_SETUPBG, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(XMMenuViewController.leftMenuSetupBackColor(_:)), name: NOTIFY_SETUPBG, object: nil)
         // 设置中间控制器
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "leftMenuSetupCenterView:", name: NOTIFY_SETUPCENTERVIEW, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(XMMenuViewController.leftMenuSetupCenterView(_:)), name: NOTIFY_SETUPCENTERVIEW, object: nil)
         
         self.view.bringSubviewToFront(self.centerController.view)
         
@@ -126,7 +126,7 @@ class XMMenuViewController: UIViewController {
         // 添加覆盖层
         self.addCover()
         // 添加手势
-        let leftPan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
+        let leftPan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(XMMenuViewController.leftMenuDidDrag(_:)))
         self.leftController.view.addGestureRecognizer(leftPan)
 
     }
@@ -177,13 +177,13 @@ class XMMenuViewController: UIViewController {
     private func addCover(){
         let cover : UIWindow = UIWindow(frame: centerController!.view.frame)
         // 拖拽覆盖层事件
-        let pan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "leftMenuDidDrag:")
+        let pan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(XMMenuViewController.leftMenuDidDrag(_:)))
         cover.backgroundColor = UIColor(red: 254/255.0, green: 254/255.0, blue: 254/255.0, alpha: 0.02)
         cover.addGestureRecognizer(pan)
         self.cover = cover
         self.centerController!.view.addSubview(cover)
         // 点击覆盖层事件
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "leftMenuHiddenAnimate")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(XMMenuViewController.leftMenuHiddenAnimate))
         cover.addGestureRecognizer(tap)
         
         self.view.bringSubviewToFront(cover)

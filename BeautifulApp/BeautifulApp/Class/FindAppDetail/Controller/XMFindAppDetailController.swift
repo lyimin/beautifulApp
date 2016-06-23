@@ -143,7 +143,7 @@ class XMFindAppDetailController: UIViewController,UIScrollViewDelegate, XMFindAp
     private lazy var returnBtn : UIButton = {
         let returnBtn : UIButton = UIButton()
         returnBtn.frame = CGRect(x: UI_MARGIN_20, y: 30, width: 30, height: 30)
-        returnBtn.addTarget(self, action: "returnBtnDidClick", forControlEvents: .TouchUpInside)
+        returnBtn.addTarget(self, action: #selector(XMFindAppDetailController.returnBtnDidClick), forControlEvents: .TouchUpInside)
         returnBtn.setImage(UIImage(named: "detail_icon_back_normal"), forState: .Normal)
         returnBtn.setImage(UIImage(named: "detail_icon_back_pressed"), forState: .Highlighted)
         return returnBtn

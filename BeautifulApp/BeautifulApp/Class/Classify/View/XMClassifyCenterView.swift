@@ -64,13 +64,13 @@ class XMClassifyCenterView: UIView {
         super.awakeFromNib()
         
         // 设置点击事件
-        self.loginView.viewAddTarget(self, action: "loginViewDidClick")
-        self.everyDayLoveView.viewAddTarget(self, action: "everyDayLoveViewDidClick")
-        self.recommendView.viewAddTarget(self, action: "recommendViewDidClick")
-        self.findView.viewAddTarget(self, action: "findViewDidClick")
-        self.articleView.viewAddTarget(self, action: "articleViewDidClick")
-        self.supportView.viewAddTarget(self, action: "supportViewDidClick")
-        self.collectView.viewAddTarget(self, action: "collectViewDidClick")
+        self.loginView.viewAddTarget(self, action: #selector(XMClassifyCenterView.loginViewDidClick))
+        self.everyDayLoveView.viewAddTarget(self, action: #selector(XMClassifyCenterView.everyDayLoveViewDidClick))
+        self.recommendView.viewAddTarget(self, action: #selector(XMClassifyCenterView.recommendViewDidClick))
+        self.findView.viewAddTarget(self, action: #selector(XMClassifyCenterView.findViewDidClick))
+        self.articleView.viewAddTarget(self, action: #selector(XMClassifyCenterView.articleViewDidClick))
+        self.supportView.viewAddTarget(self, action: #selector(XMClassifyCenterView.supportViewDidClick))
+        self.collectView.viewAddTarget(self, action: #selector(XMClassifyCenterView.collectViewDidClick))
         
         // 默认选中第一
         curView = self.everyDayLoveView

@@ -107,7 +107,7 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
                             self.model.comments.append(model)
                             commentArray.append(model)
                         }
-                        self.page++;
+                        self.page = self.page + 1;
                         self.centerView.setCommentData(commentArray)
                     }
                 }
@@ -147,7 +147,7 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     // 返回按钮
     private lazy var returnBtn : UIButton = {
         let returnBtn : UIButton = UIButton()
-        returnBtn.addTarget(self, action: "returnBtnDidClick", forControlEvents: .TouchUpInside)
+        returnBtn.addTarget(self, action: #selector(XMHomeDetailController.returnBtnDidClick), forControlEvents: .TouchUpInside)
         returnBtn.setImage(UIImage(named: "detail_icon_back_normal"), forState: .Normal)
         returnBtn.setImage(UIImage(named: "detail_icon_back_pressed"), forState: .Highlighted)
         return returnBtn

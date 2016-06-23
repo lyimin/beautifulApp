@@ -28,10 +28,10 @@ class AboutCenterView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.officialWebView.viewAddTarget(self, action: "officialWebViewDidClick")
-        self.wechatView.viewAddTarget(self, action: "wechatViewDidClick")
-        self.exonerateView.viewAddTarget(self, action: "exonerateViewDidClick")
-        self.userAgreement.viewAddTarget(self, action: "userAgreementDidClick")
+        self.officialWebView.viewAddTarget(self, action: #selector(AboutCenterView.officialWebViewDidClick))
+        self.wechatView.viewAddTarget(self, action: #selector(AboutCenterView.wechatViewDidClick))
+        self.exonerateView.viewAddTarget(self, action: #selector(AboutCenterView.exonerateViewDidClick))
+        self.userAgreement.viewAddTarget(self, action: #selector(AboutCenterView.userAgreementDidClick))
     }
     
     func officialWebViewDidClick() {

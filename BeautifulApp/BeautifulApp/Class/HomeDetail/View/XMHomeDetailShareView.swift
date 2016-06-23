@@ -28,7 +28,7 @@ class XMHomeDetailShareView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.centerView.viewAddTarget(self, action: "centerViewDidClick")
+        self.centerView.viewAddTarget(self, action: #selector(XMHomeDetailShareView.centerViewDidClick))
     }
     
     class func shareView () -> XMHomeDetailShareView {
