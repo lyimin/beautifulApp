@@ -15,7 +15,7 @@ extension UIViewController {
         errorView.center = self.view.center
         errorView.setImage(UIImage(named: "not_network_icon_unpre"), forState: .Normal)
         errorView.setImage(UIImage(named: "not_network_icon_pre"), forState: .Highlighted)
-        errorView.addTarget(self, action: "errorViewDidClick:", forControlEvents: .TouchUpInside)
+        errorView.addTarget(self, action: #selector(UIViewController.errorViewDidClick(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(errorView)
         // 让他处在view的最上层
         self.view.bringSubviewToFront(errorView)
@@ -49,7 +49,7 @@ extension UIViewController {
             if view.tag == 500 {
                 let imgView : UIImageView = view as! UIImageView
                 imgView.stopAnimating()
-                imgView.performSelector("setAnimationImages:" , withObject: nil)
+                imgView.performSelector(Selector("setAnimationImages:") , withObject: nil)
             }
         }
     }

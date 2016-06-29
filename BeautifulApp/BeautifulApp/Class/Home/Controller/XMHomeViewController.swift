@@ -39,7 +39,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorBtnDidClick", name: NOTIFY_ERRORBTNCLICK, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(XMHomeViewController.errorBtnDidClick), name: NOTIFY_ERRORBTNCLICK, object: nil)
         // 初始化界面
         self.view.backgroundColor = UI_COLOR_APPNORMAL
         // 添加头部view
@@ -108,7 +108,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             let index : Int = Int((scrollView.contentOffset.x + 0.5*scrollView.width) / scrollView.width)
             if index > self.viewModel.dataSource.count - 1 {
                 self.index = self.viewModel.dataSource.count - 1
-            } else {
+            } else if (self.index != index) {
                 self.index = index
             }
         }
