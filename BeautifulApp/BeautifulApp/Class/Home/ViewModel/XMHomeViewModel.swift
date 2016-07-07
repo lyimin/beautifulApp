@@ -24,7 +24,7 @@ class XMHomeViewModel: NSObject {
     override init() {
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sendNotify_success:", name: NOTIFY_SETUPHOMEVIEWTYPE, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(XMHomeViewModel.sendNotify_success(_:)), name: NOTIFY_SETUPHOMEVIEWTYPE, object: nil)
     }
     
     deinit {

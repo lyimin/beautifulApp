@@ -8,11 +8,15 @@
 
 import UIKit
 
-class XMBaseNavController: UINavigationController {
+class XMBaseNavController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if respondsToSelector(Selector("interactivePopGestureRecognizer")) {
+            interactivePopGestureRecognizer?.delegate = self
+            interactivePopGestureRecognizer?.delegate = self
+            delegate = self
+        }
         self.navigationBarHidden = true
     }
     
@@ -29,5 +33,28 @@ class XMBaseNavController: UINavigationController {
             UIApplication.sharedApplication().statusBarStyle = .LightContent
         }
         return super.popViewControllerAnimated(animated)
+    }
+    
+    override func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]? {
+        if respondsToSelector(Selector("interactivePopGestureRecognizer")) && animated {
+            interactivePopGestureRecognizer?.enabled = false
+        }
+        
+        return super.popToRootViewControllerAnimated(animated)
+    }
+    
+    override func popToViewController(viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+        if respondsToSelector(Selector("interactivePopGestureRecognizer")) && animated {
+            interactivePopGestureRecognizer?.enabled = false
+        }
+        
+        return super.popToViewController(viewController, animated: false)
+    }
+    
+    //MARK: - UINavigationControllerDelegate
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        if respondsToSelector(Selector("interactivePopGestureRecognizer")) {
+            interactivePopGestureRecognizer?.enabled = true
+        }
     }
 }
