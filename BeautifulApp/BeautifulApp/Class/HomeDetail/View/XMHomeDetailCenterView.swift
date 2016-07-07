@@ -204,7 +204,7 @@ class XMHomeDetailCenterView: UIScrollView {
     }()
     
     // 顶部图片
-    private lazy var headerImgView : UIImageView = {
+    lazy var headerImgView : UIImageView = {
         let headerImgView : UIImageView = UIImageView(image: UIImage(named: "home_logo_pressed"))
         headerImgView.contentMode = .ScaleAspectFill
         return headerImgView

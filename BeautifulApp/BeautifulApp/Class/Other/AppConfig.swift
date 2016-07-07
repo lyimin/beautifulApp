@@ -38,7 +38,9 @@ let NOTIFY_SETUPBG : String = "NOTIFY_SETUPBG"
 let NOTIFY_ERRORBTNCLICK : String = "NOTIFY_ERRORBTNCLICK"
 // 设置homeview类型 - 用于请求api
 let NOTIFY_SETUPHOMEVIEWTYPE : String = "NOTIFY_SETUPHOMEVIEWTYPE"
+    // 每日最美
 let NOTIFY_OBJ_TODAY : String = "homeViewTodayType"
+    // 发现app
 let NOTIFY_OBJ_FINDAPP : String = "homeViewFindAppType"
 let NOTIFY_OBJ_RECOMMEND : String = "homeViewRecommendType"
 let NOTIFY_OBJ_ARTICLE : String = "homeViewArticleViewType"

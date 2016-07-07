@@ -51,7 +51,6 @@ class XMHomeDataModel: NSObject {
     // info 模型
     var info : XMInfoDataModel?
     
-    
     convenience init(dict : NSDictionary) {
         self.init()
         

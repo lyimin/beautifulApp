@@ -8,38 +8,14 @@
 
 import UIKit
 
-class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollectionViewDataSource,XMHomeBottomCollectViewDelegate,UICollectionViewDelegate {
-    // 页数
-    private var page : Int = 1
-    // viewModel对象
-    private var viewModel : XMHomeViewModel!
-    // 上一个index
-    private var lastIndex : NSIndexPath?
-    // 当前index
-    private var index : Int! {
-        willSet {
-            self.index = newValue
-        }
-        
-        didSet {
-            guard self.viewModel.dataSource.count > 0 else {
-                return
-            }
-            // 获取模型
-            let model : XMHomeDataModel = self.viewModel.dataSource[index]
-            // 设置header模型
-            self.headerView.homeModel = model
-            // 设置背景的动画
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: model.recommanded_background_color!)
-            })
-        }
-    }
-    //MARK: - life cycle
+class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollectionViewDataSource,XMHomeBottomCollectViewDelegate,UICollectionViewDelegate, UINavigationControllerDelegate {
+
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
+//        self.automaticallyAdjustsScrollViewInsets = false
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorBtnDidClick", name: NOTIFY_ERRORBTNCLICK, object: nil)
+//        self.navigationController?.delegate = self
         // 初始化界面
         self.view.backgroundColor = UI_COLOR_APPNORMAL
         // 添加头部view
@@ -102,7 +78,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
 //        self.centerCollectView.headerViewBeginRefreshing()
     }
     
-    //MARK: - scrollerDelegate
+    //MARK: - ScrollerDelegate
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.tag == 100 {
             let index : Int = Int((scrollView.contentOffset.x + 0.5*scrollView.width) / scrollView.width)
@@ -148,12 +124,29 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // 获取cell中的图片 和 rect 用于做转场动画
+        let cell : XMHomeCenterItemView = collectionView.cellForItemAtIndexPath(indexPath) as! XMHomeCenterItemView
+        self.curImgView = cell.centerImgView
+        // 计算collection点击的item在屏幕中的位置
+        let rectInCollectionView : CGRect = (collectionView.layoutAttributesForItemAtIndexPath(indexPath)?.frame)!
+        let rectInSuperView : CGRect = collectionView.convertRect(rectInCollectionView, toView: collectionView.superview)
+        self.rectInView = CGRect(x: rectInSuperView.origin.x+cell.centerImgView.x, y: rectInSuperView.origin.y+cell.centerImgView.y, width: rectInSuperView.width, height: cell.centerImgView.height)
+        // 获取模型
         let model : XMHomeDataModel = self.viewModel.dataSource[indexPath.row]
         let detailController = XMHomeDetailController(model: model)
         self.navigationController?.pushViewController(detailController, animated: true)
     }
     
-    //MARK: -custom Delegate
+    //MARK: - UINavigationControllerDelegate
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == UINavigationControllerOperation.Push {
+            return XMHomeAnimationPushUtil(imageViewRect: self.rectInView!)
+        } else {
+            return nil
+        }
+    }
+    
+    //MARK: Custom Delegate
     func homeHeaderViewMoveToFirstDidClick(headerView: XMHomeHeaderView, moveToFirstBtn: UIButton) {
         centerCollectView.setContentOffset(CGPointZero, animated: false)
         bottomCollectView.setContentOffset(CGPointZero, animated: false)
@@ -183,7 +176,7 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         self.centerCollectView.headerViewBeginRefreshing()
     }
     
-    //MARK: - private methods
+    //MARK: - Private Methods
     // 底部标签动画
     private func bottomAnimation (indexPath : NSIndexPath) {
         if self.lastIndex?.row == indexPath.row {
@@ -251,7 +244,39 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         }
     }
     
-    //MARK: - getter or setter
+    //MARK: - Getter or Setter
+    
+    /// 页数
+    private var page : Int = 1
+    /// viewModel对象
+    private var viewModel : XMHomeViewModel!
+    /// 上一个index
+    private var lastIndex : NSIndexPath?
+    /// 当前index
+    private var index : Int! {
+        willSet {
+            self.index = newValue
+        }
+        
+        didSet {
+            guard self.viewModel.dataSource.count > 0 else {
+                return
+            }
+            // 获取模型
+            let model : XMHomeDataModel = self.viewModel.dataSource[index]
+            // 设置header模型
+            self.headerView.homeModel = model
+            // 设置背景的动画
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.view.backgroundColor = UIColor.colorWithHexString(stringToConvert: model.recommanded_background_color!)
+            })
+        }
+    }
+    // 当点击cell时获取当前图片和rect, 用于做转场动画
+    weak var curImgView : UIImageView?
+    private var rectInView : CGRect?
+    
+    
     // 头部headerview
     private lazy var headerView : XMHomeHeaderView = {
         let headerView : XMHomeHeaderView = XMHomeHeaderView.headerView()
@@ -268,7 +293,6 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
         collectView.dataSource = self
         collectView.showsHorizontalScrollIndicator = false
         collectView.pagingEnabled = true
-        
         collectView.registerNib(UINib(nibName: "XMHomeCenterItemView", bundle: nil), forCellWithReuseIdentifier: "XMHomeCenterItemViewID")
         collectView.backgroundColor = UIColor.clearColor()
         collectView.tag = 100
@@ -304,6 +328,4 @@ class XMHomeViewController: UIViewController, XMHomeHeaderViewDelegate,UICollect
             make.height.equalTo(SCREEN_HEIGHT*420/IPHONE5_HEIGHT)
         }
     }
-    
-
 }

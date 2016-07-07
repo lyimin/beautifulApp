@@ -46,6 +46,7 @@
 		F12158801BF39CA2005E5956 /* XMHomeBottomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */; };
 		F12B5FE71C0C87FE00DD1292 /* XMSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B5FE61C0C87FE00DD1292 /* XMSearchViewCell.swift */; };
 		F12B5FE91C0C880E00DD1292 /* XMSearchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12B5FE81C0C880E00DD1292 /* XMSearchViewCell.xib */; };
+		F13C4A611C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C4A601C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift */; };
 		F1414E8A1C049BAA00880C1F /* XMFindAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1414E891C049BAA00880C1F /* XMFindAppCell.swift */; };
 		F1414E8C1C049BB700880C1F /* XMFindAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */; };
 		F14505831C19E5D300955F6E /* XMFindAppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145057B1C19E5D300955F6E /* XMFindAppDetailController.swift */; };
@@ -195,6 +196,7 @@
 		F1DBE2FD1C0FE38C003F5E48 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DBE2FC1C0FE38C003F5E48 /* MobileCoreServices.framework */; };
 		F1DBE2FF1C0FE399003F5E48 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DBE2FE1C0FE399003F5E48 /* libz.tbd */; };
 		F1F196361C05AB5A00FA4DA1 /* XMFindAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F196351C05AB5A00FA4DA1 /* XMFindAppViewModel.swift */; };
+		F1F19DAC1C818382007CC93C /* UIImage+XM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F19DAB1C818382007CC93C /* UIImage+XM.swift */; };
 		F1F2224E1BFDD43800E926AF /* XMClassifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */; };
 		F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */; };
 		F1F222511BFDD43800E926AF /* XMClassifyCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */; };
@@ -207,6 +209,19 @@
 		F1F9126E1C088B22009F5707 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F9126D1C088B21009F5707 /* SettingHeaderView.swift */; };
 		F1F912701C088B2D009F5707 /* SettingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1F9126F1C088B2D009F5707 /* SettingHeaderView.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1420D751C9121A1001A2138 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		690B0909983859654CA3B2A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,8 +266,10 @@
 		F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeBottomItemView.xib; sourceTree = "<group>"; };
 		F12B5FE61C0C87FE00DD1292 /* XMSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMSearchViewCell.swift; sourceTree = "<group>"; };
 		F12B5FE81C0C880E00DD1292 /* XMSearchViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMSearchViewCell.xib; sourceTree = "<group>"; };
+		F13C4A601C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeAnimationPushUtil.swift; sourceTree = "<group>"; };
 		F1414E891C049BAA00880C1F /* XMFindAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppCell.swift; sourceTree = "<group>"; };
 		F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppCell.xib; sourceTree = "<group>"; };
+		F1420D361C9106C9001A2138 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F145057B1C19E5D300955F6E /* XMFindAppDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailController.swift; sourceTree = "<group>"; };
 		F145057D1C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailAnimationUtil.swift; sourceTree = "<group>"; };
 		F145057F1C19E5D300955F6E /* XMFindAppDetailCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppDetailCenterView.swift; sourceTree = "<group>"; };
@@ -465,6 +482,7 @@
 		F1DBE2FC1C0FE38C003F5E48 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F1DBE2FE1C0FE399003F5E48 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F1F196351C05AB5A00FA4DA1 /* XMFindAppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppViewModel.swift; sourceTree = "<group>"; };
+		F1F19DAB1C818382007CC93C /* UIImage+XM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+XM.swift"; sourceTree = "<group>"; };
 		F1F222471BFDD43800E926AF /* XMClassifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMClassifyViewController.swift; sourceTree = "<group>"; };
 		F1F2224B1BFDD43800E926AF /* XMClassifyCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMClassifyCenterView.swift; sourceTree = "<group>"; };
 		F1F2224C1BFDD43800E926AF /* XMClassifyCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMClassifyCenterView.xib; sourceTree = "<group>"; };
@@ -539,6 +557,7 @@
 				F1C87AB51C0E912A00A08387 /* CoreGraphics.framework */,
 				F1C87AB31C0E90DC00A08387 /* libxml2.tbd */,
 				690B0909983859654CA3B2A9 /* libPods.a */,
+				F1420D361C9106C9001A2138 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -602,6 +621,14 @@
 				F118A0341BFC782A002A0C2A /* XMRefreshHeaderView.swift */,
 			);
 			path = XMRefresh;
+			sourceTree = "<group>";
+		};
+		F13C4A5F1C2D7F3C00F365D1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F13C4A601C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F14505791C19E5D300955F6E /* FindAppDetail */ = {
@@ -961,6 +988,7 @@
 		F1A6F2E71BEF934200786700 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F13C4A5F1C2D7F3C00F365D1 /* Utils */,
 				F1B82E611BFB2209001CA4A6 /* ViewModel */,
 				F1A6F2E81BEF935E00786700 /* Controller */,
 				F1A6F2E91BEF935E00786700 /* Model */,
@@ -1032,6 +1060,7 @@
 				F12158481BF1C55D005E5956 /* String+XM.swift */,
 				F12158741BF32072005E5956 /* NSDate+XM.swift */,
 				F1DBE2EE1C0FDF70003F5E48 /* UIImageView+XM.swift */,
+				F1F19DAB1C818382007CC93C /* UIImage+XM.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -1307,6 +1336,7 @@
 				F171CCB01BEBB15300F61307 /* Frameworks */,
 				F171CCB11BEBB15300F61307 /* Resources */,
 				4F7376BEA97F4477A528CDC2 /* Copy Pods Resources */,
+				F1420D751C9121A1001A2138 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1323,13 +1353,18 @@
 		F171CCAB1BEBB15300F61307 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = xiaoming;
 				TargetAttributes = {
 					F171CCB21BEBB15300F61307 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 5N8LXT5RPD;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -1474,6 +1509,7 @@
 				F1975B5D1C045C3E001A983D /* XMFindAppController.swift in Sources */,
 				F1DBE2E21C0FDE6F003F5E48 /* MKAnnotationView+YYWebImage.m in Sources */,
 				F17CFC341BF0D7A6000D2A87 /* XMBaseViewController.swift in Sources */,
+				F13C4A611C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift in Sources */,
 				F1DBE29D1C0FD0E5003F5E48 /* YYTextEffectWindow.m in Sources */,
 				F10136651C094D6300E0E316 /* PKHUDTextView.swift in Sources */,
 				F1A6F3051BEFA86C00786700 /* UILabel+XM.swift in Sources */,
@@ -1512,6 +1548,7 @@
 				F1888F821C15D058009B097C /* ConstraintRelation.swift in Sources */,
 				F1B82E631BFB2265001CA4A6 /* XMHomeViewModel.swift in Sources */,
 				F101363B1C08B5BC00E0E316 /* AboutViewController.swift in Sources */,
+				F1F19DAC1C818382007CC93C /* UIImage+XM.swift in Sources */,
 				F1B82E651BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift in Sources */,
 				F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */,
 				F14505851C19E5D300955F6E /* XMFindAppDetailCenterView.swift in Sources */,
@@ -1678,6 +1715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = BeautifulApp/BeautifulApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1709,7 +1747,7 @@
 					"$(PROJECT_DIR)/BeautifulApp/Class/Other/Lib/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BeautifulApp/Class/Other/Lib/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xiaoming.com.BeautifulApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.BeautifulApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
@@ -1723,6 +1761,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = BeautifulApp/BeautifulApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1754,7 +1793,7 @@
 					"$(PROJECT_DIR)/BeautifulApp/Class/Other/Lib/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BeautifulApp/Class/Other/Lib/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xiaoming.com.BeautifulApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.BeautifulApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";

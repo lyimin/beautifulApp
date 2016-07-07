@@ -67,7 +67,6 @@ class XMFindAppController: UIViewController, UITableViewDelegate, UITableViewDat
             } else {
                 return (self.viewModel?.lastDataSource.count)!
             }
-            
         }
         return 0
     }

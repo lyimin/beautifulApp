@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vP-1J-svI">
-                        <rect key="frame" x="15" y="265" width="280" height="100"/>
+                        <rect key="frame" x="15" y="280" width="280" height="100"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="HoT-ac-g3j"/>
                         </constraints>
@@ -23,8 +23,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_logo_pressed" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-Q6-Nd2">
-                        <rect key="frame" x="0.0" y="70" width="310" height="180"/>
+                        <rect key="frame" x="0.0" y="85" width="310" height="180"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="84D-u2-4QK"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="论如何愉快的过冬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-u0-SJg">
                         <rect key="frame" x="15" y="35" width="280" height="20"/>
@@ -93,17 +96,16 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="QJy-Q6-Nd2" firstAttribute="top" secondItem="ovJ-u0-SJg" secondAttribute="bottom" constant="15" id="2zC-ms-4ch"/>
+                <constraint firstItem="QJy-Q6-Nd2" firstAttribute="top" secondItem="ovJ-u0-SJg" secondAttribute="bottom" constant="30" id="2zC-ms-4ch"/>
                 <constraint firstItem="QJy-Q6-Nd2" firstAttribute="leading" secondItem="1hR-51-ead" secondAttribute="leading" id="4wo-h8-xLF"/>
                 <constraint firstAttribute="trailing" secondItem="QJy-Q6-Nd2" secondAttribute="trailing" id="8rT-x0-EZU"/>
                 <constraint firstAttribute="bottom" secondItem="eMB-1Y-Ehk" secondAttribute="bottom" constant="15" id="BUA-UY-DyD"/>
                 <constraint firstAttribute="trailing" secondItem="ovJ-u0-SJg" secondAttribute="trailing" constant="15" id="N71-3Z-1Tc"/>
                 <constraint firstItem="5vP-1J-svI" firstAttribute="leading" secondItem="1hR-51-ead" secondAttribute="leading" constant="15" id="OV8-Nb-00D"/>
-                <constraint firstItem="5vP-1J-svI" firstAttribute="top" secondItem="QJy-Q6-Nd2" secondAttribute="bottom" constant="15" id="SDH-tP-QQW"/>
                 <constraint firstAttribute="trailing" secondItem="eMB-1Y-Ehk" secondAttribute="trailing" constant="10" id="T4e-Hq-KQG"/>
-                <constraint firstAttribute="bottom" secondItem="5vP-1J-svI" secondAttribute="bottom" constant="55" id="TCa-YV-1ru"/>
                 <constraint firstAttribute="trailing" secondItem="5vP-1J-svI" secondAttribute="trailing" constant="15" id="Ufc-eC-ne8"/>
                 <constraint firstAttribute="bottom" secondItem="I8Q-hp-c3Y" secondAttribute="bottom" constant="15" id="Wcc-jo-F3v"/>
+                <constraint firstItem="5vP-1J-svI" firstAttribute="top" secondItem="QJy-Q6-Nd2" secondAttribute="bottom" constant="15" id="gzO-nQ-001"/>
                 <constraint firstItem="ovJ-u0-SJg" firstAttribute="top" secondItem="7cn-Ee-wTK" secondAttribute="bottom" constant="5" id="jQf-r4-Qyx"/>
                 <constraint firstAttribute="trailing" secondItem="7cn-Ee-wTK" secondAttribute="trailing" constant="15" id="o0w-9N-SOR"/>
                 <constraint firstItem="ovJ-u0-SJg" firstAttribute="leading" secondItem="1hR-51-ead" secondAttribute="leading" constant="15" id="q1f-le-5oa"/>

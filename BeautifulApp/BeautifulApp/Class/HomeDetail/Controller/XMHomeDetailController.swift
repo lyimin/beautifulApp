@@ -10,18 +10,11 @@ import UIKit
 
 class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,UIScrollViewDelegate,XMHomeDetailToolViewDelegate {
     
-    // 模型
-    private var model : XMHomeDataModel!
-    // 评论page
-    private var page : Int = 1
-    
+    // MARK: - Life Cycle
     convenience init(model : XMHomeDataModel){
         self.init()
         self.model = model
     }
-    
-    // MARK: - Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
@@ -29,6 +22,7 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
         
         centerView.model = model
         self.view.addSubview(centerView)
+        self.topImageView = centerView.headerImgView
         // 工具条
         self.view.addSubview(toolBar)
         // 返回按钮
@@ -83,7 +77,9 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     
     // 点击下面的分享
     func homeDetailCenterViewBottomShareDidClick(centerView: XMHomeDetailCenterView) {
-        print("分享到qq空间")
+        let title : String = model.title!+"--"+model.sub_title!
+        let shareModel : XMShareModel = XMShareModel(appContent: model.digest!, imgUrl: model.icon_image!, appTitle: title, appDescription: model.digest!, appURL: model.download_url!)
+        ShareSDKUtil.shareWithModel(shareModel)
     }
     
     // MARK: - Event Aciton
@@ -136,6 +132,14 @@ class XMHomeDetailController: UIViewController, XMHomeDetailCenterViewDelegate,U
     
     
     // MARK: - Getter or Setter
+    
+    // 模型
+    private var model : XMHomeDataModel!
+    // 评论page
+    private var page : Int = 1
+    // 顶部图片
+    weak var topImageView : UIImageView!
+    
     // scrollview
     private lazy var centerView : XMHomeDetailCenterView = {
         let centerView : XMHomeDetailCenterView = XMHomeDetailCenterView()

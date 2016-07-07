@@ -9,9 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>appExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>F1420D341C9106C9001A2138</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1420D4A1C911E4C001A2138</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1420D651C9121A1001A2138</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F171CCB21BEBB15300F61307</key>
 		<dict>
 			<key>primary</key>

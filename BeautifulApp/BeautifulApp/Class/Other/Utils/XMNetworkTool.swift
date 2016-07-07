@@ -10,7 +10,7 @@ import Foundation
 
 class XMNetworkTool: NSObject {
     
-    // 当前网络是否可达
+    // 当前网络是否可用B-
     static var reachable : Bool = false
     static var status : AFNetworkReachabilityStatus!
     
@@ -34,8 +34,6 @@ class XMNetworkTool: NSObject {
             status = statuss
             reachable = status != AFNetworkReachabilityStatus.NotReachable;
         }
-        
-        
     }
     
     /**
