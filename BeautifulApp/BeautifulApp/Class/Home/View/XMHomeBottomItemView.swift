@@ -19,6 +19,16 @@ class XMHomeBottomItemView: UICollectionViewCell {
         
         didSet {
             self.iconView.xm_setBlurImageWithURL(NSURL(string: iconUrl!), placeholderImage: UIImage(named: "ic_launcher"))
+            
+            
+            UIGraphicsBeginImageContextWithOptions(self.iconView.bounds.size, false, UIScreen.mainScreen().scale)
+            
+            UIBezierPath(roundedRect: self.iconView.bounds, cornerRadius: 8).addClip();
+            self.iconView.drawRect(self.iconView.bounds)
+            
+            self.iconView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
         }
     }
 
@@ -26,9 +36,9 @@ class XMHomeBottomItemView: UICollectionViewCell {
         super.awakeFromNib()
         
         self.layer.cornerRadius = 8
-        self.iconView.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
-        self.iconView.layer.masksToBounds = true
+        //self.iconView.layer.cornerRadius = 8
+        //self.layer.masksToBounds = true
+        //self.iconView.layer.masksToBounds = true
     }
 
 }
