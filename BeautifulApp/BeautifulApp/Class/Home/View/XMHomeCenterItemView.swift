@@ -50,7 +50,8 @@ class XMHomeCenterItemView: UICollectionViewCell {
         super.awakeFromNib()
     
         self.backgroundColor = UIColor.whiteColor()
-//        self.contentView.layer.cornerRadius = 5
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
     }
     
     // 加载cell
@@ -61,11 +62,5 @@ class XMHomeCenterItemView: UICollectionViewCell {
             cell = NSBundle.mainBundle().loadNibNamed("XMHomeCenterItemView", owner: nil, options: nil)[0] as? XMHomeCenterItemView
         }
         return cell!
-    }
- 
-    override func drawRect(rect: CGRect) {
-        let bounds = self.contentView.bounds
-        UIBezierPath(roundedRect: bounds, cornerRadius: 5).addClip()
-        self.contentView.drawRect(bounds)
     }
 }
