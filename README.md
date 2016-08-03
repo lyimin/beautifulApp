@@ -33,5 +33,3 @@
 ![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/1.gif)
 ![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/2.gif)
 ![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/3.gif)
-![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/4.gif)
-![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/5.gif)
