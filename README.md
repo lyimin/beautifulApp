@@ -30,6 +30,9 @@
   - 还有些问题会抽空后续更新,敬请期待。
   ---
 #### 附图
-![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/1.gif)
+
+<img src="https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/1.gif" width="30%" height="30%" />
+
 ![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/2.gif)
+
 ![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Source/3.gif)
