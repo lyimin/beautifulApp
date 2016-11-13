@@ -46,6 +46,14 @@
 		F12158801BF39CA2005E5956 /* XMHomeBottomItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */; };
 		F12B5FE71C0C87FE00DD1292 /* XMSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B5FE61C0C87FE00DD1292 /* XMSearchViewCell.swift */; };
 		F12B5FE91C0C880E00DD1292 /* XMSearchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F12B5FE81C0C880E00DD1292 /* XMSearchViewCell.xib */; };
+		F12CFEA01DD8485000BDF820 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFE9D1DD8485000BDF820 /* HomeController.swift */; };
+		F12CFEA11DD8485000BDF820 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFE9F1DD8485000BDF820 /* MenuController.swift */; };
+		F12CFEA51DD8486A00BDF820 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFEA31DD8486A00BDF820 /* APIConstant.swift */; };
+		F12CFEA61DD8486A00BDF820 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFEA41DD8486A00BDF820 /* UIConstant.swift */; };
+		F12CFEA91DD8487300BDF820 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFEA81DD8487300BDF820 /* UIView+Frame.swift */; };
+		F12CFEB01DD8488600BDF820 /* HomeCenterItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFEAE1DD8488600BDF820 /* HomeCenterItemCell.swift */; };
+		F12CFEB11DD8488600BDF820 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFEAF1DD8488600BDF820 /* HomeHeaderView.swift */; };
+		F12CFEB31DD848C500BDF820 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CFEB21DD848C500BDF820 /* Reusable.swift */; };
 		F13C4A611C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13C4A601C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift */; };
 		F1414E8A1C049BAA00880C1F /* XMFindAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1414E891C049BAA00880C1F /* XMFindAppCell.swift */; };
 		F1414E8C1C049BB700880C1F /* XMFindAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */; };
@@ -266,6 +274,14 @@
 		F121587F1BF39CA2005E5956 /* XMHomeBottomItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMHomeBottomItemView.xib; sourceTree = "<group>"; };
 		F12B5FE61C0C87FE00DD1292 /* XMSearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMSearchViewCell.swift; sourceTree = "<group>"; };
 		F12B5FE81C0C880E00DD1292 /* XMSearchViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMSearchViewCell.xib; sourceTree = "<group>"; };
+		F12CFE9D1DD8485000BDF820 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		F12CFE9F1DD8485000BDF820 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		F12CFEA31DD8486A00BDF820 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		F12CFEA41DD8486A00BDF820 /* UIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstant.swift; sourceTree = "<group>"; };
+		F12CFEA81DD8487300BDF820 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		F12CFEAE1DD8488600BDF820 /* HomeCenterItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCenterItemCell.swift; sourceTree = "<group>"; };
+		F12CFEAF1DD8488600BDF820 /* HomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		F12CFEB21DD848C500BDF820 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F13C4A601C2D7F5300F365D1 /* XMHomeAnimationPushUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMHomeAnimationPushUtil.swift; sourceTree = "<group>"; };
 		F1414E891C049BAA00880C1F /* XMFindAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMFindAppCell.swift; sourceTree = "<group>"; };
 		F1414E8B1C049BB700880C1F /* XMFindAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMFindAppCell.xib; sourceTree = "<group>"; };
@@ -623,6 +639,80 @@
 			path = XMRefresh;
 			sourceTree = "<group>";
 		};
+		F12CFE9B1DD8485000BDF820 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFE9C1DD8485000BDF820 /* HomeController */,
+				F12CFE9E1DD8485000BDF820 /* MenuController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F12CFE9C1DD8485000BDF820 /* HomeController */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFE9D1DD8485000BDF820 /* HomeController.swift */,
+			);
+			path = HomeController;
+			sourceTree = "<group>";
+		};
+		F12CFE9E1DD8485000BDF820 /* MenuController */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFE9F1DD8485000BDF820 /* MenuController.swift */,
+			);
+			path = MenuController;
+			sourceTree = "<group>";
+		};
+		F12CFEA21DD8486A00BDF820 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFEA31DD8486A00BDF820 /* APIConstant.swift */,
+				F12CFEA41DD8486A00BDF820 /* UIConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		F12CFEA71DD8487300BDF820 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFEB21DD848C500BDF820 /* Reusable.swift */,
+				F12CFEA81DD8487300BDF820 /* UIView+Frame.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F12CFEAA1DD8487800BDF820 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F12CFEAB1DD8487E00BDF820 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F12CFEAC1DD8488600BDF820 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFEAD1DD8488600BDF820 /* HomeView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F12CFEAD1DD8488600BDF820 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F12CFEAE1DD8488600BDF820 /* HomeCenterItemCell.swift */,
+				F12CFEAF1DD8488600BDF820 /* HomeHeaderView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		F13C4A5F1C2D7F3C00F365D1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +924,12 @@
 		F171CCB51BEBB15300F61307 /* BeautifulApp */ = {
 			isa = PBXGroup;
 			children = (
+				F12CFEAC1DD8488600BDF820 /* Views */,
+				F12CFEAB1DD8487E00BDF820 /* Other */,
+				F12CFEAA1DD8487800BDF820 /* Models */,
+				F12CFEA71DD8487300BDF820 /* Extension */,
+				F12CFEA21DD8486A00BDF820 /* Constant */,
+				F12CFE9B1DD8485000BDF820 /* Controllers */,
 				F1A6F2E61BEF934200786700 /* Class */,
 				F171CCBD1BEBB15300F61307 /* Assets.xcassets */,
 				F171CCC21BEBB15300F61307 /* Info.plist */,
@@ -1337,6 +1433,7 @@
 				F171CCB11BEBB15300F61307 /* Resources */,
 				4F7376BEA97F4477A528CDC2 /* Copy Pods Resources */,
 				F1420D751C9121A1001A2138 /* Embed App Extensions */,
+				5C9C110C0764F54DE3541ED6 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1439,6 +1536,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5C9C110C0764F54DE3541ED6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC361AF3C9A9CAF3BE8D2FC1 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1462,6 +1574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DBE29E1C0FD0E5003F5E48 /* YYTextInput.m in Sources */,
+				F12CFEA11DD8485000BDF820 /* MenuController.swift in Sources */,
 				F101366B1C094FAD00E0E316 /* SVProgressHUD+XM.swift in Sources */,
 				F1888F8A1C15D058009B097C /* ViewController+SnapKit.swift in Sources */,
 				F10136681C094D6300E0E316 /* Window.swift in Sources */,
@@ -1518,12 +1631,14 @@
 				F1414E8A1C049BAA00880C1F /* XMFindAppCell.swift in Sources */,
 				F1A6F2EC1BEF937100786700 /* XMHomeViewController.swift in Sources */,
 				F1DBE29B1C0FD0E5003F5E48 /* YYTextContainerView.m in Sources */,
+				F12CFEB01DD8488600BDF820 /* HomeCenterItemCell.swift in Sources */,
 				F1888F811C15D058009B097C /* ConstraintMaker.swift in Sources */,
 				F17847F61C0AB7D900C5A8CF /* XMSearchController.swift in Sources */,
 				F1F196361C05AB5A00FA4DA1 /* XMFindAppViewModel.swift in Sources */,
 				F1D642DB1C12E15B0097E0BA /* XMLParserUtil.swift in Sources */,
 				F101365A1C094D6300E0E316 /* PKHUD.swift in Sources */,
 				F1DBE2EF1C0FDF70003F5E48 /* UIImageView+XM.swift in Sources */,
+				F12CFEA51DD8486A00BDF820 /* APIConstant.swift in Sources */,
 				F1DBE2E01C0FDE6F003F5E48 /* _YYWebImageSetter.m in Sources */,
 				F1DBE2A21C0FD0E5003F5E48 /* YYTextMagnifier.m in Sources */,
 				F145059F1C19E70000955F6E /* XMHomeDetailCommentView.swift in Sources */,
@@ -1542,12 +1657,14 @@
 				F14505A11C19E70000955F6E /* XMHomeDetailShareView.swift in Sources */,
 				F1F2B3A01C1BE59A007D14E9 /* XMShareModel.swift in Sources */,
 				F1DBE2EC1C0FDE6F003F5E48 /* YYWebImageManager.m in Sources */,
+				F12CFEB11DD8488600BDF820 /* HomeHeaderView.swift in Sources */,
 				F118A0391BFC782A002A0C2A /* XMRefreshFooterView.swift in Sources */,
 				F1BA9A6D1C0021D90022CCDC /* XMBaseNavController.swift in Sources */,
 				F101365D1C094D6300E0E316 /* PKHUDErrorView.swift in Sources */,
 				F1888F821C15D058009B097C /* ConstraintRelation.swift in Sources */,
 				F1B82E631BFB2265001CA4A6 /* XMHomeViewModel.swift in Sources */,
 				F101363B1C08B5BC00E0E316 /* AboutViewController.swift in Sources */,
+				F12CFEA61DD8486A00BDF820 /* UIConstant.swift in Sources */,
 				F1F19DAC1C818382007CC93C /* UIImage+XM.swift in Sources */,
 				F1B82E651BFB2334001CA4A6 /* XMHomeBottomFlowLayout.swift in Sources */,
 				F1F222501BFDD43800E926AF /* XMClassifyCenterView.swift in Sources */,
@@ -1558,6 +1675,7 @@
 				F1DBE29F1C0FD0E5003F5E48 /* YYTextKeyboardManager.m in Sources */,
 				F10136611C094D6300E0E316 /* PKHUDStatusView.swift in Sources */,
 				F1DBE2AF1C0FD0E5003F5E48 /* YYTextUtilities.m in Sources */,
+				F12CFEB31DD848C500BDF820 /* Reusable.swift in Sources */,
 				F14505871C19E5D300955F6E /* XMFindAppDetailToolView.swift in Sources */,
 				F10136411C08B7BD00E0E316 /* AboutCenterView.swift in Sources */,
 				F1DBE2EB1C0FDE6F003F5E48 /* YYImageCache.m in Sources */,
@@ -1574,6 +1692,7 @@
 				F1DBE2DC1C0FDE6F003F5E48 /* YYCache.m in Sources */,
 				F10136661C094D6300E0E316 /* PKHUDTitleView.swift in Sources */,
 				F17CFC391BF0DD29000D2A87 /* APIConfig.swift in Sources */,
+				F12CFEA91DD8487300BDF820 /* UIView+Frame.swift in Sources */,
 				F10136631C094D6300E0E316 /* PKHUDSuccessView.swift in Sources */,
 				F1A6F3011BEFA2DE00786700 /* UIView+XM.swift in Sources */,
 				F1DBE2AA1C0FD0E5003F5E48 /* NSParagraphStyle+YYText.m in Sources */,
@@ -1593,6 +1712,7 @@
 				F145059C1C19E70000955F6E /* XMHomeDetailAnimationUtil.swift in Sources */,
 				F14505841C19E5D300955F6E /* XMFindAppDetailAnimationUtil.swift in Sources */,
 				F11267641C055B3100B04AE7 /* XMFindAppModel.swift in Sources */,
+				F12CFEA01DD8485000BDF820 /* HomeController.swift in Sources */,
 				F10136621C094D6300E0E316 /* PKHUDSubtitleView.swift in Sources */,
 				F10136641C094D6300E0E316 /* PKHUDSystemActivityIndicatorView.swift in Sources */,
 				F1D642D41C12CBD80097E0BA /* TFHpple.m in Sources */,
@@ -1751,6 +1871,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
+				SWIFT_VERSION = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -1797,6 +1918,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
+				SWIFT_VERSION = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

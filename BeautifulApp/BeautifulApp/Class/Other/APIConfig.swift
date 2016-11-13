@@ -25,6 +25,8 @@ class APIConfig: NSObject {
     static let API_platform : String = "&platform=1"
     
     
+    
+    
     // 1.每日最美 pagesize20 参数 page
     static let API_Today : String = API_Server+"/apps/app/daily/?"+API_appVersion+API_openUDID+API_resolution+API_systemVersion+API_pageSize+API_platform
     
