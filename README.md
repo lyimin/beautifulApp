@@ -16,11 +16,11 @@
   
 ## 截图
 
-<img src="https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Resource/1.gif" width="30%" height="30%" />
+<img src="https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Resources/1.gif" width="30%" height="30%" />
 
-![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Resource/2.gif)
+![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Resources/2.gif)
 
-![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Resource/3.gif)
+![](https://github.com/lyimin/beautifulApp/blob/master/BeautifulApp/BeautifulApp/Resources/3.gif)
 
 ## 第三方库
 
