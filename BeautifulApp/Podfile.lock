@@ -1,30 +1,42 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - Alamofire (4.0.1)
+  - Moya (8.0.0-beta.6):
+    - Moya/Core (= 8.0.0-beta.6)
+  - Moya/Core (8.0.0-beta.6):
+    - Alamofire (~> 4.0)
+    - Result (~> 3.0)
+  - Result (3.1.0)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
+  - SnapKit (3.0.2)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.6.0)
+  - Alamofire (~> 4.0.0)
+  - Moya (~> 8.0.0-beta.1)
+  - RxCocoa (~> 3.0.0-beta.1)
+  - RxSwift (~> 3.0.0-beta.1)
+  - SnapKit (~> 3.0.1)
+  - YYWebImage
 
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Moya: a29e2503a0c5067d462ba2f07cc6b6b1f3fc172d
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: 205485ce68c79bfba9e3f8601c512faee46ad5fe
+
+COCOAPODS: 1.1.1
