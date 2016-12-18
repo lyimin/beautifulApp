@@ -16,7 +16,7 @@ struct UIConstant {
     static let IPHONE6_HEIGHT : CGFloat = 667
     static let IPHONE5_WIDTH : CGFloat = 320
     static let IPHONE5_HEIGHT : CGFloat = 568
-    
+
     // 字体
     static let FONT_10 : UIFont = UIFont.systemFont(ofSize: 10)
     static let FONT_11 : UIFont = UIFont.systemFont(ofSize: 11)
@@ -28,7 +28,7 @@ struct UIConstant {
     static let FONT_22 : UIFont = UIFont.systemFont(ofSize: 22)
     
     // 默认背景色
-    static let COLOR_APPNORMAL : UIColor = UIColor(red: 54/255.0, green: 142/255.0, blue: 198/155.0, alpha: 1)
+    static let COLOR_APPNORMAL : UIColor = UIColor(red: 54/255.0, green: 142/255.0, blue: 198/255.0, alpha: 1)
     static let COLOR_BORDER : UIColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1)
     
     // 间距

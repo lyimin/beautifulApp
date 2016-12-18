@@ -12,6 +12,8 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 5
         
         addSubview(titleLabel)
         addSubview(subTitleLabel)
@@ -20,6 +22,7 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
         addSubview(praiseCoverView)
         addSubview(praiseImageView)
         addSubview(praiseLabel)
+        addSubview(authorNameLabel)
     }
     
     override func layoutSubviews() {
@@ -30,6 +33,17 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 设置数据
+    var model: HomeModel! {
+        didSet {
+            self.titleLabel.text = model.title
+            self.subTitleLabel.text = model.sub_title
+            self.coverImageView.nice_setImage(imageURL: URL(string: model.cover_image))
+            self.detailLabel.text = model.digest
+            self.praiseLabel.text = "\(model.info.up!)"
+            self.authorNameLabel.text = model.author_username
+        }
+    }
     
     
     //MARK: --------------------------- Getter and Setter --------------------------
@@ -40,7 +54,6 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
         titleLabel.textColor = UIColor.black
         titleLabel.font = UIConstant.FONT_18
         titleLabel.textAlignment = .left
-        titleLabel.text = "这是一个标题"
         return titleLabel
     }()
     
@@ -50,14 +63,13 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
         subTitleLabel.textColor = .darkGray
         subTitleLabel.textAlignment = .left
         subTitleLabel.font = UIConstant.FONT_14
-        subTitleLabel.text = "副标题"
         return subTitleLabel
     }()
     
     /// 图片
-    fileprivate lazy var coverImageView: UIImageView = {
+    lazy var coverImageView: UIImageView = {
         var coverImageView = UIImageView(image: UIImage(named: "home_logo_pressed"))
-        coverImageView.contentMode = .scaleToFill
+        coverImageView.contentMode = .redraw
         coverImageView.image = UIImage(named: "1")
         return coverImageView
     }()
@@ -66,12 +78,10 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
     fileprivate lazy var detailLabel: UILabel = {
         
         var detailLabel = UILabel()
-        detailLabel.backgroundColor = .blue
         detailLabel.textColor = .darkGray
         detailLabel.font = UIConstant.FONT_14
         detailLabel.numberOfLines = 0
         detailLabel.textAlignment = .left
-        detailLabel.text = "啥地方就死掉就"
         return detailLabel
     }()
     
@@ -81,6 +91,7 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
         praiseCoverView.backgroundColor = UIColor.lightGray
         praiseCoverView.alpha = 0.5
         praiseCoverView.layer.cornerRadius = 10
+       
         return praiseCoverView
     }()
     
@@ -98,23 +109,35 @@ class HomeCenterItemCell: UICollectionViewCell, Reusable {
         praiseLabel.font = UIConstant.FONT_12
         return praiseLabel
     }()
+    
+    /// 作者名字
+    fileprivate lazy var authorNameLabel: UILabel = {
+        var authorNameLabel = UILabel()
+        authorNameLabel.textColor = UIColor.black
+        authorNameLabel.font = UIConstant.FONT_14
+        authorNameLabel.textAlignment = .right
+        return authorNameLabel
+    }()
 }
 
 
 extension HomeCenterItemCell {
     fileprivate func setupLayout() {
+        // 标题
         titleLabel.snp.makeConstraints { (make) in
             make.left.top.equalTo(self).offset(UIConstant.MARGIN_15)
             make.right.equalTo(self).inset(UIConstant.MARGIN_15)
             make.height.equalTo(20)
         }
         
+        // 附表图
         subTitleLabel.snp.makeConstraints { (make) in
             make.left.right.equalTo(titleLabel)
             make.height.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(UIConstant.MARGIN_5)
         }
         
+        // 图片
         coverImageView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self)
             make.top.equalTo(subTitleLabel.snp.bottom).offset(30)
@@ -124,7 +147,7 @@ extension HomeCenterItemCell {
         detailLabel.snp.makeConstraints { (make) in
             make.left.right.equalTo(titleLabel)
             make.top.equalTo(coverImageView.snp.bottom).offset(UIConstant.MARGIN_15)
-            make.height.equalTo(100)
+        
         }
         
         praiseCoverView.snp.makeConstraints { (make) in
@@ -145,6 +168,13 @@ extension HomeCenterItemCell {
             make.width.equalTo(27)
             make.height.equalTo(praiseCoverView)
             make.top.equalTo(praiseCoverView)
+        }
+        
+        authorNameLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(detailLabel)
+            make.right.equalTo(detailLabel)
+            make.bottom.equalTo(self).inset(UIConstant.MARGIN_20)
+            make.height.equalTo(20)
         }
     }
 }

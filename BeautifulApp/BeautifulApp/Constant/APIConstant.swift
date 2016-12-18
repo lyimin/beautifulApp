@@ -9,14 +9,16 @@
 import Foundation
 import Moya
 
+
+let niceProvider = MoyaProvider<APIConstant>()
 public enum APIConstant {
     /**
-     *  1.每日最美 pagesize20
+     *  1.每日最美 pagesize10
      *  参数 page
      */
     case daily(Int)
     /**
-     *  2.限免推荐 pagesize20
+     *  2.限免推荐 pagesize10
      *  参数 page
      */
     case recommend(Int)
@@ -42,6 +44,16 @@ public enum APIConstant {
      *  7.招聘编辑
      */
     case invite
+    
+    /**
+     *  8.评论 app page
+     */
+    case comment(Int, Int)
+    
+    /**
+     *  9.发现app评论 app_id comment_id
+     */
+    case findAppComment(Int, Int)
 }
 
 extension APIConstant: TargetType {
@@ -49,7 +61,6 @@ extension APIConstant: TargetType {
     
     /// app 版本号
     private var appVersion: String {
-        
         let info = Bundle.main.infoDictionary
         return info!["CFBundleShortVersionString"] as! String
     }
@@ -76,21 +87,24 @@ extension APIConstant: TargetType {
     /// url
     public var baseURL: URL {
         switch self {
-            // appstore地址
+        // appstore地址
         case .appStoreComment:
             return URL(string: "https://itunes.apple.com/cn/app/zui-mei-ying-yong/id739652274?mt=8")!
-            // 招聘专栏
+        // 招聘专栏
         case .invite:
             return URL(string: "http://zuimeia.com/article/100/?utm_medium=community_android&utm_source=niceapp")!
+            
+        default:
+            return URL(string: "http://zuimeia.com/api/")!
         }
-        return URL(string: "http://zuimeia.com/api/")!
+        
     }
     
     /// 路径
     public var path: String {
         switch self {
         case .daily(_):
-            return "daily/"
+            return "apps/app/daily/"
         case .recommend(_):
             return "category/100/all/"
         case .article():
@@ -99,40 +113,56 @@ extension APIConstant: TargetType {
             return "community/recommend_apps/"
         case .latest(_):
             return "community/apps/"
+        case .comment(_,_):
+            return "apps/comment"
+        case .findAppComment(_, _):
+            return "community/comments/"
+        default:
+            return ""
         }
-        return ""
+        
     }
     
     /// 请求方法
     public var method: Moya.Method {
-        return .GET
+        return .get
     }
     
     /// 请求参数
     public var parameters: [String: Any]? {
         switch self {
             
-            // 每日最美
+        // 每日最美
         case let .daily(page):
-            return ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 20, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
             
-            // 限免推荐
+        // 限免推荐
         case let .recommend(page):
-            return ["type": "zuimei.daily", "appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 20, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return ["type": "zuimei.daily", "appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
             
-            // 最热分享
+        // 最热分享
         case let .popular(page):
             return ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
             
-            // 最新分享
+        // 最新分享
         case let .latest(pos):
             return ["appVersion": appVersion, "openUDID": openUDID, "pos": pos, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
             
-            // 文章专栏
+        // 文章专栏
         case .article:
             return ["type": "zhuanlan", "appVersion": appVersion, "openUDID": openUDID, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            
+            // 评论
+        case let .comment(app, page):
+            return ["appVersion": appVersion, "openUDID": openUDID, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion, "app": app, "page": page]
+            
+            // 发现app评论
+        case let .findAppComment(app_id, comment_id):
+            return ["appVersion": appVersion, "openUDID": openUDID, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion, "app_id": app_id, "comment_id": comment_id]
+        default:
+            return nil
         }
-        return nil
+        
     }
     
     /// 单元测试
@@ -145,18 +175,21 @@ extension APIConstant: TargetType {
     }
 }
 /*
-
-每日最美
-http://zuimeia.com/api/apps/app/daily/?&appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=20&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
-限免推荐
-http://zuimeia.com/api/category/100/all/?type=zuimei.daily&appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=20&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
-
-最热分享
-http://zuimeia.com/api/community/recommend_apps/?appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=10&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
-最新分享
-http://zuimeia.com/api/community/apps/?appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page_size=10&platform=1&pos=-1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
-
-文章专栏
-http://zuimeia.com/api/media/list/?&appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1&type=zhuanlan
-*/
+ 
+ 每日最美
+ http://zuimeia.com/api/apps/app/daily/?&appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=20&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
+ 
+ 
+ http://zuimeia.com/api/apps/app/daily/?appVersion=1.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=10&platform=1&resolution=%257B750%252C%25201334%257D&systemVersion=10.0
+ 限免推荐
+ http://zuimeia.com/api/category/100/all/?type=zuimei.daily&appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=20&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
+ 
+ 最热分享
+ http://zuimeia.com/api/community/recommend_apps/?appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page=1&page_size=10&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
+ 最新分享
+ http://zuimeia.com/api/community/apps/?appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&page_size=10&platform=1&pos=-1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1
+ 
+ 文章专栏
+ http://zuimeia.com/api/media/list/?&appVersion=2.3.0&openUDID=6784cb99acfef884d8ee056f36499e54fcc33aca&platform=1&resolution=%7B750%2C%201334%7D&systemVersion=10.1.1&type=zhuanlan
+ */
 
