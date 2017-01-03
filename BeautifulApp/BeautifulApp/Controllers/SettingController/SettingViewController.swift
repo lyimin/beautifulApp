@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SettingViewController: UIViewController {
     private weak var headerView : SettingHeaderView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,58 +18,17 @@ class SettingViewController: UIViewController, UITableViewDataSource, UITableVie
         self.view.addSubview(tableView)
         // 适配屏幕
         self.setupLayout()
+        
+        headerView.backBtnDidClickWithBlock { [unowned self] in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
     }
     
-    //MARK: -tableview delgate 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : SettingViewCell = SettingViewCell.cellWithTableView(tableView: tableView)
-        cell.data = self.dataSource[indexPath.row] as! NSDictionary
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        switch indexPath.row {
-        case 0:
-            // 关于我们
-            self.navigationController?.pushViewController(AboutViewController(), animated: true)
-        case 1:
-            // 分享给朋友
-//            ShareSDKUtil.shareToFriend()
-            break
-        case 2:
-            // 评分
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(APIConstant.appStoreComment.baseURL, options: [:], completionHandler: nil)
-            } else {
-                // Fallback on earlier versions
-                UIApplication.shared.openURL(APIConstant.appStoreComment.baseURL)
-            }
-        case 3: break
-        // 意见反馈
-        case 4:
-            // 清除缓存
-break
-//            let diskCache : YYDiskCache = YYWebImageManager.sharedCache().cache;
-//            diskCache.removeAllObjects()
-//            PKHUD.sharedHUD.contentView = PKHUDSuccessView()
-//            PKHUD.sharedHUD.show()
-//            PKHUD.sharedHUD.hide(afterDelay: 1.0)
-            
-        default:
-            break
-        }
-
-    }
+  
 
     // MARK: - private
     private func setupNavView() {
@@ -91,7 +50,7 @@ break
         return tableView
     }()
     
-    private var dataSource : NSArray = {
+    fileprivate var dataSource : NSArray = {
         let path = Bundle.main.path(forResource: "settingDataSource", ofType: "plist")!
         let dataSource : NSArray = NSArray(contentsOfFile: path as String)!
         return dataSource
@@ -108,5 +67,53 @@ break
             make.top.equalTo(headerView.snp.bottom)
         }
     }
+}
 
+extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
+    //MARK: -tableview delgate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : SettingViewCell = SettingViewCell.cellWithTableView(tableView: tableView)
+        cell.data = self.dataSource[indexPath.row] as! NSDictionary
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch indexPath.row {
+        case 0:
+            // 关于我们
+            self.navigationController?.pushViewController(AboutViewController(), animated: true)
+        case 1:
+            // 分享给朋友
+            //            ShareSDKUtil.shareToFriend()
+            break
+        case 2:
+            // 评分
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(APIConstant.appStoreComment.baseURL, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(APIConstant.appStoreComment.baseURL)
+            }
+        case 3: break
+        // 意见反馈
+        case 4:
+            // 清除缓存
+            break
+            //            let diskCache : YYDiskCache = YYWebImageManager.sharedCache().cache;
+            //            diskCache.removeAllObjects()
+            //            PKHUD.sharedHUD.contentView = PKHUDSuccessView()
+            //            PKHUD.sharedHUD.show()
+            //            PKHUD.sharedHUD.hide(afterDelay: 1.0)
+            
+        default:
+            break
+        }
+        
+    }
 }
