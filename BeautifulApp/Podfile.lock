@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - MonkeyKing (1.1.0)
   - Moya (8.0.0-beta.6):
     - Moya/Core (= 8.0.0-beta.6)
   - Moya/Core (8.0.0-beta.6):
@@ -20,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
+  - MonkeyKing (~> 1.1.0)
   - Moya (~> 8.0.0-beta.1)
   - RxCocoa (~> 3.0.0-beta.1)
   - RxSwift (~> 3.0.0-beta.1)
@@ -28,6 +30,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  MonkeyKing: dc16753cab7ece2d83e61976cd09fc3a7f783f1f
   Moya: a29e2503a0c5067d462ba2f07cc6b6b1f3fc172d
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
@@ -37,6 +40,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 205485ce68c79bfba9e3f8601c512faee46ad5fe
+PODFILE CHECKSUM: 8f1d56a4dafcc5e04c2c09b81c873413e07a05bd
 
 COCOAPODS: 1.1.1

@@ -8,7 +8,9 @@ target 'BeautifulApp' do
     pod 'Moya’,  	‘~>8.0.0-beta.1'
     pod 'RxSwift',      '~> 3.0.0-beta.1'
     pod 'RxCocoa',      '~> 3.0.0-beta.1'
+    pod ‘MonkeyKing’,   '~> 1.1.0'
     pod 'YYWebImage'
+
 end
 
 post_install do |installer|
