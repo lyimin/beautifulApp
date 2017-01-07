@@ -10,6 +10,8 @@ import UIKit
 
 class SettingViewController: UIViewController {
     private weak var headerView : SettingHeaderView!
+    var shareView: ShareView?
+    var shadowView: UIView? 
     override func viewDidLoad() {
         super.viewDidLoad()
         // 设置导航栏
@@ -91,6 +93,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         case 1:
             // 分享给朋友
             //            ShareSDKUtil.shareToFriend()
+            showShareView()
             break
         case 2:
             // 评分
@@ -105,15 +108,30 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
         case 4:
             // 清除缓存
             break
-            //            let diskCache : YYDiskCache = YYWebImageManager.sharedCache().cache;
-            //            diskCache.removeAllObjects()
-            //            PKHUD.sharedHUD.contentView = PKHUDSuccessView()
-            //            PKHUD.sharedHUD.show()
-            //            PKHUD.sharedHUD.hide(afterDelay: 1.0)
+//                        let diskCache : YYDiskCache = YYWebImageManager.sharedCache().cache;
+//                        diskCache.removeAllObjects()
+//                        PKHUD.sharedHUD.contentView = PKHUDSuccessView()
+//                        PKHUD.sharedHUD.show()
+//                        PKHUD.sharedHUD.hide(afterDelay: 1.0)
             
         default:
             break
         }
         
+    }
+}
+
+extension SettingViewController: shareResuable {
+    // 微信朋友
+    func weixinShareButtonDidClick() {
+        shareToFriend(shareContent: "_Eamon开发的最美应用", shareImage: UIImage(named: "ic_launcher")!, shareUrl: "https://github.com/lyimin", shareTitle: "_Eamon开发的最美应用")
+    }
+    // 朋友圈
+    func friendsCircleShareButtonDidClick() {
+        shareToFriendsCircle(shareContent: "_Eamon开发的最美应用", shareTitle: "_Eamon开发的最美应用", shareUrl: "https://github.com/lyimin", shareImage: UIImage(named: "ic_launcher")!)
+    }
+    // 更多
+    func shareMoreButtonDidClick() {
+        hiddenShareView()
     }
 }

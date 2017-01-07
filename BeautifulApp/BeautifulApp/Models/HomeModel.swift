@@ -41,7 +41,8 @@ struct HomeModel: Initable {
     var qrcode_image: String!
     // 下载地址
     var download_url: String!
-    
+    // 分享url
+    var video_share_url: String!
     // up_users 模型
     var up_users = [UpUserModel]()
     
@@ -68,6 +69,7 @@ struct HomeModel: Initable {
         self.tags = dict["tags"] as? String ?? ""
         self.qrcode_image = dict["qrcode_image"] as? String ?? ""
         self.download_url = dict["download_url"] as? String ?? ""
+        self.video_share_url = dict["video_share_url"] as? String ?? ""
         // up_users 模型
         let upuserArray : Array<NSDictionary> = dict["up_users"] as! Array<NSDictionary>
         

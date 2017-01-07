@@ -49,7 +49,7 @@ extension NiceServices {
                 }
                 
             default:
-                break;
+                break
             }
         }
     }
@@ -86,7 +86,7 @@ extension NiceServices {
                 }
                 
             default:
-                break;
+                break
             }
         }
     }

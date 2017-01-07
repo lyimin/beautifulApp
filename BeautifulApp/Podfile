@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, ’10.0’
+platform :ios, ’9.0’
 use_frameworks!
 
 target 'BeautifulApp' do
@@ -8,7 +8,7 @@ target 'BeautifulApp' do
     pod 'Moya’,  	‘~>8.0.0-beta.1'
     pod 'RxSwift',      '~> 3.0.0-beta.1'
     pod 'RxCocoa',      '~> 3.0.0-beta.1'
-    pod ‘MonkeyKing’,   '~> 1.1.0'
+    pod 'MonkeyKing',   '~> 1.1.0'
     pod 'YYWebImage'
 
 end

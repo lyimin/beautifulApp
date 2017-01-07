@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7C4F821A189203E48C0987A8 /* Pods_BeautifulApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F7A6909A4EBA0AA1A80965 /* Pods_BeautifulApp.framework */; };
+		F14143631E20C83A0001B8B8 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14143621E20C83A0001B8B8 /* ShareView.swift */; };
+		F14143651E20C92A0001B8B8 /* ShareResuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14143641E20C92A0001B8B8 /* ShareResuable.swift */; };
 		F14505D71C1A6C2500955F6E /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F14505D61C1A6C2500955F6E /* libicucore.tbd */; };
 		F14505D91C1A6C3900955F6E /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F14505D81C1A6C3900955F6E /* libstdc++.tbd */; };
 		F14505DD1C1A6C5E00955F6E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14505DC1C1A6C5E00955F6E /* AdSupport.framework */; };
@@ -107,6 +109,8 @@
 		01F7A6909A4EBA0AA1A80965 /* Pods_BeautifulApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeautifulApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE80D667CD796059219F8E8 /* Pods-BeautifulApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautifulApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeautifulApp/Pods-BeautifulApp.release.xcconfig"; sourceTree = "<group>"; };
 		805B0CF00AA9F97414836381 /* Pods-BeautifulApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeautifulApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeautifulApp/Pods-BeautifulApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F14143621E20C83A0001B8B8 /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		F14143641E20C92A0001B8B8 /* ShareResuable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareResuable.swift; sourceTree = "<group>"; };
 		F1420D361C9106C9001A2138 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F14505D61C1A6C2500955F6E /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		F14505D81C1A6C3900955F6E /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -377,6 +381,7 @@
 		F1F80A371E06A924005D2390 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F14143641E20C92A0001B8B8 /* ShareResuable.swift */,
 				F1F80AD21E06AD7E005D2390 /* ControllerReusable.swift */,
 				F1F80AD31E06AD7E005D2390 /* NSDate+Nice.swift */,
 				F1F80AD41E06AD7E005D2390 /* Reusable.swift */,
@@ -533,6 +538,7 @@
 		F1F80A771E06A924005D2390 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
+				F14143621E20C83A0001B8B8 /* ShareView.swift */,
 				F1F80A781E06A924005D2390 /* AboutCenterView.swift */,
 				F1F80A791E06A924005D2390 /* AboutCenterView.xib */,
 				F1F80A7A1E06A924005D2390 /* SettingHeaderView.swift */,
@@ -699,6 +705,7 @@
 				F1F80A9E1E06A924005D2390 /* NiceSerices.swift in Sources */,
 				F1F80ACF1E06AD4F005D2390 /* HomeBottomItemCell.swift in Sources */,
 				F1F80AB41E06A924005D2390 /* MenuFooterView.swift in Sources */,
+				F14143651E20C92A0001B8B8 /* ShareResuable.swift in Sources */,
 				F1F80A851E06A924005D2390 /* SettingViewController.swift in Sources */,
 				F1F80AAB1E06A924005D2390 /* XMHomeDetailBottomView.swift in Sources */,
 				F1F80AA41E06A924005D2390 /* FindAppDetailCenterView.swift in Sources */,
@@ -706,6 +713,7 @@
 				F1F80AA71E06A924005D2390 /* FindAppCell.swift in Sources */,
 				F1F80AA91E06A924005D2390 /* FindAppHeaderView.swift in Sources */,
 				F1F80ADA1E06AD7E005D2390 /* ControllerReusable.swift in Sources */,
+				F14143631E20C83A0001B8B8 /* ShareView.swift in Sources */,
 				F1F80A981E06A924005D2390 /* XMLParserUtil.swift in Sources */,
 				F1F80A941E06A924005D2390 /* XMRefreshHeaderView.swift in Sources */,
 				F1F80ADB1E06AD7E005D2390 /* NSDate+Nice.swift in Sources */,
@@ -862,6 +870,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -902,6 +911,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeautifulApp/beautifulApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

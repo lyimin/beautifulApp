@@ -43,6 +43,8 @@ class HomeDetailController: UIViewController {
     }
     
     //MARK: --------------------------- Getter and Setter --------------------------
+    var shadowView: UIView?
+    var shareView: ShareView?
     // 模型
     fileprivate var model: HomeModel!
     // 评论page
@@ -82,7 +84,7 @@ class HomeDetailController: UIViewController {
     }()
 
 }
-
+//MARK: --------------------------- UIScrollViewDelegate --------------------------
 extension HomeDetailController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.centerView.updateHeaderView()
@@ -99,9 +101,11 @@ extension HomeDetailController: UIScrollViewDelegate {
     }
 }
 
+//MARK: --------------------------- HomeDetailCenterViewDelegate --------------------------
+
 extension HomeDetailController: HomeDetailCenterViewDelegate {
     func shareBtnDidClick() {
-        
+        showShareView()
     }
     
     func backBtnDidClick() {
@@ -110,19 +114,55 @@ extension HomeDetailController: HomeDetailCenterViewDelegate {
 }
 
 extension HomeDetailController: XMHomeDetailToolViewDelegate {
+    // 点击收藏
     func homeDetailToolViewCollectBtnClick() {
         
     }
     
+    // 点击下载
     func homeDetailToolViewDownloadBtnClick() {
         UIApplication.shared.openURL(URL(string: model.download_url!)!)
     }
     
+    // 点击分享
     func homeDetailToolViewShareBtnClick() {
-        
+        showShareView()
     }
 }
 
+extension HomeDetailController: shareResuable {
+    // 微信朋友
+    func weixinShareButtonDidClick() {
+        do {
+            let image = try UIImage(data: Data(contentsOf: URL(string: model.icon_image)!))
+            guard image != nil else {
+                return
+            }
+            shareToFriend(shareContent: model.digest, shareImage: image!, shareUrl: model.video_share_url, shareTitle: model.title)
+        } catch {
+            print("图片发生异常")
+        }
+        
+    }
+    // 朋友圈
+    func friendsCircleShareButtonDidClick() {
+        do {
+            let image = try UIImage(data: Data(contentsOf: URL(string: model.icon_image)!))
+            guard image != nil else {
+                return
+            }
+            shareToFriendsCircle(shareContent: model.digest, shareTitle: model.title, shareUrl: model.video_share_url, shareImage: image!)
+        } catch {
+            print("图片发生异常")
+        }
+    }
+    // 更多
+    func shareMoreButtonDidClick() {
+        hiddenShareView()
+    }
+}
+
+//MARK: --------------------------- Private Methods --------------------------
 extension HomeDetailController {
     // MARK: - Private Methods
     fileprivate func getCommentData() {

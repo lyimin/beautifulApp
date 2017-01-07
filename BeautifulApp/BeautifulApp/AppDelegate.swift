@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MonkeyKing
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = IFBaseNavController(rootViewController: MainController())
         window?.rootViewController = navigationController;
         
+        // 注册分享账号
+        MonkeyKing.registerAccount(.weChat(appID: "wx5e0a9f56decb72ba", appKey: "932a03ea7c85123ce25117fcf493fcf6"))
         return true
     }
 
