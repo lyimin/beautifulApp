@@ -152,9 +152,9 @@ class HomeDetailCenterView: UIScrollView {
         let attributString : NSMutableAttributedString = NSMutableAttributedString(string: text)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5.0
-        attributString.addAttribute(NSParagraphStyleAttributeName , value: paragraphStyle, range: NSMakeRange(0, text.length))
+        attributString.addAttribute(NSAttributedStringKey.paragraphStyle , value: paragraphStyle, range: NSMakeRange(0, text.length))
         
-        let size = (text as NSString).boundingRect(with: CGSize(width: UIConstant.SCREEN_WIDTH-2*UIConstant.MARGIN_10, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIConstant.FONT_16], context: nil).size
+        let size = (text as NSString).boundingRect(with: CGSize(width: UIConstant.SCREEN_WIDTH-2*UIConstant.MARGIN_10, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIConstant.FONT_16], context: nil).size
         label.attributedText = attributString
         return size
     }

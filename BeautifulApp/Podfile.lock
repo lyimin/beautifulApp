@@ -1,15 +1,15 @@
 PODS:
-  - Alamofire (4.0.1)
+  - Alamofire (4.5.1)
   - MonkeyKing (1.1.0)
-  - Moya (8.0.0-beta.6):
-    - Moya/Core (= 8.0.0-beta.6)
-  - Moya/Core (8.0.0-beta.6):
-    - Alamofire (~> 4.0)
+  - Moya (10.0.0):
+    - Moya/Core (= 10.0.0)
+  - Moya/Core (10.0.0):
+    - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - Result (3.1.0)
-  - RxCocoa (3.0.1):
-    - RxSwift (~> 3.0)
-  - RxSwift (3.0.1)
+  - Result (3.2.4)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
   - SnapKit (3.0.2)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
@@ -20,26 +20,26 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0.0)
+  - Alamofire (~> 4.1)
   - MonkeyKing (~> 1.1.0)
-  - Moya (~> 8.0.0-beta.1)
-  - RxCocoa (~> 3.0.0-beta.1)
-  - RxSwift (~> 3.0.0-beta.1)
+  - Moya (~> 10.0.0)
+  - RxCocoa
+  - RxSwift
   - SnapKit (~> 3.0.1)
   - YYWebImage
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   MonkeyKing: dc16753cab7ece2d83e61976cd09fc3a7f783f1f
-  Moya: a29e2503a0c5067d462ba2f07cc6b6b1f3fc172d
-  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
-  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
-  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  Moya: adb58b0f4e58430db43cc6e2f6ebab1836501186
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 9e5a457bb4e749deaffad32b44c06e4263a90153
+PODFILE CHECKSUM: a83e63ff5cb2f27fef06e5362c3fdb439f5ad369
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

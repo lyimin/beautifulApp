@@ -71,11 +71,11 @@ class FindAppDetailCenterView: UIScrollView, UIScrollViewDelegate {
         let contentText = (dataModel.appDescription! as NSString).replacingOccurrences(of: "<br/>", with: "\n")
         // 设置样式
         let attributString : NSMutableAttributedString = NSMutableAttributedString(string: contentText)
-        attributString.setAttributes([NSFontAttributeName: UIConstant.FONT_16], range: NSMakeRange(0, contentText.length))
+        attributString.setAttributes([NSAttributedStringKey.font: UIConstant.FONT_16], range: NSMakeRange(0, contentText.length))
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5.0
-        attributString.addAttribute(NSParagraphStyleAttributeName , value: paragraphStyle, range: NSMakeRange(0, contentText.length))
-        let size = (contentText as NSString).boundingRect(with: CGSize(width: UIConstant.SCREEN_WIDTH-2*UIConstant.MARGIN_10, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIConstant.FONT_16], context: nil).size
+        attributString.addAttribute(NSAttributedStringKey.paragraphStyle , value: paragraphStyle, range: NSMakeRange(0, contentText.length))
+        let size = (contentText as NSString).boundingRect(with: CGSize(width: UIConstant.SCREEN_WIDTH-2*UIConstant.MARGIN_10, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIConstant.FONT_16], context: nil).size
         // 设置frame
 
         self.contentLabel.attributedText = attributString

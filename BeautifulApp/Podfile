@@ -3,11 +3,11 @@ platform :ios, ’9.0’
 use_frameworks!
 
 target 'BeautifulApp' do
-    pod 'Alamofire',    '~>4.0.0'
+    pod 'Alamofire',    '~>4.1'
     pod 'SnapKit',      '~>3.0.1'
-    pod 'Moya’,  	‘~>8.0.0-beta.1'
-    pod 'RxSwift',      '~> 3.0.0-beta.1'
-    pod 'RxCocoa',      '~> 3.0.0-beta.1'
+    pod 'Moya’,  	    ‘~>10.0.0'
+    pod 'RxSwift'
+    pod 'RxCocoa'
     pod 'MonkeyKing',   '~> 1.1.0'
     pod 'YYWebImage'
 

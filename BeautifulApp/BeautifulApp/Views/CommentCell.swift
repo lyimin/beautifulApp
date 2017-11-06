@@ -48,12 +48,12 @@ class CommentCell: UIView {
         self.timeLabel.text = model.updated_at!
         // 5.评论内容
         let attributStr : NSMutableAttributedString = NSMutableAttributedString(string: model.content!)
-        attributStr.setAttributes([NSFontAttributeName: UIConstant.FONT_12], range: NSMakeRange(0, model.content!.length))
+        attributStr.setAttributes([NSAttributedStringKey.font: UIConstant.FONT_12], range: NSMakeRange(0, model.content!.length))
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 5.0
-        attributStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, model.content!.length))
+        attributStr.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSMakeRange(0, model.content!.length))
         commentLabel.attributedText = attributStr
-        let size = (model.content as NSString).boundingRect(with: CGSize(width: commentBg.width-2*UIConstant.MARGIN_10, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: UIConstant.FONT_10], context: nil).size
+        let size = (model.content as NSString).boundingRect(with: CGSize(width: commentBg.width-2*UIConstant.MARGIN_10, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: UIConstant.FONT_10], context: nil).size
         commentLabel.size = size
         // 设置frame
         self.commentBg.height = commentLabel.frame.maxY+UIConstant.MARGIN_10

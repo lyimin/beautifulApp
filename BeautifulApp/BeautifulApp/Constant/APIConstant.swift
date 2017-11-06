@@ -57,6 +57,14 @@ public enum APIConstant {
 }
 
 extension APIConstant: TargetType {
+    public var task: Task {
+        return .requestPlain
+    }
+    
+    public var headers: [String : String]? {
+        return nil
+    }
+    
     //MARK: ---------------------------基本默认要传入的参数 --------------------------
     
     /// app 版本号
@@ -107,7 +115,7 @@ extension APIConstant: TargetType {
             return "apps/app/daily/"
         case .recommend(_):
             return "category/100/all/"
-        case .article():
+        case .article:
             return "media/list/"
         case .popular(_):
             return "community/recommend_apps/"
@@ -168,10 +176,6 @@ extension APIConstant: TargetType {
     /// 单元测试
     public var sampleData: Data {
         return "{}".data(using: String.Encoding.utf8)!
-    }
-    
-    public var task: Task {
-        return .request
     }
 }
 /*

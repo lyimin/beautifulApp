@@ -19,6 +19,8 @@ class MainController: UIViewController {
         initRootViewControlelr()
         // 添加覆盖层
         addCoverView()
+        
+        leftMenuShowAnimate()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
