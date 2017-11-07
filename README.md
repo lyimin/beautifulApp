@@ -12,7 +12,7 @@
 <a href="https://https://github.com/lyimin/beautifulApp/blob/develop/LICENSE"><img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat"></a>
 </p>
 
-# 最美应用 - Swift3
+# 最美应用 - Swift4
   
 ## 截图
 
@@ -49,6 +49,7 @@ UI采用纯代码编写+![SnapKit](https://github.com/SnapKit/SnapKit)屏幕适�
 
 
 ## 更新日志
+- 升级Swift4                                                      ----- 2017-11-07
 - 解决发现app界面显示图片问题                       ----- 2017-02-06
 - 完成分享功能                                    ----- 2017-01-07
 - 加入分享第三方库Monkeyking                       ----- 2017-01-06
