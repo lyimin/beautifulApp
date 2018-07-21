@@ -57,10 +57,7 @@ public enum APIConstant {
 }
 
 extension APIConstant: TargetType {
-    public var task: Task {
-        return .requestPlain
-    }
-    
+   
     public var headers: [String : String]? {
         return nil
     }
@@ -135,42 +132,50 @@ extension APIConstant: TargetType {
     public var method: Moya.Method {
         return .get
     }
-    
-    /// 请求参数
-    public var parameters: [String: Any]? {
+
+    public var task: Task {
+        
         switch self {
             
         // 每日最美
         case let .daily(page):
-            return ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
-            
+            let parameters: [String: Any] = ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        
         // 限免推荐
         case let .recommend(page):
-            return ["type": "zuimei.daily", "appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            let parameters: [String: Any] = ["type": "zuimei.daily", "appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
             
         // 最热分享
         case let .popular(page):
-            return ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            let parameters: [String: Any] = ["appVersion": appVersion, "openUDID": openUDID, "page": page, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
             
         // 最新分享
         case let .latest(pos):
-            return ["appVersion": appVersion, "openUDID": openUDID, "pos": pos, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            let parameters: [String: Any] = ["appVersion": appVersion, "openUDID": openUDID, "pos": pos, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
             
         // 文章专栏
         case .article:
-            return ["type": "zhuanlan", "appVersion": appVersion, "openUDID": openUDID, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
-            
-            // 评论
-        case let .comment(app, page):
-            return ["appVersion": appVersion, "openUDID": openUDID, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion, "app": app, "page": page]
-            
-            // 发现app评论
-        case let .findAppComment(app_id, comment_id):
-            return ["appVersion": appVersion, "openUDID": openUDID, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion, "app_id": app_id, "comment_id": comment_id]
-        default:
-            return nil
-        }
+            let parameters: [String: Any] = ["type": "zhuanlan", "appVersion": appVersion, "openUDID": openUDID, "platform": platform, "resolution": resolution, "systemVersion": systemVersion]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         
+        // 评论
+        case let .comment(app, page):
+            let parameters: [String: Any] = ["appVersion": appVersion, "openUDID": openUDID, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion, "app": app, "page": page]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        // 发现app评论
+        case let .findAppComment(app_id, comment_id):
+            let parameters: [String: Any] = ["appVersion": appVersion, "openUDID": openUDID, "page_size": 10, "platform": platform, "resolution": resolution, "systemVersion": systemVersion, "app_id": app_id, "comment_id": comment_id]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .appStoreComment:
+            return .requestPlain
+        case .invite:
+            return .requestPlain
+        }
     }
     
     /// 单元测试

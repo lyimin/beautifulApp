@@ -182,7 +182,7 @@ class XMRefreshBase: UIView {
     }
     
     //结束刷新
-    func endRefreshing(){
+    @objc func endRefreshing() {
         if self.State == .RefreshStateNormal {
             return
         }
